@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Java9 版本特性 | 
+        
+        PaulGao Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/logo.png">
+    <link rel="icon" href="/img/logo.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",java9">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg-random/BG-night-midnight.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PaulGao Blog">
+    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="PaulGao Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Java9 版本特性 | PaulGao Blog">
+    <meta property="og:image" content="/img/logo.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="java9"> 
+
+    
+        <meta property="article:published_time" content="Thu Dec 20 2018 14:14:20 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 21 2018 16:47:12 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/index.html",
+    "headline": "Java9 版本特性",
+    "datePublished": "Thu Dec 20 2018 14:14:20 GMT+0800",
+    "dateModified": "Fri Dec 21 2018 16:47:12 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Paul Gao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.png"
+        },
+        "description": "Sometimes I'm gonna have to lose, But i'm gonna remember most, Just gotta keep going."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "PaulGao Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/logo.png"
+        }
+    },
+    "keywords": ",java9",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模块系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">模块系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Module-system"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">What is Module system?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-Module-Example"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Create Module Example</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Jshell-REPL"><span class="post-toc-number">2.</span> <span class="post-toc-text">Jshell : REPL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Jshell"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">What is Jshell?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行-JSHELL"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">执行 JSHELL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看-JShell-命令"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">查看 JShell 命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行-JShell-命令"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">执行 JShell 命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JShell-执行计算"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">JShell 执行计算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JShell-创建与使用函数"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">JShell 创建与使用函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#退出-JShell"><span class="post-toc-number">2.2.6.</span> <span class="post-toc-text">退出 JShell</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#改进的-API-和类"><span class="post-toc-number">3.</span> <span class="post-toc-text">改进的 API 和类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Stream-API"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Stream API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#takeWhile-方法"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">takeWhile 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dropWhile-方法"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">dropWhile 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#iterate-方法"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">iterate 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ofNullable-方法"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">ofNullable 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Optional-类"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Optional 类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#stream-方法"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">stream() 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ifPresentOrElse-方法"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">ifPresentOrElse() 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#or-方法"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">or() 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#集合"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">集合</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程-API"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">进程 API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#I-O-流新特性"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">I/O 流新特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#平台日志-API-和-服务"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">平台日志 API 和 服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进应用安全性能"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">改进应用安全性能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进的-try-with-resources"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">改进的 try-with-resources</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#私有接口方法"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">私有接口方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#响应式流-（-Reactive-Streams-）"><span class="post-toc-number">4.</span> <span class="post-toc-text">响应式流 （ Reactive Streams ）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Reactive-Streams"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">What is Reactive Streams?</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#句柄"><span class="post-toc-number">5.</span> <span class="post-toc-text">句柄</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量句柄"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">变量句柄</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进方法句柄"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">改进方法句柄</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#并发的改进"><span class="post-toc-number">6.</span> <span class="post-toc-text">并发的改进</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#支持-delays-和-timeouts"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">支持 delays 和 timeouts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#增强了对子类化的支持"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">增强了对子类化的支持</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新的工厂方法"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">新的工厂方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多版本兼容-jar-包"><span class="post-toc-number">7.</span> <span class="post-toc-text">多版本兼容 jar 包</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Java9 版本特性
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Paul Gao</strong>
+        <span>Dec 20, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/java9/">java9</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java9 版本特性&url=https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java9 版本特性&url=https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/index.html&via=Paul Gao" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2018/12/20/JavaVersionCharacter9/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="模块系统"><a href="#模块系统" class="headerlink" title="模块系统"></a>模块系统</h1><h2 id="What-is-Module-system"><a href="#What-is-Module-system" class="headerlink" title="What is Module system?"></a><strong>What is Module system?</strong></h2><p>Java 平台模块系统，也就是 Project Jigsaw，把模块化开发实践引入到了 Java 平台中。在引入了模块系统之后，JDK 被重新组织成 94 个模块。Java 应用可以通过新增的 jlink 工具，创建出只包含所依赖的 JDK 模块的自定义运行时镜像。这样可以极大的减少 Java 运行时环境的大小。这对于目前流行的不可变基础设施的实践来说，镜像的大小的减少可以节省很多存储空间和带宽资源 。</p>
+<p>模块就是代码和数据的封装体。模块的代码被组织成多个包，每个包中包含Java类和接口；模块的数据则包括资源文件和其他静态信息。</p>
+<p>模块化开发的实践在软件开发领域并不是一个新的概念。Java 开发社区已经使用这样的模块化实践有相当长的一段时间。主流的构建工具，包括 Apache Maven 和 Gradle 都支持把一个大的项目划分成若干个子项目。子项目之间通过不同的依赖关系组织在一起。每个子项目在构建之后都会产生对应的 JAR 文件。 在 Java9 中 ，已有的这些项目可以很容易的升级转换为 Java 9 模块 ，并保持原有的组织结构不变。</p>
+<p>Java 9 模块的重要特征是在其工件（artifact）的根目录中包含了一个描述模块的 module-info.class 文 件。 工件的格式可以是传统的 JAR 文件或是 Java 9 新增的 JMOD 文件。这个文件由根目录中的源代码文件 module-info.java 编译而来。该模块声明文件可以描述模块的不同特征。模块声明文件中可以包含的内容如下：</p>
+<ul>
+<li>模块导出的包 - 使用 exports 可以声明模块对其他模块所导出的包。包中的 public 和 protected 类型，以及这些类型的 public 和 protected 成员可以被其他模块所访问。没有声明为导出的包相当于模块中的私有成员，不能被其他模块使用。</li>
+<li>模块的依赖关系 - 使用 requires 可以声明模块对其他模块的依赖关系。使用 requires transitive 可 以把一个模块依赖声明为传递的。传递的模块依赖可以被依赖当前模块的其他模块所读取。 如果一个模块所导出的类型的型构中包含了来自它所依赖的模块的类型，那么对该模块的依赖应该声明为传递的。</li>
+<li>服务的提供和使用 - 如果一个模块中包含了可以被 ServiceLocator 发现的服务接口的实现 ，需要使用 provides with 语句来声明具体的实现类 ；如果一个模块需要使用服务接口，可以使用 uses 语句来声明。</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a><strong>Usage</strong></h2><p>模块声明示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module com.mycompany.sample &#123; </span><br><span class="line">    exports com.mycompany.sample; </span><br><span class="line">    requires com.mycompany.common; </span><br><span class="line">    provides com.mycompany.common.DemoService with</span><br><span class="line">        com.mycompany.sample.DemoServiceImpl; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在该声明文件中，模块 com.mycompany.sample 导出了 Java 包 com.mycompany.sample。<br>该模块依赖于模块 com.mycompany.sample 。<br>该模块也提供了服务接口 com.mycompany.common.DemoService 的实现类 c om.mycompany.sample.DemoServiceImpl 。</p>
+<h3 id="Create-Module-Example"><a href="#Create-Module-Example" class="headerlink" title="Create Module Example"></a>Create Module Example</h3><p>step 1</p>
+<p>创建文件夹 src ,然后在该目录下再创建与模块名相同的文件夹 com\runoob\greetings</p>
+<p>step 2</p>
+<p>在src\com\runoob\greetings 目录下创建 module-info.java 文件，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module com.runoob.greetings &#123; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>module-info.java 用于创建模块。这一步我们创建了 com.runoob.greetings 模块</p>
+<p>step 3</p>
+<p>在模块中添加源代码文件，在目录src\com.runoob.greetings\com\runoob\greetings 中创建文件 Java9Tester.java，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.runoob.greetings;</span><br><span class="line"></span><br><span class="line">public class Java9Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>step 4</p>
+<p>创建文件夹 mods，然后在该目录下创建 com\runoob\greetings 文件夹，编译模块到这个目录下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ javac -d mods/com.runoob.greetings </span><br><span class="line">   src/com.runoob.greetings/module-info.java </span><br><span class="line">   src/com.runoob.greetings/com/runoob/greetings/Java9Tester.java</span><br></pre></td></tr></table></figure></p>
+<p>step 5</p>
+<p>执行模块，查看输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ java --module-path mods -m com.runoob.greetings/com.runoob.greetings.Java9Tester</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure></p>
+<p>module-path 指定了模块所在的路径。</p>
+<p>-m 指定主要模块。</p>
+<hr>
+<h1 id="Jshell-REPL"><a href="#Jshell-REPL" class="headerlink" title="Jshell : REPL"></a>Jshell : REPL</h1><h2 id="What-is-Jshell"><a href="#What-is-Jshell" class="headerlink" title="What is Jshell?"></a><strong>What is Jshell?</strong></h2><p>REPL(Read Eval Print Loop)意为交互式的编程环境。</p>
+<p>jshell 是 Java 9 新增的一个实用工具。jshell 为 Java 增加了类似 NodeJS 和 Python 中的读取-求值-打印循环（ Read-Evaluation-Print Loop ） 。 在 jshell 中 可以直接 输入表达式并查看其执行结果。当需要测试一个方法的运行效果，或是快速的对表达式进行求值时，jshell 都非常实用。只需要通过 jshell 命令启动 jshell，然后直接输入表达式即可。每个表达式的结果会被自动保存下来 ，以数字编号作为引用，类似 $1 和$2 这样的名称 。可以在后续的表达式中引用之前语句的运行结果。 在 jshell 中 ，除了表达式之外，还可以创建 Java 类和方法。jshell 也有基本的代码完成功能。</p>
+<h2 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a><strong>Usage</strong></h2><h3 id="执行-JSHELL"><a href="#执行-JSHELL" class="headerlink" title="执行 JSHELL"></a>执行 JSHELL</h3><p>JShell 允许你无需使用类或者方法包装来执行 Java 语句。它与 Python 的解释器类似，可以直接 输入表达式并查看其执行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ jshell</span><br><span class="line">|  Welcome to JShell -- Version 9-ea</span><br><span class="line">|  For an introduction type: /help intro</span><br><span class="line">jshell&gt;int add(int x, int y) &#123; </span><br><span class="line">    ...&gt; return x + y; </span><br><span class="line">    ...&gt; &#125;</span><br><span class="line"> | created method add(int,int)</span><br><span class="line">jshell&gt; add(1, 2) </span><br><span class="line">$19 ==&gt; 3</span><br></pre></td></tr></table></figure></p>
+<h3 id="查看-JShell-命令"><a href="#查看-JShell-命令" class="headerlink" title="查看 JShell 命令"></a>查看 JShell 命令</h3><p>输入 /help 可以查看 JShell相关的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; /help</span><br><span class="line">|  Type a Java language expression, statement, or declaration.</span><br><span class="line">|  Or type one of the following commands:</span><br><span class="line">|  /list [&lt;name or id&gt;|-all|-start]</span><br><span class="line">|  list the source you have typed</span><br><span class="line">|  /edit &lt;name or id&gt;</span><br><span class="line">|  edit a source entry referenced by name or id</span><br><span class="line">|  /drop &lt;name or id&gt;</span><br><span class="line">|  delete a source entry referenced by name or id</span><br><span class="line">|  /save [-all|-history|-start] &lt;file&gt;</span><br><span class="line">|  Save snippet source to a file.</span><br><span class="line">|  /open &lt;file&gt;</span><br><span class="line">|  open a file as source input</span><br><span class="line">|  /vars [&lt;name or id&gt;|-all|-start]</span><br><span class="line">|  list the declared variables and their values</span><br><span class="line">|  /methods [&lt;name or id&gt;|-all|-start]</span><br><span class="line">|  list the declared methods and their signatures</span><br><span class="line">|  /types [&lt;name or id&gt;|-all|-start]</span><br><span class="line">|  list the declared types</span><br><span class="line">|  /imports </span><br><span class="line">|  list the imported items</span><br></pre></td></tr></table></figure></p>
+<h3 id="执行-JShell-命令"><a href="#执行-JShell-命令" class="headerlink" title="执行 JShell 命令"></a>执行 JShell 命令</h3><p>/imports 命令用于查看已导入的包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; /imports</span><br><span class="line">|    import java.io.*</span><br><span class="line">|    import java.math.*</span><br><span class="line">|    import java.net.*</span><br><span class="line">|    import java.nio.file.*</span><br><span class="line">|    import java.util.*</span><br><span class="line">|    import java.util.concurrent.*</span><br><span class="line">|    import java.util.function.*</span><br><span class="line">|    import java.util.prefs.*</span><br><span class="line">|    import java.util.regex.*</span><br><span class="line">|    import java.util.stream.*</span><br><span class="line">jshell&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="JShell-执行计算"><a href="#JShell-执行计算" class="headerlink" title="JShell 执行计算"></a>JShell 执行计算</h3><p>以下实例执行 JShell 简单计算：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; 3+1</span><br><span class="line">$1 ==&gt; 4</span><br><span class="line">jshell&gt; 13%7</span><br><span class="line">$2 ==&gt; 6</span><br><span class="line">jshell&gt; $2</span><br><span class="line">$2 ==&gt; 6</span><br><span class="line">jshell&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="JShell-创建与使用函数"><a href="#JShell-创建与使用函数" class="headerlink" title="JShell 创建与使用函数"></a>JShell 创建与使用函数</h3><p>创建一个函数 doubled() ，将传入的整型参数乘于 2 后返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; int doubled(int i)&#123; return i*2;&#125;</span><br><span class="line">|  created method doubled(int)</span><br><span class="line">jshell&gt; doubled(6)</span><br><span class="line">$3 ==&gt; 12</span><br><span class="line">jshell&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="退出-JShell"><a href="#退出-JShell" class="headerlink" title="退出 JShell"></a>退出 JShell</h3><p>输入 /exit 命令退出 jshell：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; /exit</span><br><span class="line">| Goodbye</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="改进的-API-和类"><a href="#改进的-API-和类" class="headerlink" title="改进的 API 和类"></a>改进的 API 和类</h1><h2 id="Stream-API"><a href="#Stream-API" class="headerlink" title="Stream API"></a>Stream API</h2><p>Java 9 改进的 Stream API 添加了一些便利的方法，使流处理更容易，并使用收集器编写复杂的查询。</p>
+<p>Java 9 为 Stream 新增了几个方法：dropWhile, takeWhile, ofNullable。还有个 iterate 方法的新重载方法，可以让你提供一个 Predicate (判断条件)来指定什么时候结束迭代：</p>
+<h3 id="takeWhile-方法"><a href="#takeWhile-方法" class="headerlink" title="takeWhile 方法"></a>takeWhile 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default Stream&lt;T&gt; takeWhile(Predicate&lt;? super T&gt; predicate)</span><br></pre></td></tr></table></figure></p>
+<p>takeWhile() 方法使用一个断言作为参数，返回给定 Stream 的子集直到断言语句第一次返回 false。如果第一个值不满足断言条件，将返回一个空的 Stream。</p>
+<p>takeWhile() 方法在有序的 Stream 中，takeWhile 返回从开头开始的尽量多的元素；在无序的 Stream 中，takeWhile 返回从开头开始的符合 Predicate 要求的元素的子集。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import java.util.stream.Stream;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;&quot;,&quot;e&quot;,&quot;f&quot;).takeWhile(s-&gt;!s.isEmpty())</span><br><span class="line">         .forEach(System.out::print);      </span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上示例 takeWhile 方法在碰到空字符串时停止循环输出，执行输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abc</span><br></pre></td></tr></table></figure>
+<h3 id="dropWhile-方法"><a href="#dropWhile-方法" class="headerlink" title="dropWhile 方法"></a>dropWhile 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default Stream&lt;T&gt; dropWhile(Predicate&lt;? super T&gt; predicate)</span><br></pre></td></tr></table></figure></p>
+<p>dropWhile 方法和 takeWhile 作用相反的，使用一个断言作为参数，直到断言语句第一次返回 true 才返回给定 Stream 的子集。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import java.util.stream.Stream;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;&quot;,&quot;e&quot;,&quot;f&quot;).dropWhile(s-&gt; !s.isEmpty())</span><br><span class="line">         .forEach(System.out::print);</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上示例 dropWhile 方法在碰到空字符串时开始循环输出，执行输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ef</span><br></pre></td></tr></table></figure>
+<h3 id="iterate-方法"><a href="#iterate-方法" class="headerlink" title="iterate 方法"></a>iterate 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static &lt;T&gt; Stream&lt;T&gt; iterate(T seed, Predicate&lt;? super T&gt; hasNext, UnaryOperator&lt;T&gt; next)</span><br></pre></td></tr></table></figure></p>
+<p>方法允许使用初始种子值创建顺序（可能是无限）流，并迭代应用指定的下一个方法。 当指定的 hasNext 的 predicate 返回 false 时，迭代停止。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">java.util.stream.IntStream;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      IntStream.iterate(3, x -&gt; x &lt; 10, x -&gt; x + 3).forEach(System.out::println);</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">6</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+<h3 id="ofNullable-方法"><a href="#ofNullable-方法" class="headerlink" title="ofNullable 方法"></a>ofNullable 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static &lt;T&gt; Stream&lt;T&gt; ofNullable(T t)</span><br></pre></td></tr></table></figure></p>
+<p>ofNullable 方法可以预防 NullPointerExceptions 异常， 可以通过检查流来避免 null 值。</p>
+<p>如果指定元素为非 null，则获取一个元素并生成单个元素流，元素为 null 则返回一个空流。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.util.stream.Stream;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      long count = Stream.ofNullable(100).count();</span><br><span class="line">      System.out.println(count);</span><br><span class="line">  </span><br><span class="line">      count = Stream.ofNullable(null).count();</span><br><span class="line">      System.out.println(count);</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="Optional-类"><a href="#Optional-类" class="headerlink" title="Optional 类"></a>Optional 类</h2><p>Optional 类在 Java 8 中引入，Optional 类的引入很好的解决空指针异常。在 java 9 中, 添加了三个方法来改进它的功能：stream(),ifPresentOrElse()和or()。</p>
+<h3 id="stream-方法"><a href="#stream-方法" class="headerlink" title="stream() 方法"></a>stream() 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public Stream&lt;T&gt; stream()</span><br></pre></td></tr></table></figure></p>
+<p>stream 方法的作用就是将 Optional 转为一个 Stream，如果该 Optional 中包含值，那么就返回包含这个值的 Stream，否则返回一个空的 Stream（Stream.empty()）。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Optional;</span><br><span class="line">import java.util.stream.Collectors;</span><br><span class="line">import java.util.stream.Stream;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">   List&lt;Optional&lt;String&gt;&gt; list = Arrays.asList (</span><br><span class="line">      Optional.empty(), </span><br><span class="line">      Optional.of(&quot;A&quot;), </span><br><span class="line">      Optional.empty(), </span><br><span class="line">      Optional.of(&quot;B&quot;));</span><br><span class="line"> </span><br><span class="line">      //filter the list based to print non-empty values</span><br><span class="line">  </span><br><span class="line">      //if optional is non-empty, get the value in stream, otherwise return empty</span><br><span class="line">      List&lt;String&gt; filteredList = list.stream()</span><br><span class="line">         .flatMap(o -&gt; o.isPresent() ? Stream.of(o.get()) : Stream.empty())</span><br><span class="line">         .collect(Collectors.toList());</span><br><span class="line"> </span><br><span class="line">      //Optional::stream method will return a stream of either one </span><br><span class="line">      //or zero element if data is present or not.</span><br><span class="line">      List&lt;String&gt; filteredListJava9 = list.stream()</span><br><span class="line">         .flatMap(Optional::stream)</span><br><span class="line">         .collect(Collectors.toList());</span><br><span class="line"> </span><br><span class="line">      System.out.println(filteredList);</span><br><span class="line">      System.out.println(filteredListJava9);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行输出结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[A, B]</span><br><span class="line">[A, B]</span><br></pre></td></tr></table></figure></p>
+<h3 id="ifPresentOrElse-方法"><a href="#ifPresentOrElse-方法" class="headerlink" title="ifPresentOrElse() 方法"></a>ifPresentOrElse() 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void ifPresentOrElse(Consumer&lt;? super T&gt; action, Runnable emptyAction)</span><br></pre></td></tr></table></figure></p>
+<p>ifPresentOrElse 方法的改进就是有了 else，接受两个参数 Consumer 和 Runnable。</p>
+<p>ifPresentOrElse 方法的用途是，如果一个 Optional 包含值，则对其包含的值调用函数 action，即 action.accept(value)，这与 ifPresent 一致；与 ifPresent 方法的区别在于，ifPresentOrElse 还有第二个参数 emptyAction —— 如果 Optional 不包含值，那么 ifPresentOrElse 便会调用 emptyAction，即 emptyAction.run()。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Optional;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      Optional&lt;Integer&gt; optional = Optional.of(1);</span><br><span class="line"> </span><br><span class="line">      optional.ifPresentOrElse( x -&gt; System.out.println(&quot;Value: &quot; + x),() -&gt; </span><br><span class="line">         System.out.println(&quot;Not Present.&quot;));</span><br><span class="line"> </span><br><span class="line">      optional = Optional.empty();</span><br><span class="line"> </span><br><span class="line">      optional.ifPresentOrElse( x -&gt; System.out.println(&quot;Value: &quot; + x),() -&gt; </span><br><span class="line">         System.out.println(&quot;Not Present.&quot;));</span><br><span class="line">   &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行输出结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value: 1</span><br><span class="line">Not Present.</span><br></pre></td></tr></table></figure></p>
+<h3 id="or-方法"><a href="#or-方法" class="headerlink" title="or() 方法"></a>or() 方法</h3><p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public Optional&lt;T&gt; or(Supplier&lt;? extends Optional&lt;? extends T&gt;&gt; supplier)</span><br></pre></td></tr></table></figure></p>
+<p>如果值存在，返回 Optional 指定的值，否则返回一个预设的值。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Optional;</span><br><span class="line">import java.util.function.Supplier;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      Optional&lt;String&gt; optional1 = Optional.of(&quot;Mahesh&quot;);</span><br><span class="line">      Supplier&lt;Optional&lt;String&gt;&gt; supplierString = () -&gt; Optional.of(&quot;Not Present&quot;);</span><br><span class="line">      optional1 = optional1.or( supplierString);</span><br><span class="line">      optional1.ifPresent( x -&gt; System.out.println(&quot;Value: &quot; + x));</span><br><span class="line">      optional1 = Optional.empty();    </span><br><span class="line">      optional1 = optional1.or( supplierString);</span><br><span class="line">      optional1.ifPresent( x -&gt; System.out.println(&quot;Value: &quot; + x));  </span><br><span class="line">   &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行输出结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value: Mahesh</span><br><span class="line">Value: Not Present</span><br></pre></td></tr></table></figure></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>在集合上，Java 9 增加 了 List.of()、Set.of()、Map.of() 和 M ap.ofEntries()等工厂方法来创建不可变集合。</p>
+<p>除了更短和更好阅读之外，这些方法也可以避免您选择特定的集合实现。 事实上，从工厂方法返回已放入数个元素的集合实现是高度优化的。这是可能的，因为它们是不可变的：在创建后，继续添加元素到这些集合会导致 “UnsupportedOperationException” 。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List.of(); </span><br><span class="line">List.of(&quot;Hello&quot;, &quot;World&quot;); </span><br><span class="line">List.of(1, 2, 3);</span><br><span class="line">Set.of(); </span><br><span class="line">Set.of(&quot;Hello&quot;, &quot;World&quot;); </span><br><span class="line">Set.of(1, 2, 3);</span><br><span class="line">Map.of();</span><br><span class="line">Map.of(&quot;Hello&quot;, 1, &quot;World&quot;, 2);</span><br></pre></td></tr></table></figure></p>
+<h2 id="进程-API"><a href="#进程-API" class="headerlink" title="进程 API"></a>进程 API</h2><p>Java 9 增加了 ProcessHandle 接口，可以对原生进程进行管理，尤其适合于管理长时间运行的进程。在使用 ProcessBuilder 来启动一个进程之后，可以通过 Process.toHandle()方法来得到一个 ProcessHandle 对象的实例。通过 ProcessHandle 可以获取到由 ProcessHandle.Info 表 示的进程的基本信息，如命令行参数、可执行文件路径和启动时间等。ProcessHandle 的 onExit()方法返回一个 CompletableFuture<processhandle>对象，可以在进程结束时执行自定义的动作。</processhandle></p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">final ProcessBuilder processBuilder = new ProcessBuilder(&quot;top&quot;) </span><br><span class="line">    .inheritIO(); </span><br><span class="line">final ProcessHandle processHandle = processBuilder.start().toHandle(); </span><br><span class="line">processHandle.onExit().whenCompleteAsync((handle, throwable) -&gt; &#123; </span><br><span class="line">    if (throwable == null) &#123; </span><br><span class="line">        System.out.println(handle.pid()); </span><br><span class="line">    &#125; else &#123; </span><br><span class="line">        throwable.printStackTrace(); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="I-O-流新特性"><a href="#I-O-流新特性" class="headerlink" title="I/O 流新特性"></a>I/O 流新特性</h2><p>类 java.io.InputStream 中增加了新的方法来读取和复制 InputStream 中包含的数据。</p>
+<ul>
+<li>readAllBytes - 读取 InputStream 中的所有剩余字节。</li>
+<li>readNBytes - 从 InputStream 中读取指定数量的字节到数组中。</li>
+<li>transferTo - 读取 InputStream 中的全部字节并写入到指定的 OutputStream 中 。</li>
+</ul>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class TestInputStream &#123;</span><br><span class="line">    private InputStream inputStream; </span><br><span class="line">    private static final String CONTENT = &quot;Hello World&quot;; </span><br><span class="line">    @Before </span><br><span class="line">    public void setUp() throws Exception &#123; </span><br><span class="line">        this.inputStream = </span><br><span class="line">            TestInputStream.class.getResourceAsStream(&quot;/input.txt&quot;); </span><br><span class="line">    &#125;</span><br><span class="line">    @Test </span><br><span class="line">    public void testReadAllBytes() throws Exception &#123; </span><br><span class="line">        final String content = new String(this.inputStream.readAllBytes()); </span><br><span class="line">        assertEquals(CONTENT, content); </span><br><span class="line">    &#125; </span><br><span class="line">    @Test </span><br><span class="line">    public void testReadNBytes() throws Exception &#123; </span><br><span class="line">        final byte[] data = new byte[5]; </span><br><span class="line">        this.inputStream.readNBytes(data, 0, 5); </span><br><span class="line">        assertEquals(&quot;Hello&quot;, new String(data)); </span><br><span class="line">    &#125; </span><br><span class="line">    @Test </span><br><span class="line">    public void testTransferTo() throws Exception &#123; </span><br><span class="line">        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); </span><br><span class="line">        this.inputStream.transferTo(outputStream); </span><br><span class="line">        assertEquals(CONTENT, outputStream.toString()); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ObjectInputFilter 可以对 ObjectInputStream 中 包含的内容进行检查，来确保其中包含的数据是合法的。可以使用 ObjectInputStream 的方法 setObjectInputFilter 来设置。ObjectInputFilter 在 进行检查时，可以检查如对象图的最大深度、对象引用的最大数量、输入流中的最大字节数和数组的最大长度等限制，也可以对包含的类的名称进行限制。</p>
+<h2 id="平台日志-API-和-服务"><a href="#平台日志-API-和-服务" class="headerlink" title="平台日志 API 和 服务"></a>平台日志 API 和 服务</h2><p>Java 9 允许为 JDK 和应用配置同样的日志实现。新增的 System.LoggerFinder 用来管理 JDK 使 用的日志记录器实现。JVM 在运行时只有一个系统范围的 LoggerFinder 实例。LoggerFinder 通 过服务查找机制来加载日志记录器实现。默认情况下，JDK 使用 java.logging 模块中的 java.util.logging 实现。通过 LoggerFinder 的 getLogger()方法就可以获取到表示日志记录器的 System.Logger 实现。应用同样可以使用 System.Logger 来记录日志。这样就保证了 JDK 和应用使用同样的日志实现。我们也可以通过添加自己的 System.LoggerFinder 实现来让 JDK 和应用使用 SLF4J 等其他日志记录框架。 代码清单 9 中给出了平台日志 API 的使用示例。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123; </span><br><span class="line">    private static final System.Logger LOGGER = System.getLogger(&quot;Main&quot;); </span><br><span class="line"></span><br><span class="line">    public static void main(final String[] args) &#123; </span><br><span class="line">        LOGGER.log(Level.INFO, &quot;Run!&quot;);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="改进应用安全性能"><a href="#改进应用安全性能" class="headerlink" title="改进应用安全性能"></a>改进应用安全性能</h2><p>Java 9 新增了 4 个 SHA- 3 哈希算法，SHA3-224、SHA3-256、SHA3-384 和 S HA3-512。另外也增加了通过 java.security.SecureRandom 生成使用 DRBG 算法的强随机数。</p>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.commons.codec.binary.Hex; </span><br><span class="line">public class SHA3 &#123; </span><br><span class="line">    public static void main(final String[] args) throws NoSuchAlgorithmException &#123; </span><br><span class="line">        final MessageDigest instance = MessageDigest.getInstance(&quot;SHA3-224&quot;); </span><br><span class="line">        final byte[] digest = instance.digest(&quot;&quot;.getBytes()); </span><br><span class="line">        System.out.println(Hex.encodeHexString(digest)); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="改进的-try-with-resources"><a href="#改进的-try-with-resources" class="headerlink" title="改进的 try-with-resources"></a>改进的 try-with-resources</h2><p>try-with-resources 是 JDK 7 中一个新的异常处理机制，它能够很容易地关闭在 try-catch 语句块中使用的资源。所谓的资源（resource）是指在程序完成后，必须关闭的对象。try-with-resources 语句确保了每个资源在语句结束时关闭。所有实现了 java.lang.AutoCloseable 接口（其中，它包括实现了 java.io.Closeable 的所有对象），可以使用作为资源。</p>
+<p>try-with-resources 声明在 JDK 9 已得到改进。如果你已经有一个资源是 final 或等效于 final 变量,您可以在 try-with-resources 语句中使用该变量，而无需在 try-with-resources 语句中声明一个新变量。</p>
+<p>java 7 示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.Reader;</span><br><span class="line">import java.io.StringReader;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) throws IOException &#123;</span><br><span class="line">      System.out.println(readData(&quot;test&quot;));</span><br><span class="line">   &#125; </span><br><span class="line">   static String readData(String message) throws IOException &#123;</span><br><span class="line">      Reader inputString = new StringReader(message);</span><br><span class="line">      BufferedReader br = new BufferedReader(inputString);</span><br><span class="line">      try (BufferedReader br1 = br) &#123;</span><br><span class="line">         return br1.readLine();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上实例中我们需要在 try 语句块中声明资源 br1，然后才能使用它。</p>
+<p>在 Java 9 中，我们不需要声明资源 br1 就可以使用它，并得到相同的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.Reader;</span><br><span class="line">import java.io.StringReader;</span><br><span class="line"> </span><br><span class="line">public class Tester &#123;</span><br><span class="line">   public static void main(String[] args) throws IOException &#123;</span><br><span class="line">      System.out.println(readData(&quot;test&quot;));</span><br><span class="line">   &#125; </span><br><span class="line">   static String readData(String message) throws IOException &#123;</span><br><span class="line">      Reader inputString = new StringReader(message);</span><br><span class="line">      BufferedReader br = new BufferedReader(inputString);</span><br><span class="line">      try (br) &#123;</span><br><span class="line">         return br.readLine();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在处理必须关闭的资源时，使用try-with-resources语句替代try-finally语句。 生成的代码更简洁，更清晰，并且生成的异常更有用。 try-with-resources语句在编写必须关闭资源的代码时会更容易，也不会出错，而使用try-finally语句实际上是不可能的。</p>
+<h2 id="私有接口方法"><a href="#私有接口方法" class="headerlink" title="私有接口方法"></a>私有接口方法</h2><p>在 Java 8之前，接口可以有常量变量和抽象方法。</p>
+<p>我们不能在接口中提供方法实现。如果我们要提供抽象方法和非抽象方法（方法与实现）的组合，那么我们就得使用抽象类。</p>
+<p>在 Java 8 接口引入了一些新功能——默认方法和静态方法。我们可以在Java SE 8的接口中编写方法实现，仅仅需要使用 default 关键字来定义它们。</p>
+<p>在 Java 8 中，一个接口中能定义如下几种变量/方法：</p>
+<ul>
+<li>常量</li>
+<li>抽象方法</li>
+<li>默认方法</li>
+<li>静态方法</li>
+</ul>
+<p>Java 9 不仅像 Java 8 一样支持接口默认方法，同时还支持私有方法。</p>
+<p>在 Java 9 中，一个接口中能定义如下几种变量/方法：</p>
+<ul>
+<li>常量</li>
+<li>抽象方法</li>
+<li>默认方法</li>
+<li>静态方法</li>
+<li>私有方法</li>
+<li>私有静态方法</li>
+</ul>
+<p>示例</p>
+<p>java 7<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">interface Logging &#123;</span><br><span class="line">   String ORACLE = &quot;Oracle_Database&quot;;</span><br><span class="line">   String MYSQL = &quot;MySql_Database&quot;;</span><br><span class="line"></span><br><span class="line">   void logInfo(String message);</span><br><span class="line"></span><br><span class="line">   void getConnection();</span><br><span class="line">   void closeConnection();</span><br><span class="line">&#125;</span><br><span class="line">final class LogMySql implements Logging &#123;</span><br><span class="line">   @Override</span><br><span class="line">   public void logInfo(String message) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + &quot;INFO&quot;);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line">   @Override</span><br><span class="line">   public void getConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Open Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   @Override</span><br><span class="line">   public void closeConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Close Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">final class LogOracle implements Logging &#123;</span><br><span class="line">   @Override</span><br><span class="line">   public void logInfo(String message) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + &quot;INFO&quot;);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line">   @Override</span><br><span class="line">   public void getConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Open Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   @Override</span><br><span class="line">   public void closeConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Close Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>java 8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">interface Logging &#123;</span><br><span class="line">   String ORACLE = &quot;Oracle_Database&quot;;</span><br><span class="line">   String MYSQL = &quot;MySql_Database&quot;;</span><br><span class="line"> </span><br><span class="line">   default void logInfo(String message) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + &quot;INFO&quot;);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line">   default void logWarn(String message) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + &quot;WARN&quot;);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line">   default void logError(String message) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + &quot;ERROR&quot;);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line">   default void logFatal(String message) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + &quot;FATAL&quot;);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   static void getConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Open Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   static void closeConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Close Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">final class LogOracle implements Logging &#123; &#125;</span><br><span class="line">final class LogMySql implements Logging &#123; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>java 9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">interface Logging &#123;</span><br><span class="line">   String ORACLE = &quot;Oracle_Database&quot;;</span><br><span class="line">   String MYSQL = &quot;MySql_Database&quot;;</span><br><span class="line"> </span><br><span class="line">   private void log(String message, String prefix) &#123;</span><br><span class="line">      getConnection();</span><br><span class="line">      System.out.println(&quot;Log Message : &quot; + prefix);</span><br><span class="line">      closeConnection();</span><br><span class="line">   &#125;</span><br><span class="line">   default void logInfo(String message) &#123;</span><br><span class="line">      log(message, &quot;INFO&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   default void logWarn(String message) &#123;</span><br><span class="line">      log(message, &quot;WARN&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   default void logError(String message) &#123;</span><br><span class="line">      log(message, &quot;ERROR&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   default void logFatal(String message) &#123;</span><br><span class="line">      log(message, &quot;FATAL&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   private static void getConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Open Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   private static void closeConnection() &#123;</span><br><span class="line">      System.out.println(&quot;Close Database connection&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">final class LogOracle implements Logging &#123; &#125;</span><br><span class="line">final class LogMySql implements Logging &#123; &#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="响应式流-（-Reactive-Streams-）"><a href="#响应式流-（-Reactive-Streams-）" class="headerlink" title="响应式流 （ Reactive Streams ）"></a>响应式流 （ Reactive Streams ）</h1><h2 id="What-is-Reactive-Streams"><a href="#What-is-Reactive-Streams" class="headerlink" title="What is Reactive Streams?"></a><strong>What is Reactive Streams?</strong></h2><blockquote>
+<p>流是由生产者生产并由一个或多个消费者消费的元素（item）的序列。 这种生产者——消费者模型也被称为source/sink模型或发布者——订阅者（publisher-subscriber ）模型。 在本章中，将其称为发布者订阅者模型。<br>有几种流处理机制，其中pull模型和push模型是最常见的。 在push模型中，发布者将元素推送给订阅者。 在pull模式中，订阅者将元素推送给发布者。 发布者和订阅者都以同样的速率工作，这是一个理想的情况，这些模式非常有效。 我们会考虑一些情况，如果他们不按同样的速率工作，这种情况下涉及的问题以及对应的解决办法。<br>当发布者比订阅者快的时候，后者必须有一个无边界缓冲区来保存快速传入的元素，或者它必须丢弃它无法处理的元素。另一个解决方案是使用一种称为背压（backpressure）的策略，其中订阅者告诉发布者减慢速率并保持元素，直到订阅者准备好处理更多的元素。 使用背压可确保更快的发布者不会压制较慢的订阅者。 使用背压可能要求发布者拥有无限制的缓冲区，如果它要一直生成和保存元素。 发布者可以实现有界缓冲区来保存有限数量的元素，如果缓冲区已满，可以选择放弃它们。 可以使用另一策略，其中发布者将发布元素重新发送到订阅者，这些元素发布时订阅者不能接受。<br>订阅者在请求发布者的元素并且元素不可用时，该做什么？ 在同步请求中订阅者户必须等待，无限期地，直到有元素可用。 如果发布者同步地向订阅者发送元素，并且订阅者同步处理它们，则发布者必须阻塞直到数据处理完成。 解决方案是在两端进行异步处理，订阅者可以在从发布者请求元素之后继续处理其他任务。 当更多的元素准备就绪时，发布者将它们异步发送给订阅者。</p>
+</blockquote>
+<p>响应式流从2013年开始，作为提供非阻塞背压的异步流处理标准的倡议。 它旨在解决处理元素流的问题——如何将元素流从发布者传递到订阅者，而不需要发布者阻塞，或订阅者有无限制的缓冲区或丢弃。</p>
+<p>响应式流模型非常简单——订阅者向发布者发送多个元素的异步请求。 发布者向订阅者异步发送多个或稍少的元素。</p>
+<p>响应式编程的思想最近得到了广泛的流行。 在 Java 平台上有流行的响应式库 RxJava 和 Reactor。响应式流规范的出发点是提供一个带非阻塞负压（ non-blocking backpressure ） 的异步流处理规范。响应式流规范的核心接口已经添加到了 Java9 中的 java.util.concurrent.Flow 类中。</p>
+<p>Flow 中包含了 Flow.Publisher、Flow.Subscriber、Flow.Subscription 和 Flow.Processor 等 4 个核心接口。Java 9 还提供了 SubmissionPublisher 作为 Flow.Publisher 的一个实现。RxJava 2 和 Reactor 都可以很方便的 与 Flow 类的核心接口进行互操作。</p>
+<p>有关响应式流的更多信息，请访问<a><a href="http://www.reactive-streams.org/" target="_blank" rel="noopener">http://www.reactive-streams.org/</a></a>。 </p>
+<hr>
+<h1 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h1><h2 id="变量句柄"><a href="#变量句柄" class="headerlink" title="变量句柄"></a>变量句柄</h2><p>变量句柄是一个变量或一组变量的引用，包括静态域，非静态域，数组元素和堆外数据结构中的组成部分等。变量句柄的含义类似于已有的方法句柄。变量句柄只是对创建的变量的类型引用，以便在不同的访问模式下提供对变量的读写访问。</p>
+<p>变量句柄由 Java 类 java.lang.invoke.VarHandle 来表示。可以使用类 java.lang.invoke.MethodHandles.Lookup 中的静态工厂方法来创建 VarHandle 对象。varHandle由两个重要部分组成 - 变量类型和坐标列表。变量类型表示varHandle给出内存引用的变量类型，而坐标列表有助于定位其引用由varHandle给出的变量。通过变量句柄，可以在变量上进行各种操作。这些操作称为访问模式。不同的访问模式尤其在内存排序上的不同语义。目前一共有 31 种 访问模式，而每种访问模式都 在 VarHandle 中 有对应的方法。这些方法可以对变量进行读取、写入、原子更新、数值原子更新和按位原子操作等。VarHandle 还可以用来访问数组中的单个元素，以及把 byte[]数组 和 ByteBuffer 当成是不同原始类型的数组来访问。从本质上讲，VarHandle对象一旦创建就无法修改。</p>
+<p>Variable Handle的方法分为五种访问模式：</p>
+<ul>
+<li>读访问模式 - 这可用于获取变量的值。get()，getVolatile()，getAcquire()和getOpaque()是一些支持读访问的方法。</li>
+<li>写访问模式 - 这可用于设置变量的值。set()，setVolatile()，setRelease()和setOpaque()是一些支持写访问的方法。</li>
+<li>原子更新加速模式 - 这可用于在比较当前值和新值之后以原子方式更改变量的值。属于此类访问模式的一些方法是：compareAndSet，compareAndExchangeAcquire，compareAndExchange，compareAndExchangeRelease，getAndSet，getAndSetAcquire，getAndSetRelease等。</li>
+<li>数值原子更新访问模式 - 这可以用于我们想要通过添加原子设置值的情况。getAndAdd，getAndAddAcquire，getAndAddRelease等方法属于此类别。</li>
+<li>按位原子更新访问模式 - 这可用于在设置值之前检索并执行按位OR，AND或XOR。属于此类别的一些方法是：getAndBitwiseOr，getAndBitwiseOrAcquire，getAndBitwiseOrRelease，getAndBitwiseAnd，getAndBitwiseAndAcquire，getAndBitwiseAndRelease，getAndBitwiseXor，getAndBitwiseXorAcquire，getAndBitwiseXorRelease等。</li>
+</ul>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class HandleTarget &#123; </span><br><span class="line">    public int count = 1; </span><br><span class="line">&#125; </span><br><span class="line">public class VarHandleTest &#123;</span><br><span class="line">    private HandleTarget handleTarget = new HandleTarget(); </span><br><span class="line">    private VarHandle varHandle; </span><br><span class="line">    @Before </span><br><span class="line">    public void setUp() throws Exception &#123; </span><br><span class="line">        this.handleTarget = new HandleTarget(); </span><br><span class="line">        this.varHandle = MethodHandles </span><br><span class="line">            .lookup() </span><br><span class="line">            .findVarHandle(HandleTarget.class, &quot;count&quot;, int.class); </span><br><span class="line">    &#125; </span><br><span class="line">    @Test </span><br><span class="line">    public void testGet() throws Exception &#123; </span><br><span class="line">        assertEquals(1, this.varHandle.get(this.handleTarget)); </span><br><span class="line">        assertEquals(1, this.varHandle.getVolatile(this.handleTarget)); </span><br><span class="line">        assertEquals(1, this.varHandle.getOpaque(this.handleTarget)); </span><br><span class="line">        assertEquals(1, this.varHandle.getAcquire(this.handleTarget)); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="改进方法句柄"><a href="#改进方法句柄" class="headerlink" title="改进方法句柄"></a>改进方法句柄</h2><p>类 java.lang.invoke.MethodHandles 增加了更多的静态方法来创建不同类型的方法句柄。</p>
+<ul>
+<li>arrayConstructor - 创建指定类型的数组。</li>
+<li>arrayLength - 获取指定类型的数组的大小。</li>
+<li>varHandleInvoker 和 varHandleExactInvoker - 调用 VarHandle 中的访问模式方法。</li>
+<li>zero - 返回一个类型的默认值。</li>
+<li>empty - 返回 MethodType 的返回值类型的默认值。</li>
+<li>loop、countedLoop、iteratedLoop、whileLoop 和 doWhileLoop - 创建不同类型的循环，包括 for 循环、while 循环 和 do-while 循环。</li>
+<li>tryFinally - 把对方法句柄的调用封装在 try-finally 语句中。</li>
+</ul>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class IteratedLoopTest &#123; </span><br><span class="line">    static int body(final int sum, final String value) &#123; </span><br><span class="line">        return sum + value.length(); </span><br><span class="line">    &#125; </span><br><span class="line">    @Test </span><br><span class="line">    public void testIteratedLoop() throws Throwable &#123; </span><br><span class="line">        final MethodHandle iterator = MethodHandles.constant( </span><br><span class="line">            Iterator.class, </span><br><span class="line">            List.of(&quot;a&quot;, &quot;bc&quot;, &quot;def&quot;).iterator()); </span><br><span class="line">        final MethodHandle init = MethodHandles.zero(int.class); </span><br><span class="line">        final MethodHandle body = MethodHandles </span><br><span class="line">            .lookup() </span><br><span class="line">            .findStatic( </span><br><span class="line">                IteratedLoopTest.class, </span><br><span class="line">                &quot;body&quot;, </span><br><span class="line">                MethodType.methodType( </span><br><span class="line">                    int.class, </span><br><span class="line">                    int.class, </span><br><span class="line">                    String.class)); </span><br><span class="line">        final MethodHandle iteratedLoop = MethodHandles </span><br><span class="line">            .iteratedLoop(iterator, init, body); </span><br><span class="line">        assertEquals(6, iteratedLoop.invoke()); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="并发的改进"><a href="#并发的改进" class="headerlink" title="并发的改进"></a>并发的改进</h1><p>Java 8 引入了 CompletableFuture<t> 类，可能是 java.util.concurrent.Future<t> 明确的完成版（设置了它的值和状态），也可能被用作java.util.concurrent.CompleteStage 。支持 future 完成时触发一些依赖的函数和动作。Java 9 引入了一些CompletableFuture 的改进，增加了几个新的方法。</t></t></p>
+<p>对原 CompletableFuture 做了改进：</p>
+<ul>
+<li>支持 delays 和 timeouts</li>
+<li>提升了对子类化的支持</li>
+<li>新的工厂方法</li>
+</ul>
+<p>增加的方法：</p>
+<ul>
+<li>completeAsync 使用一个异步任务来获取结果并完成该 CompletableFuture。</li>
+<li>orTimeout 在 CompletableFuture 没有在给定的超时时间之前完成，使用 TimeoutException 异常来完成 CompletableFuture。</li>
+<li>completeOnTimeout 与 orTimeout 类似，只不过它在超时时使用给定的值来完成 CompletableFuture。</li>
+<li>新的 Thread.onSpinWait 方法在当前线程需要使用忙循环来等待时，可以提高等待的效率。</li>
+</ul>
+<h2 id="支持-delays-和-timeouts"><a href="#支持-delays-和-timeouts" class="headerlink" title="支持 delays 和 timeouts"></a>支持 delays 和 timeouts</h2><p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public CompletableFuture&lt;T&gt; orTimeout(long timeout, TimeUnit unit)</span><br></pre></td></tr></table></figure>
+<p>如果没有在给定的 timeout 内完成，就以 java.util.concurrent.TimeoutException 完成这个 CompletableFutrue，并返回这个 CompletableFutrue。</p>
+<p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public CompletableFuture&lt;T&gt; completeOnTimeout(T value, long timeout, TimeUnit unit)</span><br></pre></td></tr></table></figure>
+<p>在 timeout（单位在 java.util.concurrent.Timeunits units 中，比如 MILLISECONDS ）前以给定的 value 完成这个 CompletableFutrue。返回这个 CompletableFutrue。</p>
+<h2 id="增强了对子类化的支持"><a href="#增强了对子类化的支持" class="headerlink" title="增强了对子类化的支持"></a>增强了对子类化的支持</h2><p>做了许多改进使得 CompletableFuture 可以被更简单的继承。比如，你也许想重写新的 public Executor defaultExecutor() 方法来代替默认的 executor。</p>
+<p>另一个新的使子类化更容易的方法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public &lt;U&gt; CompletableFuture&lt;U&gt; newIncompleteFuture()</span><br></pre></td></tr></table></figure>
+<h2 id="新的工厂方法"><a href="#新的工厂方法" class="headerlink" title="新的工厂方法"></a>新的工厂方法</h2><p>ava 8引入了 \<u> CompletableFuture\<u> completedFuture(U value) 工厂方法来返回一个已经以给定 value 完成了的 CompletableFuture。Java 9以一个新的 \<u> CompletableFuture\<u> failedFuture(Throwable ex) 来补充了这个方法，可以返回一个以给定异常完成的 CompletableFuture。</u></u></u></u></p>
+<p>除此以外，Java 9 引入了下面这对 stage-oriented 工厂方法，返回完成的或异常完成的 completion stages:</p>
+<ul>
+<li>\<u> CompletionStage\<u> completedStage(U value): 返回一个新的以指定 value 完成的CompletionStage ，并且只支持 CompletionStage 里的接口。</u></u></li>
+<li>\<u> CompletionStage\<u> failedStage(Throwable ex): 返回一个新的以指定异常完成的CompletionStage ，并且只支持 CompletionStage 里的接口。</u></u></li>
+</ul>
+<hr>
+<h1 id="多版本兼容-jar-包"><a href="#多版本兼容-jar-包" class="headerlink" title="多版本兼容 jar 包"></a>多版本兼容 jar 包</h1><p>多版本兼容 JAR 功能能让你创建仅在特定版本的 Java 环境中运行库程序时选择使用的 class 版本。</p>
+<p>通过 –release 参数指定编译版本。</p>
+<p>具体的变化就是 META-INF 目录下 MANIFEST.MF 文件新增了一个属性：<em>Multi-Release: true</em></p>
+<p>META-INF 目录下还新增了一个 versions 目录，如果是要支持 java9，则在 versions 目录下有 9 的目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">multirelease.jar</span><br><span class="line">├── META-INF</span><br><span class="line">│   └── versions</span><br><span class="line">│       └── 9</span><br><span class="line">│           └── multirelease</span><br><span class="line">│               └── Helper.class</span><br><span class="line">├── multirelease</span><br><span class="line">    ├── Helper.class</span><br><span class="line">    └── Main.class</span><br></pre></td></tr></table></figure></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/12/17/JavaVersionCharacter8/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/logo.png" alt="Paul Gao's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        gaolei2481@126.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/12/">December 2018<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/java/">java<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="tags">
+                
+                    <i class="material-icons sidebar-material-icons">tab</i>
+                
+                tags
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            Theme - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;PaulGao Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
