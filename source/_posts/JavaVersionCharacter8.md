@@ -6,6 +6,7 @@ tags:
 - java8
 - lambda
 ---
+
 # 函数式接口
 
 ## **What is functional interface?**
@@ -57,9 +58,7 @@ Lambda 表达式由参数列表、箭头和 Lambda 主体组成。
 ## **Example**
 
 >函数式编程（functional programming）或称函数程序设计，又称泛函编程，是一种编程典范，它将计算机运算视为数学上的函数计算，并且避免使用程序状态以及易变对象。函数编程语言最重要的基础是λ演算（lambda calculus）。而且λ演算的函数可以接受函数当作输入（引数）和输出（传出值）。[Wiki](https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B8%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)
-
-
-lambda演算可比拟是最根本的编程语言，它包括了一条变换规则（变量替换）和一条将函数抽象化定义的方式。因此普遍公认是一种更接近软件而非硬件的方式。对函数式编程语言造成很大影响，比如Lisp、ML语言和Haskell语言。在1936年邱奇利用λ演算给出了对于判定性问题（Entscheidungsproblem）的否定：关于两个lambda表达式是否等价的命题，无法由一个“通用的算法”判断，这是不可判定性能够证明的头一个问题，甚至还在停机问题之先。
+>>lambda演算可比拟是最根本的编程语言，它包括了一条变换规则（变量替换）和一条将函数抽象化定义的方式。因此普遍公认是一种更接近软件而非硬件的方式。对函数式编程语言造成很大影响，比如Lisp、ML语言和Haskell语言。在1936年邱奇利用λ演算给出了对于判定性问题（Entscheidungsproblem）的否定：关于两个lambda表达式是否等价的命题，无法由一个“通用的算法”判断，这是不可判定性能够证明的头一个问题，甚至还在停机问题之先。
 
 ```
 public class Java8Tester {
@@ -780,12 +779,16 @@ $ jjs sample.js
 78952000000000002017.94
 ```
 ---
-# 主要参考来源
+# 主要参考资源
 
-[tutorialspoint](https://www.tutorialspoint.com/java8/index.htm)
+## [tutorialspoint](https://www.tutorialspoint.com/java8/index.htm)
 
-[geeksforgeeks](https://www.geeksforgeeks.org/java-8-stream/)
+## [geeksforgeeks](https://www.geeksforgeeks.org/java-8-stream/)
 
-[ibm-developerworks](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/index.html)
+## [ibm-developerworks](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/index.html)
 
-[javacodegeeks](https://www.javacodegeeks.com/2014/05/java-8-features-tutorial.html)
+## [Javacodegeeks](https://www.javacodegeeks.com/2014/05/java-8-features-tutorial.html)
+
+## [Java 8 docs](https://docs.oracle.com/javase/8/)
+
+## [Java 8 docs api](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
