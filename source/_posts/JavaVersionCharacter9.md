@@ -4,6 +4,7 @@ date: 2018-12-20 14:14:20
 categories: java
 tags: 
 - java9
+thumbnail: /img/article/javase.png
 ---
 
 # 模块系统

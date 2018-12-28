@@ -5,6 +5,7 @@ categories: java
 tags: 
 - java8
 - lambda
+thumbnail: /img/article/javase.png
 ---
 
 # 函数式接口
