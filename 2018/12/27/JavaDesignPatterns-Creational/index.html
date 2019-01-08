@@ -46,7 +46,7 @@
     
     <title>
         
-            Java 设计模式 | 
+            Java 设计模式 - Creational Patterns | 
         
         PaulGao Blog
     </title>
@@ -213,7 +213,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="PaulGao Blog">
-    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/">
+    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="PaulGao Blog">
@@ -228,16 +228,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/">
+    <meta property="og:url" content="https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Java 设计模式 | PaulGao Blog">
+    <meta property="og:title" content="Java 设计模式 - Creational Patterns | PaulGao Blog">
     <meta property="og:image" content="/img/logo.png">
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="java"> <meta property="og:article:tag" content="设计模式"> <meta property="og:article:tag" content="design patterns"> 
 
     
         <meta property="article:published_time" content="Thu Dec 27 2018 17:17:15 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jan 08 2019 18:10:39 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jan 08 2019 18:24:43 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -245,7 +245,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/index.html" />
+        <link rel="canonical" href="https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -257,10 +257,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/index.html",
-    "headline": "Java 设计模式",
+    "mainEntityOfPage": "https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/index.html",
+    "headline": "Java 设计模式 - Creational Patterns",
     "datePublished": "Thu Dec 27 2018 17:17:15 GMT+0800",
-    "dateModified": "Tue Jan 08 2019 18:10:39 GMT+0800",
+    "dateModified": "Tue Jan 08 2019 18:24:43 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Paul Gao",
@@ -344,7 +344,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-is-Design-Pattern"><span class="post-toc-number">1.</span> <span class="post-toc-text">What is Design Pattern?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Classification"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Classification</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Creational-patterns-创建模式"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Creational patterns(创建模式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Structural-patterns-结构模式"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Structural patterns(结构模式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Behavioral-patterns-行为模式"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Behavioral patterns(行为模式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Concurrency-patterns-并发模式"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Concurrency patterns(并发模式)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Factory-Design-Pattern-in-Java"><span class="post-toc-number">2.</span> <span class="post-toc-text">Factory Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Factory-Design-Pattern"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">What is Factory Design Pattern?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Factory</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Design-Pattern-Super-Class"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Factory Design Pattern Super Class</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Design-Pattern-Sub-Classes"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">Factory Design Pattern Sub Classes</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Class"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">Factory Class</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Factory-Design-Pattern-Examples-in-JDK"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Factory Design Pattern Examples in JDK</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Abstract-Factory-Design-Pattern-in-Java"><span class="post-toc-number">3.</span> <span class="post-toc-text">Abstract Factory Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Abstract-Factory-Design-Pattern"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">What is Abstract Factory Design Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Abstract-Factory-Design-Pattern-Super-Class-and-Subclasses"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">Abstract Factory Design Pattern Super Class and Subclasses</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Class-for-Each-subclass"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">Factory Class for Each subclass</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Abstract-Factory-Design-Pattern-Examples-in-JDK"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Abstract Factory Design Pattern Examples in JDK</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Singleton-Design-Pattern-in-Java"><span class="post-toc-number">4.</span> <span class="post-toc-text">Singleton Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Singleton-Design-Pattern"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">What is Singleton Design Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Eager-Initialization"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">Eager Initialization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Static-block-initialization"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">Static block initialization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Lazy-Initialization"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">Lazy Initialization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Thread-Safe-Singleton"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">Thread Safe Singleton</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bill-Pugh-Singleton-Implementation"><span class="post-toc-number">4.2.5.</span> <span class="post-toc-text">Bill Pugh Singleton Implementation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Using-Reflection-to-destroy-Singleton-Pattern"><span class="post-toc-number">4.2.6.</span> <span class="post-toc-text">Using Reflection to destroy Singleton Pattern</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Enum-Singleton"><span class="post-toc-number">4.2.7.</span> <span class="post-toc-text">Enum Singleton</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Serialization-and-Singleton"><span class="post-toc-number">4.2.8.</span> <span class="post-toc-text">Serialization and Singleton</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Builder-Design-Pattern-in-Java"><span class="post-toc-number">5.</span> <span class="post-toc-text">Builder Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Builder-Design-Pattern"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">What is Builder Design Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-3"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Dependency-injection-in-Java"><span class="post-toc-number">6.</span> <span class="post-toc-text">Dependency injection in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Dependency-Injection"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">What is Dependency Injection?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-4"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Service-Components"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">Service Components</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Service-Consumer"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">Service Consumer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Injectors-Classes"><span class="post-toc-number">6.2.3.</span> <span class="post-toc-text">Injectors Classes</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JUnit-Test-Case-with-Mock-Injector-and-Service"><span class="post-toc-number">6.2.4.</span> <span class="post-toc-text">JUnit Test Case with Mock Injector and Service</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages-2"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Disadvantages"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">Disadvantages</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-is-Design-Pattern"><span class="post-toc-number">1.</span> <span class="post-toc-text">What is Design Pattern?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Classification"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Classification</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Creational-patterns-创建模式"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Creational patterns(创建模式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Structural-patterns-结构模式"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Structural patterns(结构模式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Behavioral-patterns-行为模式"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Behavioral patterns(行为模式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Concurrency-patterns-并发模式"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Concurrency patterns(并发模式)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Factory-Design-Pattern-in-Java"><span class="post-toc-number">2.</span> <span class="post-toc-text">Factory Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Factory-Design-Pattern"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">What is Factory Design Pattern?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Factory</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Design-Pattern-Super-Class"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Factory Design Pattern Super Class</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Design-Pattern-Sub-Classes"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">Factory Design Pattern Sub Classes</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Class"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">Factory Class</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Factory-Design-Pattern-Examples-in-JDK"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Factory Design Pattern Examples in JDK</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Abstract-Factory-Design-Pattern-in-Java"><span class="post-toc-number">3.</span> <span class="post-toc-text">Abstract Factory Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Abstract-Factory-Design-Pattern"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">What is Abstract Factory Design Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Abstract-Factory-Design-Pattern-Super-Class-and-Subclasses"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">Abstract Factory Design Pattern Super Class and Subclasses</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Factory-Class-for-Each-subclass"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">Factory Class for Each subclass</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Abstract-Factory-Design-Pattern-Examples-in-JDK"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Abstract Factory Design Pattern Examples in JDK</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Singleton-Design-Pattern-in-Java"><span class="post-toc-number">4.</span> <span class="post-toc-text">Singleton Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Singleton-Design-Pattern"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">What is Singleton Design Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Eager-Initialization"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">Eager Initialization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Static-block-initialization"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">Static block initialization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Lazy-Initialization"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">Lazy Initialization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Thread-Safe-Singleton"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">Thread Safe Singleton</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bill-Pugh-Singleton-Implementation"><span class="post-toc-number">4.2.5.</span> <span class="post-toc-text">Bill Pugh Singleton Implementation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Using-Reflection-to-destroy-Singleton-Pattern"><span class="post-toc-number">4.2.6.</span> <span class="post-toc-text">Using Reflection to destroy Singleton Pattern</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Enum-Singleton"><span class="post-toc-number">4.2.7.</span> <span class="post-toc-text">Enum Singleton</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Serialization-and-Singleton"><span class="post-toc-number">4.2.8.</span> <span class="post-toc-text">Serialization and Singleton</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Builder-Design-Pattern-in-Java"><span class="post-toc-number">5.</span> <span class="post-toc-text">Builder Design Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Builder-Design-Pattern"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">What is Builder Design Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-3"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Dependency-injection-in-Java"><span class="post-toc-number">6.</span> <span class="post-toc-text">Dependency injection in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Dependency-Injection"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">What is Dependency Injection?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-4"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Service-Components"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">Service Components</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Service-Consumer"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">Service Consumer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Injectors-Classes"><span class="post-toc-number">6.2.3.</span> <span class="post-toc-text">Injectors Classes</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JUnit-Test-Case-with-Mock-Injector-and-Service"><span class="post-toc-number">6.2.4.</span> <span class="post-toc-text">JUnit Test Case with Mock Injector and Service</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages-2"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Disadvantages"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">Disadvantages</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lazy-Initialization-in-Java"><span class="post-toc-number">7.</span> <span class="post-toc-text">Lazy Initialization in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Lazy-Initialization"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">What is Lazy Initialization?</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -367,7 +367,7 @@
         <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/article/javase.png)">
     
             <p class="article-headline-p">
-                Java 设计模式
+                Java 设计模式 - Creational Patterns
             </p>
         </div>
 
@@ -427,7 +427,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java 设计模式&url=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java 设计模式 - Creational Patterns&url=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -436,7 +436,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java 设计模式&url=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/index.html&via=Paul Gao" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java 设计模式 - Creational Patterns&url=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/index.html&via=Paul Gao" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -445,7 +445,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Facebook
             </li>
@@ -454,7 +454,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2018/12/27/JavaDesignPatterns-Creational/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Google+
             </li>
@@ -716,11 +716,54 @@
 </tr>
 <tr>
 <td>Double-checked locking<br>双重检查锁定</td>
-<td style="text-align:left">Reduce the overhead of acquiring a lock by first testing the locking criterion (the ‘lock hint’) in an unsafe manner; only if that succeeds does the actual locking logic proceed.</td>
+<td style="text-align:left">Reduce the overhead of acquiring a lock by first testing the locking criterion (the ‘lock hint’) in an unsafe manner; only if that succeeds does the actual locking logic proceed.Can be unsafe when implemented in some language/hardware combinations. It can therefore sometimes be considered an anti-pattern.<br>首先以不安全的方式测试锁标准(“锁提示”)，从而减少获取锁的开销;只有成功了，实际的锁定逻辑才会继续。在某些语言/硬件组合中实现可能不安全。因此，有时可以认为它是一个反模式。</td>
+</tr>
+<tr>
+<td>Event-based asynchronous<br>基于事件的异步</td>
+<td style="text-align:left">Addresses problems with the asynchronous pattern that occur in multithreaded programs.<br>处理多线程程序中出现的异步模式的问题。</td>
+</tr>
+<tr>
+<td>Guarded suspension<br>守卫</td>
+<td style="text-align:left">Manages operations that require both a lock to be acquired and a precondition to be satisfied before the operation can be executed.<br>管理既需要获取锁又需要在执行操作之前满足先决条件的操作。</td>
+</tr>
+<tr>
+<td>Join<br>连接</td>
+<td style="text-align:left">Join-pattern provides a way to write concurrent, parallel and distributed programs by message passing. Compared to the use of threads and locks, this is a high-level programming model.<br>Join-pattern提供了一种通过消息传递编写并发、并行和分布式程序的方法。与线程和锁的使用相比，这是一个高级编程模型。</td>
+</tr>
+<tr>
+<td>Lock<br>锁</td>
+<td style="text-align:left">One thread puts a “lock” on a resource, preventing other threads from accessing or modifying it.<br>一个线程对资源进行“锁定”，防止其他线程访问或修改资源。</td>
+</tr>
+<tr>
+<td>Messaging design pattern (MDP)<br>消息传递设计模式</td>
+<td style="text-align:left">Allows the interchange of information (i.e. messages) between components and applications.<br>允许在组件和应用程序之间交换信息（即消息）。</td>
+</tr>
+<tr>
+<td>Monitor object<br>监控对象</td>
+<td style="text-align:left">An object whose methods are subject to mutual exclusion, thus preventing multiple objects from erroneously trying to use it at the same time.<br>一种对象，其方法可以互斥，从而防止多个对象同时错误地尝试使用它。</td>
+</tr>
+<tr>
+<td>Reactor<br>反应器</td>
+<td style="text-align:left">A reactor object provides an asynchronous interface to resources that must be handled synchronously.<br>反应器对象提供了必须同步处理的资源的异步接口。</td>
+</tr>
+<tr>
+<td>Read-write lock<br>迭代器</td>
+<td style="text-align:left">Allows concurrent read access to an object, but requires exclusive access for write operations.<br>允许对对象进行并发读访问，但需要对写操作进行独占访问。</td>
+</tr>
+<tr>
+<td>Scheduler<br>调度</td>
+<td style="text-align:left">Explicitly control when threads may execute single-threaded code.<br>明确控制线程何时可以执行单线程代码。</td>
+</tr>
+<tr>
+<td>Thread pool<br>线程池</td>
+<td style="text-align:left">A number of threads are created to perform a number of tasks, which are usually organized in a queue. Typically, there are many more tasks than threads. Can be considered a special case of the object pool pattern.<br>创建了许多线程来执行许多任务，这些任务通常组织在队列中。通常，除了线程之外还有许多任务。可以认为是对象池模式的特例。</td>
+</tr>
+<tr>
+<td>Thread-specific storage<br>特定于线程的存储</td>
+<td style="text-align:left">Static or “global” memory local to a thread.<br>线程本地的静态或“全局”内存。</td>
 </tr>
 </tbody>
 </table>
-<p>Can be unsafe when implemented in some language/hardware combinations. It can therefore sometimes be considered an anti-pattern.<br>首先以不安全的方式测试锁标准(“锁提示”)，从而减少获取锁的开销;只有成功了，实际的锁定逻辑才会继续。在某些语言/硬件组合中实现可能不安全。因此，有时可以认为它是一个反模式。<br>Event-based asynchronous<br>基于事件的异步 | Addresses problems with the asynchronous pattern that occur in multithreaded programs.<br>处理多线程程序中出现的异步模式的问题。<br>Guarded suspension<br>守卫 | Manages operations that require both a lock to be acquired and a precondition to be satisfied before the operation can be executed.<br>管理既需要获取锁又需要在执行操作之前满足先决条件的操作。<br>Join<br>连接 | Join-pattern provides a way to write concurrent, parallel and distributed programs by message passing. Compared to the use of threads and locks, this is a high-level programming model.<br>Join-pattern提供了一种通过消息传递编写并发、并行和分布式程序的方法。与线程和锁的使用相比，这是一个高级编程模型。<br>Lock<br>锁 | One thread puts a “lock” on a resource, preventing other threads from accessing or modifying it.<br>一个线程对资源进行“锁定”，防止其他线程访问或修改资源。<br>Messaging design pattern (MDP)<br>消息传递设计模式 | Allows the interchange of information (i.e. messages) between components and applications.<br>允许在组件和应用程序之间交换信息（即消息）。<br>Monitor object<br>监控对象 | An object whose methods are subject to mutual exclusion, thus preventing multiple objects from erroneously trying to use it at the same time.<br>一种对象，其方法可以互斥，从而防止多个对象同时错误地尝试使用它。<br>Reactor<br>反应器 | A reactor object provides an asynchronous interface to resources that must be handled synchronously.<br>反应器对象提供了必须同步处理的资源的异步接口。<br>Read-write lock<br>迭代器 | Allows concurrent read access to an object, but requires exclusive access for write operations.<br>允许对对象进行并发读访问，但需要对写操作进行独占访问。<br>Scheduler<br>调度 | Explicitly control when threads may execute single-threaded code.<br>明确控制线程何时可以执行单线程代码。<br>Thread pool<br>线程池 | A number of threads are created to perform a number of tasks, which are usually organized in a queue. Typically, there are many more tasks than threads. Can be considered a special case of the object pool pattern.<br>创建了许多线程来执行许多任务，这些任务通常组织在队列中。通常，除了线程之外还有许多任务。可以认为是对象池模式的特例。<br>Thread-specific storage<br>特定于线程的存储 | Static or “global” memory local to a thread.<br>线程本地的静态或“全局”内存。</p>
 <h1 id="Factory-Design-Pattern-in-Java"><a href="#Factory-Design-Pattern-in-Java" class="headerlink" title="Factory Design Pattern in Java"></a>Factory Design Pattern in Java</h1><h2 id="What-is-Factory-Design-Pattern"><a href="#What-is-Factory-Design-Pattern" class="headerlink" title="What is Factory Design Pattern?"></a>What is Factory Design Pattern?</h2><p>工厂方法模式（Factory method pattern）是一种实现了“工厂”概念的面向对象设计模式。是处理在不指定对象具体类型的情况下创建对象的问题。工厂方法模式的实质是“定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。”</p>
 <p>创建一个对象常常需要复杂的过程，所以不适合包含在一个复合对象中。创建对象可能会导致大量的重复代码，可能会需要复合对象访问不到的信息，也可能提供不了足够级别的抽象，还可能并不是复合对象概念的一部分。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。</p>
 <p>对象创建中的有些过程包括决定创建哪个对象、管理对象的生命周期，以及管理特定对象的创建和销毁的概念。<a href="https://en.wikipedia.org/wiki/Factory_method_pattern" target="_blank" rel="noopener">more</a></p>
@@ -937,7 +980,7 @@
 <li>如果过度使用，可能会导致维护问题，因为更改的效果在运行时是已知的。</li>
 <li>java中的依赖项注入隐藏了服务类依赖项，这些依赖项可能导致在编译时捕获的运行时错误。</li>
 </ul>
-
+<h1 id="Lazy-Initialization-in-Java"><a href="#Lazy-Initialization-in-Java" class="headerlink" title="Lazy Initialization in Java"></a>Lazy Initialization in Java</h1><h2 id="What-is-Lazy-Initialization"><a href="#What-is-Lazy-Initialization" class="headerlink" title="What is Lazy Initialization?"></a>What is Lazy Initialization?</h2>
         
     
 
