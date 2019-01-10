@@ -1,15 +1,10 @@
 ---
-title: Java 设计模式
-date: 2018-12-27 17:17:15
-categories: java
-tags: 
-- java
-- 设计模式
-- design patterns
-thumbnail: /img/article/javase.png
+title: 软件设计模式
+date: 2019-01-09 10:45:03
+categories: design patterns
+tags: design patterns
 ---
-
-# What is DesignPattern?
+# What is Design Pattern?
 
 在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。这个术语是由埃里希·伽玛（Erich Gamma）等人在1990年代从建筑设计领域引入到计算机科学的。
 
@@ -20,21 +15,36 @@ thumbnail: /img/article/javase.png
 随着软件开发社群对设计模式的兴趣日益增长，已经出版了一些相关的专著，定期召开相应的研讨会，而且沃德·坎宁安（Ward Cunningham）为此发明了WikiWiki用来交流设计模式的经验。
 [more](https://en.wikipedia.org/wiki/Software_design_pattern)
 
-## Classification
+# History
+
+设计模式最初是Christopher Alexander(1977/78)提出的一个架构概念。1987年，Kent Beck和Ward Cunningham开始尝试将模式应用于编程——特别是模式语言——并在那年的OOPSLA会议上展示了他们的成果。在接下来的几年里，Beck, Cunningham等人对这项工作进行了跟进。
+
+1994年，所谓的“四人帮”(Gamma et al.)出版了《设计模式：可复用面向对象软件的基础》(Design Patterns: Elements of Reusable Object-Oriented Software)一书，该书经常缩写为“GoF”，此后，设计模式在计算机科学中变得流行起来。同年，举行了第一次编程模式语言会议，并于次年建立了 Portland Pattern Repository ，用于记录设计模式。这个术语的范围仍有争议。值得注意的设计模式类书籍包括:
+
++ Gamma, Erich; Helm, Richard; Johnson, Ralph; Vlissides, John (1995). *Design Patterns: Elements of Reusable Object-Oriented Software(设计模式：可复用面向对象软件的基础)*. ISBN 0-201-63361-2.
++ Brinch Hansen, Per (1995). *Studies in Computational Science: Parallel Programming Paradigms*. ISBN 0-13-439324-4.
++ Buschmann, Frank; Meunier, Regine; Rohnert, Hans; Sommerlad, Peter (1996). *Pattern-Oriented Software Architecture, Volume 1: A System of Patterns(面向模式的软件体系结构(卷1))*. ISBN 0-471-95869-7.
++ Beck, Kent (1997). *Smalltalk Best Practice Patterns*. ISBN 978-0134769042.
++ Schmidt, Douglas C.; Stal, Michael; Rohnert, Hans; Buschmann, Frank (2000). *Pattern-Oriented Software Architecture, Volume 2: Patterns for Concurrent and Networked Objects(面向模式的软件体系结构(卷2))*. ISBN 0-471-60695-2.
++ Fowler, Martin (2002). *Patterns of Enterprise Application Architecture(企业应用架构模式)*. ISBN 978-0-321-12742-6.
++ Hohpe, Gregor; Woolf, Bobby (2003). *Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions(企业集成模式)*. ISBN 0-321-20068-3.
++ Freeman, Eric T; Robson, Elisabeth; Bates, Bert; Sierra, Kathy (2004). *Head First Design Patterns(深入浅出设计模式)*. ISBN 0-596-00712-4.
+
+# Classification
 
 设计模式最初被分为三类:创建模式、结构模式和行为模式，并使用委托、聚合和协商的概念进行描述。有关面向对象设计的进一步背景，请参见耦合和内聚、继承、接口和多态性。另一个分类还引入了架构设计模式的概念，该概念可以应用于软件的架构级别，例如模型-视图-控制器模式(Model–view–controller，MVC)。
 
-> 耦合性（英语：Coupling，dependency，或称耦合力或耦合度）是一种软件度量，是指一程序中，模块及模块之间信息或参数依赖的程度。[more](https://en.wikipedia.org/wiki/Coupling_(computer_programming)
+> 耦合性（英语：Coupling，dependency，或称耦合力或耦合度）是一种软件度量，是指一程序中，模块及模块之间信息或参数依赖的程度。[more](https://en.wikipedia.org/wiki/Coupling_(computer_programming))
 
-> 内聚性（Cohesion）也称为内聚力，是一软件度量，是指机能相关的程序组合成一模块的程度，或是各机能凝聚的状态或程度。是结构化分析的重要概念之一。量测内聚性的方式很多，有些方法是由分析源代码，得到非量化的结果，有些方法则是检查源代码的文本特征，以得到内聚性的量化分数。内聚性是属于顺序式的量测量，一般会以“高内聚性”或“低内聚性”来表示。一般会希望程序的模块有高内聚性，因为高内聚性一般和许多理想的软件特性有关，包括鲁棒性、可靠度、可复用性及易懂性（understandability）等特性，而低内聚性一般也代表不易维护、不易测试、不易复用以及难以理解。[more](https://en.wikipedia.org/wiki/Cohesion_(computer_science)
+> 内聚性（Cohesion）也称为内聚力，是一软件度量，是指机能相关的程序组合成一模块的程度，或是各机能凝聚的状态或程度。是结构化分析的重要概念之一。量测内聚性的方式很多，有些方法是由分析源代码，得到非量化的结果，有些方法则是检查源代码的文本特征，以得到内聚性的量化分数。内聚性是属于顺序式的量测量，一般会以“高内聚性”或“低内聚性”来表示。一般会希望程序的模块有高内聚性，因为高内聚性一般和许多理想的软件特性有关，包括鲁棒性、可靠度、可复用性及易懂性（understandability）等特性，而低内聚性一般也代表不易维护、不易测试、不易复用以及难以理解。[more](https://en.wikipedia.org/wiki/Cohesion_(computer_science))
 
 >>耦合性和内聚性是一个相对的概念。一般而言高内聚性代表低耦合性，反之亦然。内聚性是由赖瑞·康斯坦丁所提出，是以实务上可减少维护及修改的“良好”软件的特性为基础。
 
-> 继承（英语：inheritance）是面向对象软件技术当中的一个概念。如果一个类别B“继承自”另一个类别A，就把这个B称为“A的子类”，而把A称为“B的父类别”也可以称“A是B的超类”。继承可以使得子类具有父类别的各种属性和方法，而不需要再次编写相同的代码。在令子类别继承父类别的同时，可以重新定义某些属性，并重写某些方法，即覆盖父类别的原有属性和方法，使其获得与父类别不同的功能。另外，为子类追加新的属性和方法也是常见的做法。 一般静态的面向对象编程语言，继承属于静态的，意即在子类的行为在编译期就已经决定，无法在运行期扩展。[more](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)
+> 继承（英语：inheritance）是面向对象软件技术当中的一个概念。如果一个类别B“继承自”另一个类别A，就把这个B称为“A的子类”，而把A称为“B的父类别”也可以称“A是B的超类”。继承可以使得子类具有父类别的各种属性和方法，而不需要再次编写相同的代码。在令子类别继承父类别的同时，可以重新定义某些属性，并重写某些方法，即覆盖父类别的原有属性和方法，使其获得与父类别不同的功能。另外，为子类追加新的属性和方法也是常见的做法。 一般静态的面向对象编程语言，继承属于静态的，意即在子类的行为在编译期就已经决定，无法在运行期扩展。[more](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))
 
-> 接口（英语：interface），台湾译为介面，中介之面的意思；大陆译作界面，也译作接口，但“port”大陆也是译作接口。接口泛指实体把自己提供给外界的一种抽象化物（可以为另一实体），用以由内部操作分离出外部沟通方法，使其能被修改内部而不影响外界其他实体与其交互的方式，就如面向对象编程提供的多重抽象化。接口可能也提供某种意义上的在讲不同语言的实体之间的翻译，诸如人类与计算机之间。因为接口是一种间接手段，所以相比起直接沟通，会引致些额外负担。[more](https://en.wikipedia.org/wiki/Interface_(computing)
+> 接口（英语：interface），台湾译为介面，中介之面的意思；大陆译作界面，也译作接口，但“port”大陆也是译作接口。接口泛指实体把自己提供给外界的一种抽象化物（可以为另一实体），用以由内部操作分离出外部沟通方法，使其能被修改内部而不影响外界其他实体与其交互的方式，就如面向对象编程提供的多重抽象化。接口可能也提供某种意义上的在讲不同语言的实体之间的翻译，诸如人类与计算机之间。因为接口是一种间接手段，所以相比起直接沟通，会引致些额外负担。[more](https://en.wikipedia.org/wiki/Interface_(computing))
 
-> 多态（英语：polymorphism）指为不同数据类型的实体提供统一的接口。 多态类型（英语：polymorphic type）可以将自身所支持的操作套用到其它类型的值上。计算机程序运行时，相同的消息可能会送给多个不同的类别之对象，而系统可依据对象所属类别，引发对应类别的方法，而有不同的行为。简单来说，所谓多态意指相同的消息给予不同的对象会引发不同的动作。多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”。[more](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)
+> 多态（英语：polymorphism）指为不同数据类型的实体提供统一的接口。 多态类型（英语：polymorphic type）可以将自身所支持的操作套用到其它类型的值上。计算机程序运行时，相同的消息可能会送给多个不同的类别之对象，而系统可依据对象所属类别，引发对应类别的方法，而有不同的行为。简单来说，所谓多态意指相同的消息给予不同的对象会引发不同的动作。多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”。[more](https://en.wikipedia.org/wiki/Polymorphism_(computer_science))
 
 > MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。MVC模式最早由Trygve Reenskaug在1978年提出，是施乐帕罗奥多研究中心（Xerox PARC）在20世纪80年代为程序语言Smalltalk发明的一种软件架构。MVC模式的目的是实现一种动态的程序设计，使后续对程序的修改和扩展简化，并且使程序某一部分的重复利用成为可能。除此之外，此模式通过对复杂度的简化，使程序结构更加直观。软件系统通过对自身基本部分分离的同时也赋予了各个基本部分应有的功能。专业人员可以通过自身的专长分组：
 > + 控制器（Controller）- 负责转发请求，对请求进行处理。
@@ -102,8 +112,7 @@ Active Object<br/>主动对象 | Decouples method execution from method invocati
 Balking<br/>阻碍 | Only execute an action on an object when the object is in a particular state.<br/>只有当对象处于特定状态时，才对该对象执行操作。
 Binding properties<br/>绑定属性 | Combining multiple observers to force properties in different objects to be synchronized or coordinated in some way.<br/>组合多个观察者以强制以某种方式同步或协调不同对象中的属性。
 Compute kernel<br/>计算内核 | The same calculation many times in parallel, differing by integer parameters used with non-branching pointer math into shared arrays, such as GPU-optimized Matrix multiplication or Convolutional neural network.<br/>相同的计算并行多次，不同于非分支指针数学用于共享数组的整数参数，例如GPU优化的矩阵乘法或卷积神经网络。
-Double-checked locking<br/>双重检查锁定 | Reduce the overhead of acquiring a lock by first testing the locking criterion (the 'lock hint') in an unsafe manner; only if that succeeds does the actual locking logic proceed.
-Can be unsafe when implemented in some language/hardware combinations. It can therefore sometimes be considered an anti-pattern.<br/>首先以不安全的方式测试锁标准(“锁提示”)，从而减少获取锁的开销;只有成功了，实际的锁定逻辑才会继续。在某些语言/硬件组合中实现可能不安全。因此，有时可以认为它是一个反模式。
+Double-checked locking<br/>双重检查锁定 | Reduce the overhead of acquiring a lock by first testing the locking criterion (the 'lock hint') in an unsafe manner; only if that succeeds does the actual locking logic proceed.Can be unsafe when implemented in some language/hardware combinations. It can therefore sometimes be considered an anti-pattern.<br/>首先以不安全的方式测试锁标准(“锁提示”)，从而减少获取锁的开销;只有成功了，实际的锁定逻辑才会继续。在某些语言/硬件组合中实现可能不安全。因此，有时可以认为它是一个反模式。
 Event-based asynchronous<br/>基于事件的异步 | Addresses problems with the asynchronous pattern that occur in multithreaded programs.<br/>处理多线程程序中出现的异步模式的问题。
 Guarded suspension<br/>守卫 | Manages operations that require both a lock to be acquired and a precondition to be satisfied before the operation can be executed.<br/>管理既需要获取锁又需要在执行操作之前满足先决条件的操作。
 Join<br/>连接 | Join-pattern provides a way to write concurrent, parallel and distributed programs by message passing. Compared to the use of threads and locks, this is a high-level programming model.<br/>Join-pattern提供了一种通过消息传递编写并发、并行和分布式程序的方法。与线程和锁的使用相比，这是一个高级编程模型。
@@ -115,4 +124,3 @@ Read-write lock<br/>迭代器 | Allows concurrent read access to an object, but 
 Scheduler<br/>调度 | Explicitly control when threads may execute single-threaded code.<br/>明确控制线程何时可以执行单线程代码。
 Thread pool<br/>线程池 | A number of threads are created to perform a number of tasks, which are usually organized in a queue. Typically, there are many more tasks than threads. Can be considered a special case of the object pool pattern.<br/>创建了许多线程来执行许多任务，这些任务通常组织在队列中。通常，除了线程之外还有许多任务。可以认为是对象池模式的特例。
 Thread-specific storage<br/>特定于线程的存储 | Static or "global" memory local to a thread.<br/>线程本地的静态或“全局”内存。
-
