@@ -754,6 +754,101 @@ protected Object readResolve() {
 
 [Java Serialization](https://www.journaldev.com/927/objectoutputstream-java-write-object-file) 和 [Java Deserialization](https://www.journaldev.com/933/objectinputstream-java-read-object-file)
 
+# Multiton Pattern in Java
+
+## What is Multiton Pattern?
+。 
+
+在软件工程中，Multiton模式是一种对单例模式进行推广的设计模式。虽然Singleton模式只允许创建类的一个实例，但是Multiton模式允许受控地创建多个实例，它通过使用映射来管理这些实例。
+
+Multiton模式是Singleton模式的扩展和增强版本。正如模式的名称所示，Multiton模式只不过是类的实例集合的预定义“n”，而Singleton类只有一个实例。Multiton模式（类）使用哈希或字典对实例列表进行分组。列表中的每个实例都与相应的密钥配对。通过使用密钥，相应的实例将返回到调用代码
+
+大多数人和教科书都认为这是一种Singleton模式。例如，Multiton并没有显式地出现在备受推崇的面向对象编程教科书《设计模式》(Design Patterns)中(它是一种名为registry of singletons的更灵活的方法)。
+
+虽然看起来多例只不过是一个具有同步访问的简单哈希表，但是有两个重要的区别。首先，Multiton不允许客户机添加映射。其次，多例从不返回空引用或空引用;相反，它使用关联键在第一个请求上创建并存储一个多实例。具有相同键的后续请求将返回原始实例。哈希表只是一个实现细节，而不是唯一可能的方法。该模式简化了应用程序中共享对象的检索。
+
+由于对象池只创建一次，并且是与类(而不是实例)关联的成员，因此,Multiton保留了其扁平的行为，而不是演化为树结构。
+
+Multiton是唯一的，因为它提供了对Multiton的单个目录(即所有键本身都在同一个名称空间中)的集中访问，其中池中的每个Multiton实例可能都有自己的状态。通过这种方式，模式提倡对系统的基本对象(例如LDAP系统提供的对象)进行索引存储。然而，Multiton仅限于单个系统的广泛使用，而不是无数的分布式系统。
+
+Multiton模式的特点:
++ 多例模式可以有多个实例
++ 多例类必须自己创建、管理自己的实例，并向外界提供自己的实例，因此，他的构造函数也是private的，这点跟单例模式是相同的
++ 更具是否有上限分为：有上限多例类和无上限多例类。
++ 多例模式往往具有一个聚集属性，通过向这个聚集属性登记已经创建过的实例达到循环使用实例的目的
+
+Multiton模式的缺陷：
++ 像Singleton模式一样，这种模式使单元测试变得更加困难，因为它将全局状态引入应用程序。
++ 使用垃圾收集语言，它可能成为内存泄漏的来源，因为它引入了对对象的全局强引用。
+
+## Example
+
+```
+package at.gridtec.multiton;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Multiton {
+
+    private static final int NUM_OF_INSTANCES = 5;
+    private static final List<Multiton> instanceList = new ArrayList<Multiton>(); 
+    private static int instanceCount = 0;
+    private int instanceNum;
+
+    private Multiton() {
+
+    }
+
+    public static synchronized Multiton getInstance() {
+
+        Multiton instance = null;
+
+        if (instanceList.size() == NUM_OF_INSTANCES) {
+            instance = instanceList.get(instanceCount % NUM_OF_INSTANCES);
+        } else {
+            instance = new Multiton();
+            instance.instanceNum = instanceList.size() + 1;
+            instanceList.add(instance);
+        }
+
+        instanceCount++;
+        return instance;
+    }
+
+
+    public int getInstanceNum() {
+        return instanceNum;
+    }
+
+    /**
+     * for testing purposes
+     */
+    public String toString() {
+        return "Multiton Number: " + getInstanceNum();
+    }
+
+}
+```
+
+test
+```
+package at.gridtec.multiton;
+
+public class MutlitonTest {
+
+    public static void main(String args[]) {
+        for (int i = 0; i < 25; i++) {
+            System.out.println(Multiton.getInstance());
+            if (Multiton.getInstance().getInstanceNum() > 5) {
+                break;
+            }
+        }
+    }
+    
+}
+```
+
 # Builder Design Pattern in Java
 
 ## What is Builder Design Pattern?
@@ -1265,5 +1360,483 @@ Java中的依赖注入是通过将对象绑定从编译时移动到运行时来�
 + 将实例存储在Map中，并将相同的实例返回给具有相同参数的实例的请求(multiton pattern)
 + 在第一次请求对象时使用延迟初始化来实例化它(lazy initialization pattern)
 
+## Usage
+
+延迟初始化的使用主要分为两种：
++ Lazy class loading (延迟类加载)
++ Lazy object creation (延迟对象创建)
+
+### Lazy class loading
+
+Java运行时内置了类的延迟实例化。类只有在第一次引用时才加载到内存中。(它们也可以首先通过HTTP从Web服务器加载。)
+
+延迟类加载是Java运行时环境的一个重要特性，因为它可以在某些情况下减少内存使用。例如，如果一个程序的某个部分从来没有在一个会话期间执行过，那么只在该部分中引用的类将永远不会被加载。
+
+### Lazy object creation
+
+延迟对象创建与延迟类加载紧密耦合。第一次在以前未加载的类类型上使用new关键字时，Java运行时将为您加载它。与延迟类加载相比，延迟对象创建可以在更大程度上减少内存使用。
+
+为了介绍延迟对象创建的概念，让我们看一个简单的代码示例，其中一个框架使用一个MessageBox来显示错误消息:
+
+```
+public class MyFrame extends Frame
+{
+  private MessageBox mb_ = new MessageBox();
+  //private helper used by this class
+  private void showMessage(String message)
+  {
+    //set the message text
+    mb_.setMessage( message );
+    mb_.pack();
+    mb_.show();
+  }
+}
+```
+
+在上面的例子中，当创建MyFrame的一个实例时，MessageBox实例mb_也会被创建。递归应用相同的规则。因此，在类MessageBox的构造函数中初始化或分配的任何实例变量也会从堆中分配，等等。如果MyFrame的实例没有用于在会话中显示错误消息，那么我们就是在不必要地浪费内存。
+
+在这个相当简单的例子中，我们不会得到太多。但是，如果您考虑一个更复杂的类，它使用许多其他类，而其他类又递归地使用和实例化更多的对象，那么潜在的内存使用就更明显了。
+
+### 将延迟实例化视为减少资源需求的策略
+
+下面列出了上述示例的惰性方法，其中在第一次调用showMessage()时实例化了对象mb_。(也就是说，直到程序真正需要它的时候。)
+
+```
+public final class MyFrame extends Frame
+{
+  private MessageBox mb_ ; //null, implicit
+  //private helper used by this class
+  private void showMessage(String message)
+  {
+    if(mb_==null)//first call to this method
+      mb_=new MessageBox();
+    //set the message text
+    mb_.setMessage( message );
+    mb_.pack();
+    mb_.show();
+  }
+}
+```
+
+如果仔细查看showMessage()，您将看到我们首先确定实例变量mb_是否等于null。由于我们还没有在声明时初始化mb_，所以Java运行时已经为我们处理了这个问题。因此，我们可以安全地继续创建MessageBox实例。将来对showMessage()的所有调用都将发现mb_不等于null，因此跳过对象的创建并使用现有实例。
+
+## Examples
+
+假设客户机要求我们编写一个系统，该系统将允许用户对文件系统上的图像进行编目，并提供查看缩略图或完整图像的功能。我们的第一个尝试可能是编写一个在构造函数中加载映像的类。
+
+```
+public class ImageFile
+{
+  private String filename_;
+  private Image image_;
+  public ImageFile(String filename)
+  {
+    filename_=filename;
+    //load the image
+  }
+  public String getName(){ return filename_;}
+  public Image getImage()
+  {
+    return image_;
+  }
+}
+```
+
+在上面的示例中，ImageFile实现了一种过度热切的方法来实例化Image对象。对它有利的是，这种设计保证了在调用getImage()时可以立即获得图像。然而，这不仅会非常缓慢(对于包含许多映像的目录)，而且这种设计可能会耗尽可用内存。为了避免这些潜在的问题，我们可以用即时访问的性能优势来换取更少的内存使用。正如您可能已经猜到的，我们可以通过使用惰性实例化来实现这一点。
+
+下面是更新后的ImageFile类，使用的方法与MyFrame类处理其MessageBox实例变量的方法相同:
+```
+public class ImageFile
+{
+  private String filename_;
+  private Image image_; //=null, implicit
+  public ImageFile(String filename)
+  {
+    //only store the filename
+    filename_=filename;
+  }
+  public String getName(){ return filename_;}
+  public Image getImage()
+  {
+    if(image_==null)
+    {
+      //first call to getImage()
+      //load the image...
+    }
+    return image_;
+  }
+}
+```
+
+在这个版本中，实际的映像只在第一次调用getImage()时加载。总而言之，这里的权衡是为了减少总体内存使用和启动时间，我们要为在第一次请求时加载映像付出代价——在程序执行的那个点引入性能冲击。这是在需要限制内存使用的上下文中反映代理模式的另一种习惯用法。
+
+上面所示的延迟实例化策略对于我们的示例来说很好，但是稍后您将看到设计如何在多线程上下文中进行更改。
+
+### Java中单例模式的延迟实例化
+
+```
+public class Singleton
+{
+  private Singleton() {}
+  static private Singleton instance_ = new Singleton();
+  static public Singleton instance()
+  {
+    return instance_;
+  }
+  //public methods
+}
+```
+在泛型版本中，我们声明并初始化instance_字段如下:
+```
+static final Singleton instance_ = new Singleton();
+```
+
+使用延迟实例化:
+
+```
+public static Singleton instance()
+{
+  if(instance_==null) //Lazy instantiation
+    instance_= new Singleton();
+  return instance_;
+}
+```
+
+上面的清单是GoF给出的c++单例的一个直接端口，通常也被吹捧为通用Java版本。如果您已经熟悉这个表单，并且对我们没有像这样列出泛型单例感到惊讶，那么当您了解到在Java中完全没有必要这样做时，您会更加惊讶!这是一个常见的例子，说明如果您将代码从一种语言移植到另一种语言，而不考虑各自的运行时环境，会发生什么情况。
+
+需要说明的是，GoF c++版本的Singleton使用了延迟实例化，因为不能保证在运行时静态初始化对象的顺序。(参见Scott Meyer的Singleton了解c++中的另一种方法)。在Java中，我们不必担心这些问题。
+
+在Java中，由于Java运行时处理类加载和静态实例变量初始化的方式，没有必要使用惰性的方法实例化单例。在前面，我们描述了如何以及何时加载类。只有公共静态方法的类在第一次调用这些方法时由Java运行时加载;单例的情况是什么呢
+
+```
+Singleton s=Singleton.instance();
+```
+
+程序中对Singleton.instance()的第一个调用强制Java运行时加载单例类。由于字段instance_被声明为静态的，Java运行时将在成功加载该类之后初始化它。因此，确保对Singleton.instance()的调用将返回一个完全初始化的Singleton。
+
+### 延迟实例化：多线程应用程序中存在危险
+
+对于具体的单例，使用延迟实例化不仅在Java中是不必要的，在多线程应用程序的上下文中也是非常危险的。考虑Singleton.instance()方法的延迟版本，其中两个或多个单独的线程试图通过instance()获得对对象的引用。如果一个线程在成功执行If (instance_==null)行之后被抢占，但是在它完成instance_=new Singleton()行之前，另一个线程也可以使用instance_ still ==null()来输入这个方法，这很糟糕!
+
+这个场景的结果是创建一个或多个单例对象的可能性。当单例类连接到数据库或远程服务器时，这是一个令人头痛的问题。解决这个问题的简单方法是使用synchronized关键字来保护方法不被多个线程同时进入:
+
+```
+synchronized static public instance() {...}
+```
+
+但是，对于广泛使用单例类的大多数多线程应用程序来说，这种方法有些笨拙，因此会阻塞对instance()的并发调用。顺便说一下，调用同步方法总是比调用非同步方法慢得多。所以我们需要的是一种同步策略，它不会导致不必要的阻塞。幸运的是，这样的策略是存在的。它被称为双重检查习语。
+
+### 双重检查语法
+
+使用双重检查习惯用法来保护使用延迟实例化的方法。下面是如何用Java实现它:
+
+```
+public static Singleton instance()
+{
+  if(instance_==null) //don't want to block here
+  {
+    //two or more threads might be here!!!
+    synchronized(Singleton.class)
+    {
+      //must check again as one of the
+      //blocked threads can still enter
+      if(instance_==null)
+        instance_= new Singleton();//safe
+    }
+  }
+  return instance_;
+}
+```
+
+只有在构造单例之前多个线程调用instance()时，双重检查用法才会使用同步来提高性能。一旦对象被实例化，instance_就不再是==null，从而允许该方法避免阻塞并发调用者。
+
+在Java中使用多个线程可能非常复杂。事实上，并发性的主题非常广泛，以至于Doug Lea写了一本关于它的书:Concurrent Programming in Java (Java并发编程)。
 
 
+# Object Pool in Java
+
+## What is Object Pool?
+
+对象池模式是一种软件创建设计模式，用于初始化类实例的成本非常高的情况。基本上，对象池是包含一定数量对象的容器。因此，当从池中取出一个对象时，它将在池中不可用，直到它被放回。
+
+对象池(也称为资源池)用于管理对象缓存。访问对象池的客户机可以通过简单地请求池提供一个已经实例化的对象来避免创建新对象。通常，池将是一个不断增长的池，也就是说，如果池为空，池本身将创建新对象，或者我们可以有一个池，它限制了创建的对象的数量。
+
+最好将当前未使用的所有可重用对象保存在同一个对象池中，以便由一个一致的策略管理它们。为此，可重用池类被设计为单例类。
+
+对象池允许其他人从其池中“check out”对象，当进程不再需要这些对象时，将它们返回到池中以便重用。
+
+但是，我们不希望进程必须等待某个特定的对象被释放，因此对象池也会根据需要实例化新对象，但是还必须实现定期清理未使用对象的功能。
+
+## Usage
+
+连接池模式的一般思想是，如果类的实例可以重用，那么可以通过重用它们来避免创建类的实例。
+
+通常，最好将当前未使用的所有可重用对象保存在同一个对象池中，以便由一个一致的策略管理它们。为了实现这一点，ReusablePool类被设计为一个单例类。它的构造函数是私有的，这迫使其他类调用它的getInstance方法来获取ReusablePool类的一个实例。
+
+客户端对象在需要可重用对象时调用ReusablePool对象的acquirereavailable方法。ReusablePool对象维护可重用对象的集合。它使用可重用对象的集合来包含当前未使用的可重用对象池。
+
+当调用acquirereavailable方法时，如果池中有任何可重用对象，则从池中删除可重用对象并返回它。如果池为空，则acquirereavailable方法将在可能的情况下创建可重用对象。如果acquirereavailable方法不能创建新的可重用对象，那么它将等待，直到将可重用对象返回到集合。
+
+客户端对象在使用完可重用对象后，将可重用对象传递给ReusablePool对象的releasereavailable方法。releasereavailable方法将可重用对象返回给未使用的可重用对象池。
+
+在对象池模式的许多应用程序中，有理由限制可能存在的可重用对象的总数。在这种情况下，创建可重用对象的ReusablePool对象负责创建的可重用对象数量不超过指定的最大数量。如果ReusablePool对象负责限制它们将创建的对象的数量，那么ReusablePool类将有一个方法来指定要创建的对象的最大数量。
+
+## Example
+
+对象池模式类似于办公室仓库。当一个新员工被雇佣时，办公室经理必须为他准备一个工作空间。她想知道办公室仓库里是否有备用设备。如果是，她就用它。如果没有，她就从亚马逊订购新设备。如果一名员工被解雇，他的设备就会被转移到仓库，在需要新的工作地点的时候就可以拿到仓库。
+
+### Check List
++ 创建内部,带有私有对象数组的ObjectPool类
++ 在ObjectPool类中创建获取和释放方法
++ 确保ObjectPool是Singleton
+
+### Rules of thumb
++ 工厂方法模式可用于封装对象的创建逻辑。但是，对象池模式在创建对象之后并不管理它们，而是跟踪它创建的对象。
++ 对象池通常实现为单例。
+
+### Use in Java
+
+ObjectPool Class
+```
+public abstract class ObjectPool<T> {
+  private long expirationTime;
+
+  private Hashtable<T, Long> locked, unlocked;
+
+  public ObjectPool() {
+    expirationTime = 30000; // 30 seconds
+    locked = new Hashtable<T, Long>();
+    unlocked = new Hashtable<T, Long>();
+  }
+
+  protected abstract T create();
+
+  public abstract boolean validate(T o);
+
+  public abstract void expire(T o);
+
+  public synchronized T checkOut() {
+    long now = System.currentTimeMillis();
+    T t;
+    if (unlocked.size() > 0) {
+      Enumeration<T> e = unlocked.keys();
+      while (e.hasMoreElements()) {
+        t = e.nextElement();
+        if ((now - unlocked.get(t)) > expirationTime) {
+          // object has expired
+          unlocked.remove(t);
+          expire(t);
+          t = null;
+        } else {
+          if (validate(t)) {
+            unlocked.remove(t);
+            locked.put(t, now);
+            return (t);
+          } else {
+            // object failed validation
+            unlocked.remove(t);
+            expire(t);
+            t = null;
+          }
+        }
+      }
+    }
+    // no objects available, create a new one
+    t = create();
+    locked.put(t, now);
+    return (t);
+  }
+
+  public synchronized void checkIn(T t) {
+    locked.remove(t);
+    unlocked.put(t, System.currentTimeMillis());
+  }
+}
+
+//The three remaining methods are abstract 
+//and therefore must be implemented by the subclass
+
+public class JDBCConnectionPool extends ObjectPool<Connection> {
+
+  private String dsn, usr, pwd;
+
+  public JDBCConnectionPool(String driver, String dsn, String usr, String pwd) {
+    super();
+    try {
+      Class.forName(driver).newInstance();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    this.dsn = dsn;
+    this.usr = usr;
+    this.pwd = pwd;
+  }
+
+  @Override
+  protected Connection create() {
+    try {
+      return (DriverManager.getConnection(dsn, usr, pwd));
+    } catch (SQLException e) {
+      e.printStackTrace();
+      return (null);
+    }
+  }
+
+  @Override
+  public void expire(Connection o) {
+    try {
+      ((Connection) o).close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public boolean validate(Connection o) {
+    try {
+      return (!((Connection) o).isClosed());
+    } catch (SQLException e) {
+      e.printStackTrace();
+      return (false);
+    }
+  }
+}
+```
+
+JDBCConnectionPool将允许应用程序借用和返回数据库连接:
+```
+public class Main {
+  public static void main(String args[]) {
+    // Do something...
+    ...
+
+    // Create the ConnectionPool:
+    JDBCConnectionPool pool = new JDBCConnectionPool(
+      "org.hsqldb.jdbcDriver", "jdbc:hsqldb://localhost/mydb",
+      "sa", "secret");
+
+    // Get a connection:
+    Connection con = pool.checkOut();
+
+    // Use the connection
+    ...
+
+    // Return the connection:
+    pool.checkIn(con);
+ 
+  }
+}
+```
+
+# Prototype Pattern in Java
+
+## What is Prototype Pattern?
+
+原型模式是软件开发中的一种创造性设计模式。当要创建的对象类型由一个原型实例决定时，将使用它，该原型实例被克隆以生成新的对象。此模式用于:
++ 避免在客户端应用程序中使用对象创建者的子类，就像工厂方法模式。
++ 避免以标准方式(例如，使用“new”关键字)创建新对象的固有成本，因为它对于给定的应用程序来说非常昂贵。
+
+要实现此模式，请声明一个抽象基类，该类指定一个pure virtual clone()方法。任何需要“多态构造函数”功能的类都从抽象基类派生自己，并实现clone()操作。
+
+客户端没有编写代码来调用硬编码类名上的“new”操作符，而是在原型上调用clone()方法，使用指定所需的特定具体派生类的参数调用工厂方法，或者通过另一种设计模式提供的某种机制调用clone()方法。
+
+一个细胞的有丝分裂——导致两个相同的细胞——是一个原型的一个例子，它在复制自身中起着积极的作用，因此，展示了原型模式。当一个细胞分裂时，会产生两个基因型相同的细胞。换句话说，细胞克隆自己。
+
+## Example 
+
+Prototype模式提供了一种机制，可以将原始对象复制到新对象，然后根据我们的需要对其进行修改。原型设计模式使用java克隆来复制对象。
+
+通过一个实例，可以很容易地理解原型设计模式。假设我们有一个从数据库加载数据的对象。现在我们需要在程序中多次修改该数据，因此使用new关键字创建对象并再次从数据库加载所有数据不是一个好主意。
+
+更好的方法是将现有对象克隆到一个新对象中，然后进行数据操作。
+
+原型设计模式要求您复制的对象应该提供复制特性。它不应该由任何其他类来完成。然而，是否使用对象属性的浅拷贝或深拷贝取决于需求及其设计决策。
+
+下面是一个示例程序，展示了java中的原型设计模式示例。
+
+```
+package com.journaldev.design.prototype;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Employees implements Cloneable{
+
+	private List<String> empList;
+	
+	public Employees(){
+		empList = new ArrayList<String>();
+	}
+	
+	public Employees(List<String> list){
+		this.empList=list;
+	}
+	public void loadData(){
+		//read all employees from database and put into the list
+		empList.add("Pankaj");
+		empList.add("Raj");
+		empList.add("David");
+		empList.add("Lisa");
+	}
+	
+	public List<String> getEmpList() {
+		return empList;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException{
+			List<String> temp = new ArrayList<String>();
+			for(String s : this.getEmpList()){
+				temp.add(s);
+			}
+			return new Employees(temp);
+	}
+	
+}
+```
+
+请注意，重写clone方法以提供员工列表的副本。
+
+下面的原型设计模式示例测试程序将展示原型模式的好处。
+
+```
+import com.journaldev.design.prototype.Employees;
+
+public class PrototypePatternTest {
+
+	public static void main(String[] args) throws CloneNotSupportedException {
+		Employees emps = new Employees();
+		emps.loadData();
+		
+		//Use the clone method to get the Employee object
+		Employees empsNew = (Employees) emps.clone();
+		Employees empsNew1 = (Employees) emps.clone();
+		List<String> list = empsNew.getEmpList();
+		list.add("John");
+		List<String> list1 = empsNew1.getEmpList();
+		list1.remove("Pankaj");
+		
+		System.out.println("emps List: "+emps.getEmpList());
+		System.out.println("empsNew List: "+list);
+		System.out.println("empsNew1 List: "+list1);
+	}
+
+}
+```
+
+如果没有提供对象克隆，那么每次都必须调用数据库来获取employee列表。然后做一些需要耗费资源和时间的操作。
+
+
+
+
+# 主要参考资源
+
+## [design_patterns](https://sourcemaking.com/design_patterns/)
+
+## [geeksforgeeks](https://www.geeksforgeeks.org/object-pool-design-pattern/)
+
+## [wiki-Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
+
+## [journaldev](https://www.journaldev.com/1827/java-design-patterns-example-tutorial)
+
+## [tutorialspoint](https://www.tutorialspoint.com/design_pattern/index.htm)
