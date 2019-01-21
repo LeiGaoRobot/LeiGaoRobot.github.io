@@ -40,7 +40,7 @@ thumbnail: /img/article/javase.png
 
 ## Examples
 
-创建设计模式的一些示例包括：
+创建型设计模式的一些示例包括：
 
 + Factory Mothed pattern(工厂方法模式) - 允许一个类的实例化推迟到子类中进行。
 + Abstract Factory pattern(抽象工厂模式) - 提供一个创建相关或依赖对象的接口，而不指定对象的具体类。
@@ -51,7 +51,7 @@ thumbnail: /img/article/javase.png
 + Prototype pattern(原型模式) - 使用原型实例指定要创建的对象类型，通过复制原型创建新的对象。
 
 
-# Factory Design Pattern in Java
+# Factory Pattern in Java
 
 ## What is Factory Design Pattern?
 
