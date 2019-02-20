@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Java 设计模式 - Structural | 
+        
+        PaulGao Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/logo.png">
+    <link rel="icon" href="/img/logo.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",java,设计模式,design patterns,structural">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg-random/BG-night-midnight.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PaulGao Blog">
+    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="PaulGao Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Java 设计模式 - Structural | PaulGao Blog">
+    <meta property="og:image" content="/img/logo.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="java"> <meta property="og:article:tag" content="设计模式"> <meta property="og:article:tag" content="design patterns"> <meta property="og:article:tag" content="structural"> 
+
+    
+        <meta property="article:published_time" content="Tue Jan 15 2019 10:52:18 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jan 21 2019 21:05:27 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/index.html",
+    "headline": "Java 设计模式 - Structural",
+    "datePublished": "Tue Jan 15 2019 10:52:18 GMT+0800",
+    "dateModified": "Mon Jan 21 2019 21:05:27 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Paul Gao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.png"
+        },
+        "description": "Sometimes I'm gonna have to lose, But i'm gonna remember most, Just gotta keep going."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "PaulGao Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/logo.png"
+        }
+    },
+    "keywords": ",java,设计模式,design patterns,structural",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Structural-Patterns"><span class="post-toc-number">1.</span> <span class="post-toc-text">Structural Patterns</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#External-Polymorphism"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">External Polymorphism</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Adapter-Pattern-in-Java"><span class="post-toc-number">2.</span> <span class="post-toc-text">Adapter Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Adapter-Pattern"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">What is Adapter Pattern?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Adapter-pipeline"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Adapter pipeline</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Retoft-Interface-Pattern"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">Retoft Interface Pattern</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Advantages"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Advantages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Usage</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Two-Way-Adapter-Pattern"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">Two Way Adapter Pattern</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Class-Adapter"><span class="post-toc-number">2.3.1.1.</span> <span class="post-toc-text">Class Adapter</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Object-Adapter"><span class="post-toc-number">2.3.1.2.</span> <span class="post-toc-text">Object Adapter</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Adapter-Design-Pattern-Example-in-JDK"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">Adapter Design Pattern Example in JDK</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Aggregate-Pattern-in-Java"><span class="post-toc-number">3.</span> <span class="post-toc-text">Aggregate Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Aggregate-Pattern"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">What is Aggregate Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Bridge-Pattern-in-Java"><span class="post-toc-number">4.</span> <span class="post-toc-text">Bridge Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Brige-Pattern"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">What is Brige Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Composite-Pattern-in-Java"><span class="post-toc-number">5.</span> <span class="post-toc-text">Composite Pattern in Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-Composite-Pattern"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">What is Composite Pattern?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-3"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/article/javase.png)">
+    
+            <p class="article-headline-p">
+                Java 设计模式 - Structural
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Paul Gao</strong>
+        <span>Jan 15, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/design-patterns/">design patterns</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/java/">java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/structural/">structural</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/设计模式/">设计模式</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java 设计模式 - Structural&url=https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java 设计模式 - Structural&url=https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/index.html&via=Paul Gao" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2019/01/15/JavaDesignPatterns-Structural/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Structural-Patterns"><a href="#Structural-Patterns" class="headerlink" title="Structural Patterns"></a>Structural Patterns</h1><p>在软件工程中，结构设计模式是借由一以贯之的方式来了解元件间的关系，以简化设计。</p>
+<p>结构模式的示例包括：</p>
+<ul>
+<li>Adapter pattern (适配器模式) -将一个物件的界面’转接’成当事人预期的样子<ul>
+<li>Adapter pipeline (适配器管道) : 同时使用多个类别的界面的适配器</li>
+<li>Retroft Interface Pattern (改造接口模式) : 因除错目的而使用多个适配器</li>
+</ul>
+</li>
+<li>Aggregate pattern (聚集模式) - 一种组合模式的版本，包含用于聚集子成员的成员函式</li>
+<li>Bridge pattern (桥接模式) - 将抽象与其实现解耦，这样两者就可以独立地变化<ul>
+<li>Tombstone (墓碑模式) : 一种中介的查询物件，包含物件的实际位址</li>
+</ul>
+</li>
+<li>Composite pattern (组合模式) - 对象的树结构，其中每个对象都有相同的接口</li>
+<li>Decorator pattern (装饰模式) - 对一个执行的类别，若使用继承方式加上新功能可能会新类别的数量呈指数型地增加，可使用此模式来解决</li>
+<li>Extensibility pattern (扩展模式) - 亦即框架，将复杂的程式码隐藏在简单的界面后</li>
+<li>Facade pattern (外观模式) - 为现有接口创建简化的接口，以简化对常见任务的使用</li>
+<li>Flyweight pattern (享元模式) - 大量对象共享一个公共属性对象以节省空间</li>
+<li>Marker pattern (标记模式)- 将元数据与类关联的空接口。</li>
+<li>Pipes and filter (导线及过滤器模式) - 一个进程链，其中每个进程的输出是下一个进程的输入</li>
+<li>Opaque pointer (不透明指针) - 指向未声明或私有类型的指针，以隐藏其实现细节</li>
+<li>Proxy pattern (代理模式) - 类的作用是作为另一个对象的接口</li>
+</ul>
+<h2 id="External-Polymorphism"><a href="#External-Polymorphism" class="headerlink" title="External Polymorphism"></a>External Polymorphism</h2><p>External Polymorphism (外部多态性)，用于实现多态性的任何机制，该多态性在显示多态行为的对象的定义之外。基于类型代码的switch语句可能是最简单的这种机制。<a href="http://wiki.c2.com/?ExternalPolymorphism" target="_blank" rel="noopener">more</a></p>
+<h1 id="Adapter-Pattern-in-Java"><a href="#Adapter-Pattern-in-Java" class="headerlink" title="Adapter Pattern in Java"></a>Adapter Pattern in Java</h1><h2 id="What-is-Adapter-Pattern"><a href="#What-is-Adapter-Pattern" class="headerlink" title="What is Adapter Pattern?"></a>What is Adapter Pattern?</h2><p>在软件工程中，适配器模式是一种软件设计模式(也称为包装器，与装饰器模式共享的另一种命名)，它允许将现有类的接口用作另一个接口。它通常用于使现有的类在不修改源代码的情况下与其他类一起工作。</p>
+<p>适配器设计模式是23种著名的GoF设计模式之一，这些设计模式描述了如何解决重复出现的设计问题，从而设计灵活且可重用的面向对象软件，即更容易实现、更改、测试和重用的对象。</p>
+<p>适配器设计模式解决了以下问题:</p>
+<ul>
+<li>如何重用不具有客户端所需接口的类？</li>
+<li>具有不兼容接口的类如何协同工作？</li>
+<li>如何为类提供替代接口？</li>
+</ul>
+<p>通常一个(已经存在的)类不能被重用，仅仅因为它的接口不符合客户端需要的接口。</p>
+<p>适配器设计模式描述了如何解决这些问题:</p>
+<ul>
+<li>定义一个单独的适配器类，将类(adaptee)的(不兼容的)接口转换为另一个客户端所需的接口(目标)。</li>
+<li>通过适配器处理(重用)不具有所需接口的类。</li>
+</ul>
+<p>这种模式的关键思想是通过一个单独的适配器来适应（已经存在的）类的接口而不改变它。</p>
+<p>客户端不知道它们是直接使用目标类，还是通过具有没有目标接口的类的适配器使用。</p>
+<p>适配器允许两个不兼容的接口一起工作。这是适配器的真实定义。接口可能不兼容，但内部功能应该满足需求。适配器设计模式允许不兼容的类通过将一个类的接口转换为客户机期望的接口一起工作。<a href="https://en.wikipedia.org/wiki/Adapter_pattern" target="_blank" rel="noopener">more</a></p>
+<h3 id="Adapter-pipeline"><a href="#Adapter-pipeline" class="headerlink" title="Adapter pipeline"></a>Adapter pipeline</h3><p>从结构上讲，适配器模式是通过(一个小的转换)委托给另一个类来实现接口的类。但是，这个类结构不仅适用于将两个稍微不兼容的接口连接在一起。</p>
+<p>适配器管道有时是分解计算的一种很好的方法。例如，它是编译器的合理设计。</p>
+<p>这种模式有利于可测试性。在单元测试中，可以单独测试管道的每个部分。在调试集成问题时，可以通过为边界的接口编写修饰符来监听任何边界。如果某些接口是相同的，则可能允许以不同的顺序排列管道的各个部分。</p>
+<h3 id="Retoft-Interface-Pattern"><a href="#Retoft-Interface-Pattern" class="headerlink" title="Retoft Interface Pattern"></a>Retoft Interface Pattern</h3><p>如果使用的是Java。如果有两个类不是你的的(因此不能修改它们)。你希望编写一些可以交替使用它们的客户端代码。如何指定它们的类型?你不能指定类;不止一个。不能指定它们的公共超类;它太通用了(可能是java.lang.Object)。不能指定它们的公共接口;要么没有，要么太笼统了。</p>
+<p>因此，应用适配器模式的公共专门化。实现客户端需要的接口。对于您尝试使用的每个第三方类，创建一个适配器类。适配器应该实现接口;编写每个接口消息的代码，以便将其委托给第三方类中的适当消息。客户端应该引用接口。当客户端需要使用第三方类的实例时，用对应适配器类的实例包装它，并通过接口使用该实例。适配器允许客户端通过同构接口交换使用异构类，而无需修改原始类。</p>
+<p>但，这是一种模式？，还是某种运行时类型更改模式语言中的适配器?</p>
+<p>它是GangOfFour设计模式书中AdapterPattern的变体。</p>
+<p>在这本书中假设您控制了感兴趣的类之一，并试图使某些不兼容的类保持一致。以上的思想概括了AdapterPattern的思想。</p>
+<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ul>
+<li>有助于实现可重用性和灵活性。</li>
+<li>由于必须使用不同的接口，所以Client类并不复杂，并且可以使用多态性在适配器的不同实现之间进行交换。</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>所有请求都被转发，因此开销略有增加。</li>
+<li>有时需要沿着适配器链进行许多调整才能达到所需的类型。</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>适配器模式很容易理解，因为现实世界中到处都是适配器。例如，考虑一个USB到以太网适配器。当我们在一端有以太网接口，另一端有USB接口时，我们需要这个。因为它们彼此不相容。我们使用一个适配器将一个转换为另一个。这个示例非常类似于面向对象适配器。在设计中，当我们有一个类(客户机)期望某种类型的对象，并且我们有一个对象(Adaptee)提供相同的特性，但公开不同的接口时，就会使用适配器。</p>
+<p>使用适配器模式：</p>
+<ul>
+<li>客户端通过使用目标接口调用适配器上的方法向适配器发出请求</li>
+<li>适配器使用adaptee接口在adaptee上转换该请求。</li>
+<li>客户端接收调用的结果，并且不知道适配器的存在。</li>
+</ul>
+<p>适配器设计模式的另一个很好的现实例子是移动充电器。移动电池需要3伏的电压来充电，但普通插座可以产生120V(美国)或240V(印度)。因此，移动充电器作为移动充电插座和壁挂式插座之间的适配器。</p>
+<p> 首先我们将有两类-Volt(测量伏特)和Socket(产生恒定电压120V)。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> package com.journaldev.design.adapter;</span><br><span class="line"></span><br><span class="line">public class Volt &#123;</span><br><span class="line"></span><br><span class="line">	private int volts;</span><br><span class="line">	</span><br><span class="line">	public Volt(int v)&#123;</span><br><span class="line">		this.volts=v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getVolts() &#123;</span><br><span class="line">		return volts;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setVolts(int volts) &#123;</span><br><span class="line">		this.volts = volts;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.adapter;</span><br><span class="line"></span><br><span class="line">public class Socket &#123;</span><br><span class="line"></span><br><span class="line">	public Volt getVolt()&#123;</span><br><span class="line">		return new Volt(120);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们想建立一个适配器，可以产生3伏，12伏和默认120伏。首先，我们将使用这些方法创建适配器接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.adapter;</span><br><span class="line"></span><br><span class="line">public interface SocketAdapter &#123;</span><br><span class="line"></span><br><span class="line">	public Volt get120Volt();</span><br><span class="line">		</span><br><span class="line">	public Volt get12Volt();</span><br><span class="line">	</span><br><span class="line">	public Volt get3Volt();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Two-Way-Adapter-Pattern"><a href="#Two-Way-Adapter-Pattern" class="headerlink" title="Two Way Adapter Pattern"></a>Two Way Adapter Pattern</h3><p>在实现适配器模式时，有两种方法——类适配器和对象适配器——但是这两种方法产生相同的结果。</p>
+<ul>
+<li>Class Adapter (类适配器) —— 使用 java继承 方式扩展源接口，在示例中是Socket类。</li>
+<li>Object Adapter (对象适配器) —— 使用 Java组合，适配器包含源对象。</li>
+</ul>
+<h4 id="Class-Adapter"><a href="#Class-Adapter" class="headerlink" title="Class Adapter"></a>Class Adapter</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.adapter;</span><br><span class="line"></span><br><span class="line">//Using inheritance for adapter pattern</span><br><span class="line">public class SocketClassAdapterImpl extends Socket implements SocketAdapter&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Volt get120Volt() &#123;</span><br><span class="line">		return getVolt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Volt get12Volt() &#123;</span><br><span class="line">		Volt v= getVolt();</span><br><span class="line">		return convertVolt(v,10);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Volt get3Volt() &#123;</span><br><span class="line">		Volt v= getVolt();</span><br><span class="line">		return convertVolt(v,40);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private Volt convertVolt(Volt v, int i) &#123;</span><br><span class="line">		return new Volt(v.getVolts()/i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Object-Adapter"><a href="#Object-Adapter" class="headerlink" title="Object Adapter"></a>Object Adapter</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.adapter;</span><br><span class="line"></span><br><span class="line">public class SocketObjectAdapterImpl implements SocketAdapter&#123;</span><br><span class="line"></span><br><span class="line">	//Using Composition for adapter pattern</span><br><span class="line">	private Socket sock = new Socket();</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public Volt get120Volt() &#123;</span><br><span class="line">		return sock.getVolt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Volt get12Volt() &#123;</span><br><span class="line">		Volt v= sock.getVolt();</span><br><span class="line">		return convertVolt(v,10);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Volt get3Volt() &#123;</span><br><span class="line">		Volt v= sock.getVolt();</span><br><span class="line">		return convertVolt(v,40);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private Volt convertVolt(Volt v, int i) &#123;</span><br><span class="line">		return new Volt(v.getVolts()/i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，这两个适配器实现几乎是相同的，它们实现SocketAdapter接口。适配器接口也可以是一个抽象类。</p>
+<p>实际调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.test;</span><br><span class="line"></span><br><span class="line">import com.journaldev.design.adapter.SocketAdapter;</span><br><span class="line">import com.journaldev.design.adapter.SocketClassAdapterImpl;</span><br><span class="line">import com.journaldev.design.adapter.SocketObjectAdapterImpl;</span><br><span class="line">import com.journaldev.design.adapter.Volt;</span><br><span class="line"></span><br><span class="line">public class AdapterPatternTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		testClassAdapter();</span><br><span class="line">		testObjectAdapter();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void testObjectAdapter() &#123;</span><br><span class="line">		SocketAdapter sockAdapter = new SocketObjectAdapterImpl();</span><br><span class="line">		Volt v3 = getVolt(sockAdapter,3);</span><br><span class="line">		Volt v12 = getVolt(sockAdapter,12);</span><br><span class="line">		Volt v120 = getVolt(sockAdapter,120);</span><br><span class="line">		System.out.println(&quot;v3 volts using Object Adapter=&quot;+v3.getVolts());</span><br><span class="line">		System.out.println(&quot;v12 volts using Object Adapter=&quot;+v12.getVolts());</span><br><span class="line">		System.out.println(&quot;v120 volts using Object Adapter=&quot;+v120.getVolts());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void testClassAdapter() &#123;</span><br><span class="line">		SocketAdapter sockAdapter = new SocketClassAdapterImpl();</span><br><span class="line">		Volt v3 = getVolt(sockAdapter,3);</span><br><span class="line">		Volt v12 = getVolt(sockAdapter,12);</span><br><span class="line">		Volt v120 = getVolt(sockAdapter,120);</span><br><span class="line">		System.out.println(&quot;v3 volts using Class Adapter=&quot;+v3.getVolts());</span><br><span class="line">		System.out.println(&quot;v12 volts using Class Adapter=&quot;+v12.getVolts());</span><br><span class="line">		System.out.println(&quot;v120 volts using Class Adapter=&quot;+v120.getVolts());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static Volt getVolt(SocketAdapter sockAdapter, int i) &#123;</span><br><span class="line">		switch (i)&#123;</span><br><span class="line">		case 3: return sockAdapter.get3Volt();</span><br><span class="line">		case 12: return sockAdapter.get12Volt();</span><br><span class="line">		case 120: return sockAdapter.get120Volt();</span><br><span class="line">		default: return sockAdapter.get120Volt();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Adapter-Design-Pattern-Example-in-JDK"><a href="#Adapter-Design-Pattern-Example-in-JDK" class="headerlink" title="Adapter Design Pattern Example in JDK"></a>Adapter Design Pattern Example in JDK</h3><ul>
+<li>java.util.Arrays#asList()</li>
+<li>java.io.InputStreamReader(InputStream) (returns a Reader)</li>
+<li>java.io.OutputStreamWriter(OutputStream) (returns a Writer)</li>
+</ul>
+<h1 id="Aggregate-Pattern-in-Java"><a href="#Aggregate-Pattern-in-Java" class="headerlink" title="Aggregate Pattern in Java"></a>Aggregate Pattern in Java</h1><h2 id="What-is-Aggregate-Pattern"><a href="#What-is-Aggregate-Pattern" class="headerlink" title="What is Aggregate Pattern?"></a>What is Aggregate Pattern?</h2><p>聚合模式可以引用统计或计算机编程中的概念。这两种用法都将大小写看作是由更小、更简单的部分组成的。</p>
+<p>聚合模式是一个重要的统计概念，在许多领域中，它依赖于统计数据来预测大型组的行为，其基础是子组以某种方式一致行为的趋势。它在社会学、经济学、心理学和犯罪学中尤其有用。<a href="https://en.wikipedia.org/wiki/Aggregate_pattern" target="_blank" rel="noopener">more</a></p>
+<p>聚合模式在JAVA中使用：</p>
+<ul>
+<li>当没有is-a关系时，通过聚合也可以最好地实现代码重用。</li>
+<li>只有在关系为a的关系在涉及的对象的整个生命周期中都得到维护时，才应该使用继承;否则，聚合是最好的选择。</li>
+</ul>
+<h2 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h2><p>如果类有实体引用，则称为聚合。聚合表示HAS-A关系。</p>
+<p>Employee对象包含许多信息，如id、name、emailId等。它还包含一个名为address的对象，该对象包含它自己的信息，如城市、州、国家、邮政编码等，如下所示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Employee&#123;  </span><br><span class="line">	int id;  </span><br><span class="line">	String name;  </span><br><span class="line">	Address address;//Address is a class  </span><br><span class="line">	...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这种情况下，Employee有一个实体引用地址,他们之间的关系就是Employee有一个Address。</p>
+<p>Employee有一个Address对象，Address对象包含它自己的信息，比如city、state、country等等。在这种情况下，关系就是Employee有一个Address。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Address &#123;  </span><br><span class="line">	String city,state,country;  </span><br><span class="line">	</span><br><span class="line">	public Address(String city, String state, String country) &#123;  </span><br><span class="line">		this.city = city;  </span><br><span class="line">		this.state = state;  </span><br><span class="line">		this.country = country;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Emp &#123;  </span><br><span class="line">	int id;  </span><br><span class="line">	String name;  </span><br><span class="line">	Address address;  </span><br><span class="line">  </span><br><span class="line">	public Emp(int id, String name,Address address) &#123;  </span><br><span class="line">		this.id = id;  </span><br><span class="line">		this.name = name;  </span><br><span class="line">		this.address=address;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	void display()&#123;  </span><br><span class="line">		System.out.println(id+&quot; &quot;+name);  </span><br><span class="line">		System.out.println(address.city+&quot; &quot;+address.state+&quot; &quot;+address.country);  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;  </span><br><span class="line">		Address address1=new Address(&quot;gzb&quot;,&quot;UP&quot;,&quot;india&quot;);  </span><br><span class="line">		Address address2=new Address(&quot;gno&quot;,&quot;UP&quot;,&quot;india&quot;);  </span><br><span class="line">		</span><br><span class="line">		Emp e=new Emp(111,&quot;varun&quot;,address1);  </span><br><span class="line">		Emp e2=new Emp(112,&quot;arun&quot;,address2);  </span><br><span class="line">			</span><br><span class="line">		e.display();  </span><br><span class="line">		e2.display();  </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Bridge-Pattern-in-Java"><a href="#Bridge-Pattern-in-Java" class="headerlink" title="Bridge Pattern in Java"></a>Bridge Pattern in Java</h1><h2 id="What-is-Brige-Pattern"><a href="#What-is-Brige-Pattern" class="headerlink" title="What is Brige Pattern?"></a>What is Brige Pattern?</h2><p>桥接模式是软件工程中使用的一种设计模式，其目的是“将抽象与其实现解耦，以便两者可以独立地变化”，由“Gang of Four”引入。桥接使用封装、聚合，并可以使用继承将职责分离到不同的类中。</p>
+<p>当一个类经常变化时,面向对象编程的特性变得非常有用,因为对于程序的代码的更改可以很容易地对程序的先验知识进行。当课堂和它经常发生的变化时,桥的模式是有用的。类本身可以被认为是抽象,以及类可以作为实现的内容。桥梁模式也可以被认为是两层抽象。</p>
+<p>桥接模式经常与适配器模式混淆，通常使用对象适配器模式来实现。</p>
+<p>变体:通过将实现延迟到使用抽象的点，可以进一步解耦实现。<a href="https://en.wikipedia.org/wiki/Bridge_pattern" target="_blank" rel="noopener">more</a></p>
+<h2 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h2><p>桥接模式的概念:将抽象与其实现分离，以便两者可以独立变化</p>
+<p>桥接设计模式的实现遵循组合优于继承的思想</p>
+<p>如果我们以实例来研究桥接设计模式，就会很容易理解。假设我们在接口和实现中都有一个接口层次结构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.bridge;</span><br><span class="line"></span><br><span class="line">public interface Color &#123;</span><br><span class="line"></span><br><span class="line">	public void applyColor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.bridge;</span><br><span class="line"></span><br><span class="line">public abstract class Shape &#123;</span><br><span class="line">	//Composition - implementor</span><br><span class="line">	protected Color color;</span><br><span class="line">	</span><br><span class="line">	//constructor with implementor as input argument</span><br><span class="line">	public Shape(Color c)&#123;</span><br><span class="line">		this.color=c;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	abstract public void applyColor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们有如下所示的三角形和五边形实现类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.bridge;</span><br><span class="line"></span><br><span class="line">public class Triangle extends Shape&#123;</span><br><span class="line"></span><br><span class="line">	public Triangle(Color c) &#123;</span><br><span class="line">		super(c);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void applyColor() &#123;</span><br><span class="line">		System.out.print(&quot;Triangle filled with color &quot;);</span><br><span class="line">		color.applyColor();</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.bridge;</span><br><span class="line"></span><br><span class="line">public class Pentagon extends Shape&#123;</span><br><span class="line"></span><br><span class="line">	public Pentagon(Color c) &#123;</span><br><span class="line">		super(c);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void applyColor() &#123;</span><br><span class="line">		System.out.print(&quot;Pentagon filled with color &quot;);</span><br><span class="line">		color.applyColor();</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>红颜色和绿颜色的实现类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.bridge;</span><br><span class="line"></span><br><span class="line">public class RedColor implements Color&#123;</span><br><span class="line"></span><br><span class="line">	public void applyColor()&#123;</span><br><span class="line">		System.out.println(&quot;red.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.bridge;</span><br><span class="line"></span><br><span class="line">public class GreenColor implements Color&#123;</span><br><span class="line"></span><br><span class="line">	public void applyColor()&#123;</span><br><span class="line">		System.out.println(&quot;green.&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试程序测试桥接模式实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.design.test;</span><br><span class="line"></span><br><span class="line">import com.journaldev.design.bridge.GreenColor;</span><br><span class="line">import com.journaldev.design.bridge.Pentagon;</span><br><span class="line">import com.journaldev.design.bridge.RedColor;</span><br><span class="line">import com.journaldev.design.bridge.Shape;</span><br><span class="line">import com.journaldev.design.bridge.Triangle;</span><br><span class="line"></span><br><span class="line">public class BridgePatternTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Shape tri = new Triangle(new RedColor());</span><br><span class="line">		tri.applyColor();</span><br><span class="line">		</span><br><span class="line">		Shape pent = new Pentagon(new GreenColor());</span><br><span class="line">		pent.applyColor();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当抽象和实现各自具有不同的层次结构，并且我们希望向客户机应用程序隐藏实现时，可以使用桥接设计模式。</p>
+<h1 id="Composite-Pattern-in-Java"><a href="#Composite-Pattern-in-Java" class="headerlink" title="Composite Pattern in Java"></a>Composite Pattern in Java</h1><h2 id="What-is-Composite-Pattern"><a href="#What-is-Composite-Pattern" class="headerlink" title="What is Composite Pattern?"></a>What is Composite Pattern?</h2><p>在软件工程中，组合模式是一种分区设计模式。复合模式描述一组对象，这些对象以相同的方式作为同一类型对象的单个实例进行处理。组合的目的是将对象“组合”到树结构中，以表示部分-整体层次结构。实现复合模式可以让客户端统一地处理单个对象和组合。</p>
+<p>组合设计模式是23种著名的GoF设计模式之一，这些设计模式描述如何解决重复出现的设计问题，从而设计灵活且可重用的面向对象软件，即更容易实现、更改、测试和重用的对象。</p>
+<p>组合设计模式可以解决哪些问题?</p>
+<ul>
+<li>应该表示部分-整体层次结构，以便客户端能够统一地对待部分和整体对象。</li>
+<li>部分-整体层次结构应该表示为树结构。</li>
+</ul>
+<p>当定义部分对象和作为部分对象容器的整个对象时，客户端必须分别对待它们，这使得客户端代码变得复杂。</p>
+<p>组合设计模式描述了什么解决方案?</p>
+<ul>
+<li>为部分 (Leaf)对象和整体 (Composite)对象定义统一的组件接口。</li>
+<li>单个 Leaf 对象直接实现组件接口，Composite 对象将请求转发给其子组件。</li>
+</ul>
+<p>这使得客户端能够通过组件接口统一地处理 Leaf 和 Composite 对象: Leaf 对象直接执行请求，Composite 对象递归地将请求转发到树结构的子组件。这使得客户端类更容易实现、更改、测试和重用。</p>
+<p>在处理树状结构的数据时，程序员经常不得不区分叶节点和分支节点。这使得代码更复杂，因此更容易出错。解决方案是一个允许统一处理复杂和原始对象的接口。在面向对象编程中，组合是设计为一个或多个相似对象的组合的对象，这些对象都具有相似的功能。这被称为对象之间的“has-a”关系。关键的概念是，您可以像操作一组对象一样操作对象的单个实例。</p>
+<h2 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage"></a>Usage</h2><p>当我们必须表示部分-整体层次结构时，应当使用组合设计模式。当我们需要以必须以相同方式处理结构中的对象的方式创建结构时，我们可以应用组合设计模式。</p>
+<p>让我们通过一个真实的例子来理解它——一个图是一个由物体组成的结构，比如圆、线、三角形等。这里的图是由不同的部分组成，它们都有相同的操作。</p>
+<p>组合模式由以下对象组成：</p>
+<ul>
+<li>Base Component (基组件) - 基组件是组合中所有对象的接口，客户端程序使用基组件来处理组合中的对象。它可以是一个接口，也可以是一个抽象类，其中包含所有对象共有的一些方法。</li>
+<li>Leaf (叶) - 定义组合中的元素的行为。它是组合和实现基本组件的构建块。它没有对其他组件的引用。</li>
+<li>Composite (组合) - 它由叶元素组成，并在基组件中实现操作。</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/02/01/JavaBasicKnowledga/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Newer
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/01/09/SoftwareDesignPatterns/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/logo.png" alt="Paul Gao's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        gaolei2481@126.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/02/">February 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">January 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">December 2018<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Programming-Paradigms/">Programming-Paradigms<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/design-patterns/">design patterns<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/">java<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/design-patterns/">design patterns<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="tags">
+                
+                    <i class="material-icons sidebar-material-icons">tab</i>
+                
+                tags
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;PaulGao Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
