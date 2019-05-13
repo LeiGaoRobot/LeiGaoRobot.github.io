@@ -1,7 +1,12 @@
 ---
-title: jwt
+title: JWT
 date: 2019-04-09 10:06:15
+categories: security
 tags:
+- protocol
+- JSON
+- Token
+- Authentication
 ---
 
 # What is JSON Web Token?

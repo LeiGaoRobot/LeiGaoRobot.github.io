@@ -1,7 +1,12 @@
 ---
 title: OAuth2
 date: 2019-04-08 17:44:59
+categories: security
 tags:
+- protocol
+- OAuth
+- OAuth 2.0
+- Authorization
 ---
 
 # What is OAuth

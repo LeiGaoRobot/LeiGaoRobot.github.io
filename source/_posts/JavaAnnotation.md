@@ -1,7 +1,9 @@
 ---
 title: JavaAnnotation
 date: 2019-04-11 09:51:41
+categories: java
 tags:
+- java annotation
 ---
 # Native
 
