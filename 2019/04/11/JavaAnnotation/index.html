@@ -46,7 +46,7 @@
     
     <title>
         
-            面向对象编程 | 
+            JavaAnnotation | 
         
         PaulGao Blog
     </title>
@@ -57,7 +57,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",oop">
+    <meta name="keywords" content="">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -213,7 +213,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="PaulGao Blog">
-    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/">
+    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2019/04/11/JavaAnnotation/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="PaulGao Blog">
@@ -228,16 +228,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/">
+    <meta property="og:url" content="https://leigaorobot.github.io/2019/04/11/JavaAnnotation/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="面向对象编程 | PaulGao Blog">
+    <meta property="og:title" content="JavaAnnotation | PaulGao Blog">
     <meta property="og:image" content="/img/logo.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="oop"> 
+    
 
     
-        <meta property="article:published_time" content="Sun Feb 03 2019 08:52:09 GMT+0800">
-        <meta property="article:modified_time" content="Sun Feb 03 2019 08:54:07 GMT+0800">
+        <meta property="article:published_time" content="Thu Apr 11 2019 09:51:41 GMT+0800">
+        <meta property="article:modified_time" content="Thu Apr 11 2019 10:39:21 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -245,7 +245,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/index.html" />
+        <link rel="canonical" href="https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -257,10 +257,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/index.html",
-    "headline": "面向对象编程",
-    "datePublished": "Sun Feb 03 2019 08:52:09 GMT+0800",
-    "dateModified": "Sun Feb 03 2019 08:54:07 GMT+0800",
+    "mainEntityOfPage": "https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html",
+    "headline": "JavaAnnotation",
+    "datePublished": "Thu Apr 11 2019 09:51:41 GMT+0800",
+    "dateModified": "Thu Apr 11 2019 10:39:21 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Paul Gao",
@@ -278,7 +278,7 @@
             "url": "/img/logo.png"
         }
     },
-    "keywords": ",oop",
+    "keywords": "",
     "description": "",
 }
 </script>
@@ -344,7 +344,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#面向对象编程-Object-oriented-programming-OOP"><span class="post-toc-number">1.</span> <span class="post-toc-text">面向对象编程(Object-oriented programming,OOP)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Features"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Features</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-and-Class"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Object and Class</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Native"><span class="post-toc-number">1.</span> <span class="post-toc-text">Native</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Resource"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">@Resource</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Introduce"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Introduce</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Source-Code"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Source Code</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Usage"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Usage</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Spring"><span class="post-toc-number">2.</span> <span class="post-toc-text">Spring</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring-Bean"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Spring Bean</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Autowired"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">@Autowired</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Introduce-1"><span class="post-toc-number">2.1.1.1.</span> <span class="post-toc-text">Introduce</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Source-Code-1"><span class="post-toc-number">2.1.1.2.</span> <span class="post-toc-text">Source Code</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Usage-1"><span class="post-toc-number">2.1.1.3.</span> <span class="post-toc-text">Usage</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring-Boot"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Spring Boot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ConditionalOnProperty"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">@ConditionalOnProperty</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Introduce-2"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">Introduce</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Source-Code-2"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">Source Code</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Usage-2"><span class="post-toc-number">2.2.1.3.</span> <span class="post-toc-text">Usage</span></a></li></ol></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -376,7 +376,7 @@
         
     
             <p class="article-headline-p">
-                面向对象编程
+                JavaAnnotation
             </p>
         </div>
 
@@ -395,7 +395,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Paul Gao</strong>
-        <span>Feb 03, 2019</span>
+        <span>Apr 11, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -413,15 +413,6 @@
 
     <!-- Tags (bookmark) -->
     
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/oop/">oop</a>
-    </ul>
-    
 
     <!-- Share -->
     
@@ -436,7 +427,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=面向对象编程&url=https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JavaAnnotation&url=https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -445,7 +436,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=面向对象编程&url=https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/index.html&via=Paul Gao" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JavaAnnotation&url=https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html&via=Paul Gao" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -454,7 +445,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Facebook
             </li>
@@ -463,7 +454,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2019/02/03/Object-orientedProgramming/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Google+
             </li>
@@ -488,10 +479,66 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="面向对象编程-Object-oriented-programming-OOP"><a href="#面向对象编程-Object-oriented-programming-OOP" class="headerlink" title="面向对象编程(Object-oriented programming,OOP)"></a>面向对象编程(Object-oriented programming,OOP)</h1><p>面向对象编程(Object-oriented programming)是一种基于“对象”概念的编程范式，其中可能包含数据的字段,通常称为属性;和一段代码,以程序过程的形式,通常被称为方法。对象的一个​​特性是对象的过程可以访问并经常修改与之关联的对象的数据字段（对象具有“this”或“self”的概念）。在OOP中，计算机程序的设计是通过彼此交互的对象来实现的。OOP的语言有很多种，但最流行的是基于类的，这意味着对象是类的实例，通常也会确定它们的类型。</p>
-<p>许多最广泛使用的编程语言（如C++, Object Pascal, Java, Python等）都是多范式编程语言，或多或少都支持面向对象编程，通常与命令式程序编程相结合。重要的面向对象语言包括Java，C ++，C＃，Python，PHP，JavaScript，Ruby，Perl，Object Pascal，Objective-C，Dart，Swift，Scala，Common Lisp和Smalltalk。<a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank" rel="noopener">wikipedia</a></p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><h3 id="Object-and-Class"><a href="#Object-and-Class" class="headerlink" title="Object and Class"></a>Object and Class</h3><p>支持面向对象的语言通常使用</p>
-
+        <h1 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h1><h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h3><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2><h3 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h3><h4 id="Introduce-1"><a href="#Introduce-1" class="headerlink" title="Introduce"></a>Introduce</h4><h4 id="Source-Code-1"><a href="#Source-Code-1" class="headerlink" title="Source Code"></a>Source Code</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface Autowired &#123;</span><br><span class="line">    boolean required() default true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><p><strong>Enabling @Autowired Annotations</strong></p>
+<p>如果您在应用程序中使用基于Java的配置，则可以通过使用AnnotationConfigApplicationContext加载Spring Configuration来启用注解驱动的注入，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(&quot;com.baeldung.autowire.sample&quot;)</span><br><span class="line">public class AppConfig &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Spring XML中，则可以通过在Spring XML文件中声明它来启用它：&lt;context：annotation-config /&gt;</p>
+<p><strong>Using @Autowired</strong></p>
+<p>启用注释注入后，可以在属性，setter和构造函数上使用自动装配。</p>
+<p><strong>@Autowired on Properties</strong></p>
+<p>注释可以直接用于属性，因此不需要getter和setter：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;fooFormatter&quot;)</span><br><span class="line">public class FooFormatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    private FooFormatter fooFormatter;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的例子中，春季查找并注入fooFormatter时FooService接口被创建。</p>
+<p><strong>@Autowired on Setters</strong></p>
+<p>该@Autowired注解可以在setter方法中使用。在下面的示例中，当在setter方法上使用注释时，在创建FooService时使用FooFormatter实例调用setter方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line"> </span><br><span class="line">    private FooFormatter fooFormatter;</span><br><span class="line"> </span><br><span class="line">    @Autowired</span><br><span class="line">    public void setFooFormatter(FooFormatter fooFormatter) &#123;</span><br><span class="line">            this.fooFormatter = fooFormatter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>@Autowired on Constructors</strong></p>
+<p>该@Autowired注释也可以在构造函数中使用。在下面的示例中，当注释上的构造使用时，实例FooFormatter注入作为参数给构造时FooService接口创建：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line"> </span><br><span class="line">    private FooFormatter fooFormatter;</span><br><span class="line"> </span><br><span class="line">    @Autowired</span><br><span class="line">    public FooService(FooFormatter fooFormatter) &#123;</span><br><span class="line">        this.fooFormatter = fooFormatter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>@Autowired和Optional Dependencies</strong></p>
+<p>Spring期望在构造依赖bean时可以使用@Autowired依赖项。如果框架无法解析bean进行连接，它将抛出下面引用的异常并阻止Spring容器成功启动：</p>
+<blockquote>
+<p>Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException:<br>No qualifying bean of type [com.autowire.sample.FooDAO] found for dependency:<br>expected at least 1 bean which qualifies as autowire candidate for this dependency.<br>Dependency annotations:<br><a href="mailto:{@org.springframework.beans.factory.annotation.Autowired" target="_blank" rel="noopener">{@org.springframework.beans.factory.annotation.Autowired</a>(required=true)}</p>
+</blockquote>
+<p>为了避免这种情况发生，可以选择如下指定bean：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line"> </span><br><span class="line">    @Autowired(required = false)</span><br><span class="line">    private FooDAO dataAccessor; </span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>自动消除歧义</strong></p>
+<p>默认情况下，Spring 按类型解析@Autowired条目。如果容器中有多个相同类型的bean，框架将抛出​​一个致命异常，表明有多个bean可用于自动装配。</p>
+<p><strong>@Qualifier自动装配</strong></p>
+<p>该@Qualifier注解可用于在暗示和缩小所需的bean：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;fooFormatter&quot;)</span><br><span class="line">public class FooFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Component(&quot;barFormatter&quot;)</span><br><span class="line">public class BarFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;bar&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    private Formatter formatter;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于可以为Spring容器注入两个具体的Formatter实现，因此Spring 在构造FooService时会抛出NoUniqueBeanDefinitionException异常：</p>
+<blockquote>
+<p>Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException:<br>No qualifying bean of type [com.autowire.sample.Formatter] is defined:<br>expected single matching bean but found 2: barFormatter,fooFormatter  </p>
+</blockquote>
+<p>通过使用@Qualifier注释缩小实现可以避免这种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    @Qualifier(&quot;fooFormatter&quot;)</span><br><span class="line">    private Formatter formatter;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过使用特定实现的名称指定@Qualifier，在本例中为fooFormatter，当Spring找到多个相同类型的bean时，我们可以避免歧义。</p>
+<p>请注意，价值@Qualifier注解与声明的名称相匹配@Component我们的注解FooFormatter实施。</p>
+<p><strong>自定义限定符自动装配</strong></p>
+<p>Spring允许我们创建自己的@Qualifier注释。要创建自定义限定符，请定义注释并在定义中提供@Qualifier注释，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Qualifier</span><br><span class="line">@Target(&#123;</span><br><span class="line">  ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface FormatterType &#123;</span><br><span class="line">     </span><br><span class="line">    String value();</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦定义，FormatterType可以在各种实现中用于指定自定义值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@FormatterType(&quot;Foo&quot;)</span><br><span class="line">@Component</span><br><span class="line">public class FooFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FormatterType(&quot;Bar&quot;)</span><br><span class="line">@Component</span><br><span class="line">public class BarFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;bar&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注释实现后，可以使用自定义限定符注释，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    @FormatterType(&quot;Foo&quot;)</span><br><span class="line">    private Formatter formatter;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@Target注释中指定的值限制限定符可用于标记注入点的位置。</p>
+<p>在上面的代码片段中，限定符可用于消除Spring可以将bean注入字段，方法，类型和参数的点的歧义。</p>
+<p><strong>按名称自动装配</strong></p>
+<p>作为回退，Spring使用bean名称作为默认限定符值。</p>
+<p>因此，通过定义bean属性的名称，在这种情况下fooFormatter，spring 匹配的FooFormatter执行以及何时注入的具体实施FooService接口的构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    private Formatter fooFormatter;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结论</strong></p>
+<p>尽管@Qualifier和bean名称后备匹配都可以用于缩小到特定的bean，但是自动装配实际上是关于按类型注入的，这就是使用此容器功能的最佳方式。</p>
+<h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2><h3 id="ConditionalOnProperty"><a href="#ConditionalOnProperty" class="headerlink" title="@ConditionalOnProperty"></a>@ConditionalOnProperty</h3><p><em>Spring Boot 2.1.4 API : <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html</a></em></p>
+<h4 id="Introduce-2"><a href="#Introduce-2" class="headerlink" title="Introduce"></a>Introduce</h4><blockquote>
+<p>Spring Boot通过@ConditionalOnProperty来控制Configuration是否生效</p>
+</blockquote>
+<h4 id="Source-Code-2"><a href="#Source-Code-2" class="headerlink" title="Source Code"></a>Source Code</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(&#123; ElementType.TYPE, ElementType.METHOD &#125;)</span><br><span class="line">@Documented</span><br><span class="line">@Conditional(OnPropertyCondition.class)</span><br><span class="line">public @interface ConditionalOnProperty &#123;</span><br><span class="line"></span><br><span class="line">    String[] value() default &#123;&#125;; //数组，获取对应property名称的值，与name不可同时使用  </span><br><span class="line">  </span><br><span class="line">    String prefix() default &quot;&quot;;//property名称的前缀，可有可无  </span><br><span class="line">  </span><br><span class="line">    String[] name() default &#123;&#125;;//数组，property完整名称或部分名称（可与prefix组合使用，组成完整的property名称），与value不可同时使用  </span><br><span class="line">  </span><br><span class="line">    String havingValue() default &quot;&quot;;//可与name组合使用，比较获取到的属性值与havingValue给定的值是否相同，相同才加载配置  </span><br><span class="line">  </span><br><span class="line">    boolean matchIfMissing() default false;//缺少该property时是否可以加载。如果为true，没有该property也会正常加载；反之报错  </span><br><span class="line">  </span><br><span class="line">    boolean relaxedNames() default true;//是否可以松散匹配，至今不知道怎么使用的  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h4><blockquote>
+<p>通过其两个属性name以及havingValue来实现的，其中name用来从application.properties中读取某个属性值。<br>如果该值为空，则返回false;<br>如果值不为空，则将该值与havingValue指定的值进行比较，如果一样则返回true;否则返回false。<br>如果返回值为false，则该configuration不生效；为true则生效。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">//在application.properties配置&quot;mf.assert&quot;，对应的值为true, 也可以不写prefix，全写在name里(name=&quot;mf.assert&quot;)</span><br><span class="line">@ConditionalOnProperty(prefix=&quot;mf&quot;,name = &quot;assert&quot;, havingValue = &quot;true&quot;)</span><br><span class="line">public class AssertConfig &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private HelloServiceProperties helloServiceProperties;</span><br><span class="line">    @Bean</span><br><span class="line">    public HelloService helloService()&#123;</span><br><span class="line">        HelloService helloService = new HelloService();</span><br><span class="line">        helloService.setMsg(helloServiceProperties.getMsg());</span><br><span class="line">        return helloService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
     
 
@@ -511,21 +558,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/02/12/javaDataStructure/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2019/02/01/JavaBasicKnowledga/" id="post_nav-older" class="next-content">
+        <a href="/2019/04/09/jwt/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

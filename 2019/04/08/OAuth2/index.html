@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            OAuth2 | 
+        
+        PaulGao Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/logo.png">
+    <link rel="icon" href="/img/logo.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg-random/BG-night-midnight.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PaulGao Blog">
+    <meta name="msapplication-starturl" content="https://leigaorobot.github.io/2019/04/08/OAuth2/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="PaulGao Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leigaorobot.github.io/2019/04/08/OAuth2/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="OAuth2 | PaulGao Blog">
+    <meta property="og:image" content="/img/logo.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Apr 08 2019 17:44:59 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 09 2019 10:03:28 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leigaorobot.github.io/2019/04/08/OAuth2/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leigaorobot.github.io/2019/04/08/OAuth2/index.html",
+    "headline": "OAuth2",
+    "datePublished": "Mon Apr 08 2019 17:44:59 GMT+0800",
+    "dateModified": "Tue Apr 09 2019 10:03:28 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Paul Gao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.png"
+        },
+        "description": "Sometimes I'm gonna have to lose, But i'm gonna remember most, Just gotta keep going."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "PaulGao Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/logo.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-is-OAuth"><span class="post-toc-number">1.</span> <span class="post-toc-text">What is OAuth</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OAuth2-0协议流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">OAuth2.0协议流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#角色"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">角色</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#流程"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#授权模式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">授权模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用程序注册-Application-Registration"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">应用程序注册(Application Registration)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#授权码授权模式（Authorization-Code-Grant）"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">授权码授权模式（Authorization Code Grant）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#请求示例"><span class="post-toc-number">2.3.2.1.</span> <span class="post-toc-text">请求示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#隐式授权模式（Implicit-Grant）"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">隐式授权模式（Implicit Grant）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#请求示例-1"><span class="post-toc-number">2.3.3.1.</span> <span class="post-toc-text">请求示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密码模式（Resource-Owner-Password-Credentials-Grant）"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">密码模式（Resource Owner Password Credentials Grant）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#请求示例-2"><span class="post-toc-number">2.3.4.1.</span> <span class="post-toc-text">请求示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端凭证模式（Client-Credentials-Grant）"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">客户端凭证模式（Client Credentials Grant）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#请求示例-3"><span class="post-toc-number">2.3.5.1.</span> <span class="post-toc-text">请求示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#刷新TOKEN"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">刷新TOKEN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#请求示例-4"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">请求示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安全性"><span class="post-toc-number">3.</span> <span class="post-toc-text">安全性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#漏洞安全回顾"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">漏洞安全回顾</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安全漏洞回顾之密码模式（授权流程参照前面的介绍）"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">安全漏洞回顾之密码模式（授权流程参照前面的介绍）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安全性建议"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">安全性建议</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                OAuth2
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Paul Gao</strong>
+        <span>Apr 08, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=OAuth2&url=https://leigaorobot.github.io/2019/04/08/OAuth2/index.html&pic=https://leigaorobot.github.io/img/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=OAuth2&url=https://leigaorobot.github.io/2019/04/08/OAuth2/index.html&via=Paul Gao" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leigaorobot.github.io/2019/04/08/OAuth2/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leigaorobot.github.io/2019/04/08/OAuth2/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="What-is-OAuth"><a href="#What-is-OAuth" class="headerlink" title="What is OAuth"></a>What is OAuth</h1><p>OAuth 即 Open standard for Authorization</p>
+<p>OAuth是一个网络开放协议。为保证用户资源的安全授权提供了简易的标准</p>
+<p>oAuth的好处：</p>
+<ul>
+<li>允许用户授权第三方网站或应用，访问用户存储在其它网站上的资源，而不需要将用户名和密码提供给第三方网站或分享他们数据的内容</li>
+<li>对于用户:免去了繁琐的注册过程,降低了注册成本,提高了用户体验 </li>
+<li>对于消费方:简化自身会员系统的同时又能够带来更多的用户和流量。</li>
+<li>对于服务提供者:围绕自身进行开发,增加用户粘性 </li>
+</ul>
+<h1 id="OAuth2-0协议流程"><a href="#OAuth2-0协议流程" class="headerlink" title="OAuth2.0协议流程"></a>OAuth2.0协议流程</h1><h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><p>在介绍协议流程之前先要说明一下oauth2.0定义的几个角色：</p>
+<ul>
+<li>resource owner：资源所有者，这里可以理解为用户。</li>
+<li>client：客户端，可以理解为一个第三方的应用程序。</li>
+<li>resource server：资源服务器，它存储用户或其它资源。</li>
+<li>authorization server：授权服务器，它认证resource owner的身份，为  resource owner提供授权审批流程，并最终颁发授权令牌(Access Token)。</li>
+<li>user-agent：用户代理，这里可以理解为“浏览器”。</li>
+</ul>
+<p>这里面有个需要注意的地方，这里只是在逻辑上把authorization server与resource server区分开来；在物理上，authorization server与resource server的功能可以由同一个服务器来提供服务。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
+<li>用户打开客户端以后，客户端要求用户给予授权。</li>
+<li>用户同意给予客户端授权。</li>
+<li>客户端使用上一步获得的授权，向认证服务器申请令牌。</li>
+<li>认证服务器对客户端进行认证以后，确认无误，同意发放令牌。</li>
+<li>客户端使用令牌，向资源服务器申请获取资源。</li>
+<li>资源服务器确认令牌无误，同意向客户端开放资源。</li>
+</ol>
+<p>上面六个步骤之中，2是关键，即用户怎样才能给于客户端授权。有了这个授权以后，客户端就可以获取令牌，进而凭令牌获取资源。</p>
+<p>下面就介绍一下oauth2.0获取授权的几种方式。</p>
+<h2 id="授权模式"><a href="#授权模式" class="headerlink" title="授权模式"></a>授权模式</h2><p>oauth2.0提供了四种授权模式，开发者可以根据自己的业务情况自由选择。</p>
+<h3 id="应用程序注册-Application-Registration"><a href="#应用程序注册-Application-Registration" class="headerlink" title="应用程序注册(Application Registration)"></a>应用程序注册(Application Registration)</h3><p>对于一个应用程序来说，如果它想要使用OAuth，那么首先它要在服务提供商那里注册。</p>
+<p>应用程序要提供：</p>
+<ul>
+<li>应用程序名称(Application Name)</li>
+<li>应用程序网站(Application Website)</li>
+<li>回调URL(Redirect URI or Callback URL)</li>
+</ul>
+<p>在用户同意授权(或者拒绝)之后，服务提供商会将用户重新导向这个Callback URL，这个Callback URL要来负责处理授权码或者访问令牌。</p>
+<p>应用程序注册完成之后，服务提供商会颁发给应用程序一个“客户端认证信息(client credentials)”。Client Credential包括：</p>
+<ul>
+<li>Client ID<ul>
+<li>提供给服务提供商，用于识别应用程序</li>
+<li>用于构建提供给用户请求授权的URL</li>
+</ul>
+</li>
+<li>Client Secret<ul>
+<li>提供给服务提供商，用于验证应用程序</li>
+<li>只有应用程序和服务提供商两者可知</li>
+</ul>
+</li>
+</ul>
+<h3 id="授权码授权模式（Authorization-Code-Grant）"><a href="#授权码授权模式（Authorization-Code-Grant）" class="headerlink" title="授权码授权模式（Authorization Code Grant）"></a>授权码授权模式（Authorization Code Grant）</h3><ol>
+<li>用户访问客户端，客户端将用户引导向认证服务器。</li>
+<li>用户选择是否给予客户端授权。</li>
+<li>如用户给予授权，认证服务器将用户引导向客户端指定的redirection uri，同时加上授权码code。</li>
+<li>客户端收到code后，通过后台的服务器向认证服务器发送code和redirection uri。</li>
+<li>认证服务器验证code和redirection uri，确认无误后，响应客户端访问令牌（access token）和刷新令牌（refresh token）。</li>
+</ol>
+<h4 id="请求示例"><a href="#请求示例" class="headerlink" title="请求示例"></a>请求示例</h4><p>（1）步骤：客户端申请认证的URI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/v1/oauth/authorize?response_type=code&amp;client_id=CLIENT_ID&amp;redirect_uri=CALLBACK_URL&amp;scope=read&amp;state=xxx</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>response_type：授权类型，必选项，此处的值固定为”code”</li>
+<li>client_id：客户端的ID，必选项</li>
+<li>redirect_uri：重定向URI，必选项</li>
+<li>scope：申请的权限范围，可选项</li>
+<li>state：任意值，认证服务器会原样返回,用于抵制CSRF(跨站请求伪造)攻击。</li>
+</ul>
+<p>（3）步骤：服务器回应客户端的URI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA&amp;state=xxx</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>code：授权码，必选项。授权码有效期通常设为10分钟，一次性使用。该码与客户端ID、重定向URI以及用户，是一一对应关系。</li>
+<li>state：原样返回客户端传的该参数的值。</li>
+</ul>
+<p>（4）步骤：客户端向认证服务器申请令牌<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/v1/oauth/token?client_id=CLIENT_ID&amp;grant_type=authorization_code&amp;code=AUTHORIZATION_CODE&amp;redirect_uri=CALLBACK_URL</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>client_id：表示客户端ID，必选项。</li>
+<li>grant_type：表示使用的授权模式，必选项，此处的值固定为”authorization_code”。</li>
+<li>code：表示上一步获得的授权码，必选项。</li>
+<li>redirect_uri：表示重定向URI，必选项，且必须与A步骤中的该参数值保持一致。</li>
+</ul>
+<p>注意：协议里没有提及client_secret参数，建议可以使用此参数进行客户端的二次验证。</p>
+<p>（5）步骤：响应（4）步骤的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">   &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">   &quot;expires_in&quot;:3600,</span><br><span class="line">   &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;,</span><br><span class="line">   &quot;example_parameter&quot;:&quot;example_value&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>授权码模式是最常见的一种授权模式，在OAuth2.0内是最安全和最完善的。</li>
+<li>适用于所有有Server端的应用，如Web站点、有Server端的手机客户端。 </li>
+<li>可以得到较长期限授权。</li>
+</ul>
+<h3 id="隐式授权模式（Implicit-Grant）"><a href="#隐式授权模式（Implicit-Grant）" class="headerlink" title="隐式授权模式（Implicit Grant）"></a>隐式授权模式（Implicit Grant）</h3><ol>
+<li>客户端将用户引导向认证服务器。</li>
+<li>用户决定是否给于客户端授权。</li>
+<li>假设用户给予授权，认证服务器将用户导向客户端指定的”重定向URI”，并在URI的Hash部分包含了访问令牌。</li>
+<li>浏览器向资源服务器发出请求，其中不包括上一步收到的Hash值。</li>
+<li>资源服务器返回一个网页，其中包含的代码可以获取Hash值中的令牌。</li>
+<li>浏览器执行上一步获得的脚本，提取出令牌。</li>
+<li>浏览器将令牌发给客户端。</li>
+</ol>
+<h4 id="请求示例-1"><a href="#请求示例-1" class="headerlink" title="请求示例"></a>请求示例</h4><p>（1）步骤：客户端发出请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/authorize?response_type=token&amp;client_id=CLIENT_ID&amp;redirect_uri=CALLBACK_URL&amp;scope=read&amp;state=xxx</span><br></pre></td></tr></table></figure></p>
+<p>参数说明 </p>
+<ul>
+<li>response_type：授权类型，此处的值固定为”token”，必选项。</li>
+<li>client_id：客户端的ID，必选项。</li>
+<li>redirect_uri：重定向的URI，必选项。</li>
+<li>scope：权限范围，可选项。</li>
+<li>state: 任意值，认证服务器会原样返回,用于抵制CSRF(跨站请求伪造)攻击。</li>
+</ul>
+<p>（3）步骤：认证服务器响应客户端的请求url<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/callback#access_token=ACCESS_TOKEN&amp;state=xyz&amp;token_type=example&amp;expires_in=3600&amp;state=xxx</span><br></pre></td></tr></table></figure></p>
+<p>参数说明</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>scope：权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+<li>state：如果客户端的请求中包含这个参数，认证服务器的回应也必须一模一样包含这个参数。</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>适用于所有无Server端配合的应用</li>
+<li>如手机/桌面客户端程序、浏览器插件。</li>
+<li>基于JavaScript等脚本客户端脚本语言实现的应用。</li>
+</ul>
+<p>注意：因为Access token是附着在 redirect_uri 上面被返回的，所以这个 Access token就可能会暴露给资源所有者或者设置内的其它方（对资源所有者来说，可以看到redirect_uri，对其它方来说，可以通过监测浏览器的地址变化来得到 Access token）。</p>
+<h3 id="密码模式（Resource-Owner-Password-Credentials-Grant）"><a href="#密码模式（Resource-Owner-Password-Credentials-Grant）" class="headerlink" title="密码模式（Resource Owner Password Credentials Grant）"></a>密码模式（Resource Owner Password Credentials Grant）</h3><ol>
+<li>用户向客户端提供用户名和密码。</li>
+<li>客户端将用户名和密码发给认证服务器，向后者请求令牌。</li>
+<li>认证服务器确认无误后，向客户端提供访问令牌</li>
+</ol>
+<h4 id="请求示例-2"><a href="#请求示例-2" class="headerlink" title="请求示例"></a>请求示例</h4><p>（2）步骤：客户端发出https请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/token?grant_type=password&amp;username=USERNAME&amp;password=PASSWORD&amp;client_id=CLIENT_ID</span><br></pre></td></tr></table></figure></p>
+<p>参数说明</p>
+<ul>
+<li>grant_type：授权类型，此处的值固定为”password”，必选项。</li>
+<li>username：用户名，必选项。</li>
+<li>password：用户的密码，必选项。</li>
+<li>scope：权限范围，可选项。</li>
+</ul>
+<p>（3）步骤：向客户端响应（2）步骤的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">       &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">       &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">       &quot;expires_in&quot;:3600,</span><br><span class="line">       &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：更新令牌，用来获取下一次的访问令牌，可选项。</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>这种模式适用于用户对应用程序高度信任的情况。比如是用户操作系统的一部分。</li>
+<li>认证服务器只有在其他授权模式无法执行的情况下，才能考虑使用这种模式。</li>
+</ul>
+<h3 id="客户端凭证模式（Client-Credentials-Grant）"><a href="#客户端凭证模式（Client-Credentials-Grant）" class="headerlink" title="客户端凭证模式（Client Credentials Grant）"></a>客户端凭证模式（Client Credentials Grant）</h3><ol>
+<li>客户端向认证服务器进行身份认证，并要求一个访问令牌。</li>
+<li>认证服务器确认无误后，向客户端提供访问令牌。</li>
+</ol>
+<h4 id="请求示例-3"><a href="#请求示例-3" class="headerlink" title="请求示例"></a>请求示例</h4><p>（1）步骤：客户端发送https请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/token?grant_type=client_credentials&amp;client_id=CLIENT_ID</span><br></pre></td></tr></table></figure></p>
+<p>参数说明</p>
+<ul>
+<li>grant_type：表示授权类型，此处的值固定为”client_credentials”，必选项。</li>
+<li>client_id：客户端的ID，必选项。</li>
+<li>scope：表示权限范围，可选项。</li>
+</ul>
+<p>（2）步骤：向客户端响应（1）步骤的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">  &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">  &quot;expires_in&quot;:3600,</span><br><span class="line">  &quot;example_parameter&quot;:&quot;example_value&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>example_parameter：其它参数，可选项。 </li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>客户端模式应用于应用程序想要以自己的名义与授权服务器以及资源服务器进行互动。</li>
+<li>例如使用了第三方的静态文件服务</li>
+</ul>
+<h2 id="刷新TOKEN"><a href="#刷新TOKEN" class="headerlink" title="刷新TOKEN"></a>刷新TOKEN</h2><p>从上面的四种授权流程可以看出，最终的目的是要获取用户的授权令牌（access_token）。而且授权令牌（access_token）的权限也非常之大，</p>
+<p>所以在协议中明确表示要设置授权令牌（access_token）的有效期。那么当授权令牌（access_token）过期要怎么办呢，协议里提出了一个刷新token的流程。</p>
+<p><img src="/img/oauth2.0/oauth2_refreshToken.png" alt="gcheap"></p>
+<p>（A）–（D）通过授权流程获取access_token，并调用业务api接口。</p>
+<p>（F）当调用业务api接口时响应“Invalid Token Error”时。</p>
+<p>（G）调用刷新access_token接口，使用参数refresh_token（如果平台方提供，否则需要用户重新进行授权流程）。</p>
+<p>（H）响应最新的access_token及refresh_token。</p>
+<h3 id="请求示例-4"><a href="#请求示例-4" class="headerlink" title="请求示例"></a>请求示例</h3><p>（G）步骤：客户端调用刷新token接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/v1/oauth/token?grant_type=refresh_token&amp;client_id=CLIENT_ID&amp;client_secret=CLIENT_SECRET&amp;refresh_token=REFRESH_TOKEN</span><br></pre></td></tr></table></figure></p>
+<p>参数说明</p>
+<ul>
+<li>client_id：客户端的ID，必选项。</li>
+<li>client_secret：客户端的密钥，必选项。</li>
+<li>grant_type：表示使用的授权模式，此处的值固定为”refreshtoken”，必选项。</li>
+<li>refresh_token：表示早前收到的更新令牌，必选项。</li>
+</ul>
+<p>（H）步骤：响应客户端数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">  &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">  &quot;expires_in&quot;:3600,</span><br><span class="line">  &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;,</span><br><span class="line">  &quot;example_parameter&quot;:&quot;example_value&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+<p>说明：建议将access_token和refresh_token的过期时间保存下来，每次调用平台方的业务api前先对access_token和refresh_token进行一下时间判断，如果过期则执行刷新access_token或重新授权操作。refersh_token如果过期就只能让用户重新授权。</p>
+<p>好，到此oauth2.0的四种授权流程及令牌的刷新流程已经介绍完了，下面来从oauth2.0的安全性上来介绍一下。</p>
+<h1 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h1><h2 id="漏洞安全回顾"><a href="#漏洞安全回顾" class="headerlink" title="漏洞安全回顾"></a>漏洞安全回顾</h2><p>OAuth2.0协议本身设计是安全的，但是不同的开放平台开发者能力参差不齐，在开发过程中没有严格按照协议进行开发，或对流程中的参数校验不完整，造成了一些流程上的漏洞。</p>
+<h3 id="安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）"><a href="#安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）" class="headerlink" title="安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）"></a>安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）</h3><p>漏洞：针对应用方csrf劫持第三方账号</p>
+<p>wooyun案例：</p>
+<p>2012-11-10 WooYun: <a href="http://www.wooyun.org/bugs/wooyun-2012-014571" target="_blank" rel="noopener">优酷网存在账号被劫持风险</a></p>
+<p>2013-01-07 WooYun: <a href="http://www.wooyun.org/bugs/wooyun-2013-017051" target="_blank" rel="noopener">大麦网存在帐号被劫持风险</a></p>
+<p>2013-03-01 WooYun: <a href="http://www.wooyun.org/bugs/wooyun-2013-019367" target="_blank" rel="noopener">美丽说oauth漏洞可劫持账号</a></p>
+<p><img src="/img/oauth2.0/AuthorizationCodeGrantBug.jpg" alt="gcheap"><br>　针对code参数的Authorization Code Grant攻击；以及和rfc6749的流程图关系</p>
+<p>漏洞成因：</p>
+<p>主要的漏洞原因是redirect_uri中的code参数没有和当前客户端的状态绑定，攻击者可以通过发送预先获取好的code参数到受害者电脑，导致导致受害者当前登录的应用方账号被绑定到攻击者指定的平台方（如微博）帐号上。</p>
+<p>解决方案：</p>
+<p>应用方要预防这种csrf劫持账号，加入state参数是比较简单的通行方法。根据rfc6749 章节10.12，该值既不可预测，又必须可以证明应用（client）和和当前第三方网站的登录认证状态存在关联（如果存在过期时间更好）。一种简单的方法是：随机算一个字符串，然后保存在session，回调时检查state参数和session里面的值。<br>而平台方也要在回调时，支持应用方的state参数（当然如果允许redirect_uri参数中带应用方自己的防csrf参数，其实也可以）。<br>同时在使用code获取access_token成功后，进行access_token与授权用户绑定时，尽量不要直接与当前登录用户进行绑定。<br>但严格来讲，仅有state参数，其实还不够，还需要结合rfc6749 章节3.3（发放有业务接口仅限范围的令牌）提到的防御手段</p>
+<h3 id="安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）"><a href="#安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）" class="headerlink" title="安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）"></a>安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）</h3><p>漏洞：针对存储型xss劫持用户的access_token</p>
+<p>wooyun案例：</p>
+<p>2012-04-15 WooYun: 人人网Oauth 2.0授权可导致用户access_token泄露</p>
+<p>2012-09-25 WooYun: QQ互联开放平台QQ登陆oauth授权接口可以劫持access_token</p>
+<p>2012-09-25 WooYun: 百度开放平台oauth授权接口可以劫持access_token</p>
+<p><img src="/img/oauth2.0/ImplicitGrantBug.png" alt="gcheap"></p>
+<p>漏洞成因：</p>
+<p>隐式授权模式场景的特点是授权验证时只需要client_id和redirect_uri这两个参数作应用标识，返回的时候也就直接在uri片段中返回access token。那就是只要合作方网站、平台方网站甚至是浏览器三者之一有任何一个xss，就很容易通过xss获取到access token，然后以此攻击受害者的平台方账号。</p>
+<p>解决方案：</p>
+<p>解决这个问题，rfc6749第10.16小节就只是语焉不详的说需要额外的安全措施，这也反映了这种场景的防御难处。</p>
+<p>有一种方案，平台方必须对应用方的应用强制进行分类，即应用方在申请client_id（即应用appkey）时，需要选择属于哪类应用；平台方再根据分类开放对应权限，并且进行特定的防御和监控措施。</p>
+<h3 id="安全漏洞回顾之密码模式（授权流程参照前面的介绍）"><a href="#安全漏洞回顾之密码模式（授权流程参照前面的介绍）" class="headerlink" title="安全漏洞回顾之密码模式（授权流程参照前面的介绍）"></a>安全漏洞回顾之密码模式（授权流程参照前面的介绍）</h3><p>wooyun案例：</p>
+<p>2012-11-05 WooYun: <a href="http://www.wooyun.org/bugs/wooyun-2012-014408" target="_blank" rel="noopener">开心网android客户端暴力破解漏洞，测试2000帐号，成功132个</a></p>
+<p><img src="/img/oauth2.0/RourceOwnerPasswordCredentialsGrantBug.png" alt="gcheap"></p>
+<p>解决方案：</p>
+<p>（1）对于外部合作方，最大限度取消且不使用密码授权的授权。对于因为合同原因而导致无法取消的情况，需要加强监控。</p>
+<p>（2）内部应用一样要划分等级，无必要的应用一律禁止使用密码授权模式。</p>
+<h2 id="安全性建议"><a href="#安全性建议" class="headerlink" title="安全性建议"></a>安全性建议</h2><p><strong>资源提供方</strong></p>
+<ul>
+<li>对client_id和回调地址做严格校验 </li>
+<li>获取access token的code仅能使用一次，且与授权用户关联</li>
+<li>尽量避免直接读取当前用户session进行绑定</li>
+<li>有效使用client_secret参数</li>
+</ul>
+<p><strong>资源使用方</strong></p>
+<ul>
+<li>使用Authorization Code方式进行授权</li>
+<li>授权过程使用state随机哈希,并在服务端进行判断</li>
+<li>尽量使用HTTPS保证授权过程的安全性</li>
+</ul>
+<p>最后，对oauth2.0有详细的了解，严格按照流程进行开发。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>官方文档：<a href="https://tools.ietf.org/html/rfc6749" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc6749</a></li>
+<li>说说oauth那点事：<a href="http://www.jianshu.com/p/b06944c92228" target="_blank" rel="noopener">http://www.jianshu.com/p/b06944c92228</a></li>
+<li>OAuth 2.0安全案例回顾：<a href="http://www.cnblogs.com/maoxiaolv/p/5832996.html" target="_blank" rel="noopener">http://www.cnblogs.com/maoxiaolv/p/5832996.html</a></li>
+<li>Oauth2.0详解及安全使用: <a href="https://www.cnblogs.com/maoxiaolv/p/5838680.html" target="_blank" rel="noopener">https://www.cnblogs.com/maoxiaolv/p/5838680.html</a></li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/04/09/jwt/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Newer
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/02/12/javaDataStructure/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/logo.png" alt="Paul Gao's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        gaolei2481@126.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/04/">April 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">February 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">January 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">December 2018<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Programming-Paradigms/">Programming-Paradigms<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/design-patterns/">design patterns<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/">java<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/design-patterns/">design patterns<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="tags">
+                
+                    <i class="material-icons sidebar-material-icons">tab</i>
+                
+                tags
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;PaulGao Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
