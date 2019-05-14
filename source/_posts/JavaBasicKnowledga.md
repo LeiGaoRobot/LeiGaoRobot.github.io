@@ -130,6 +130,7 @@ Java Virtual Mechinal(JAVA虚拟机)。JVM是JRE的一部分，它是一个虚�
 **字节码**
 > 在 Java 中，JVM可以理解的代码就叫做字节码（即扩展名为 .class 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不专对一种特定的机器，因此，Java程序无须重新编译便可在多种不同的计算机上运行。
 
+<<<<<<< HEAD
 
 .java文件(源代码) [JDK中javac编译]-> .class文件(JVM可理解的java字节) [JVM]-> 机器可执行二进制机器码
 
@@ -142,6 +143,65 @@ Java Virtual Mechinal(JAVA虚拟机)。JVM是JRE的一部分，它是一个虚�
 >> + [IBM Developer](https://www.ibm.com/developerworks/cn/java/j-lo-just-in-time/index.html)
 >> + [IBM Knowledge Cente](https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html)
 >> + [Josh Haberman](http://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html)
+=======
+# JavaBean
+
+[JavaBean](https://en.wikipedia.org/wiki/JavaBeans)是遵循Sun定义的JavaBeans约定的类。
+> JavaBeans是Java的可重用软件组件，可以在构建器工具中以可视方式进行操作。实际上，它们是用符合特定约定的Java编程语言编写的类。它们用于将许多对象封装到单个对象（bean）中，以便它们可以作为单个bean对象而不是作为多个单独对象传递。JavaBean是一个可序列化的Java对象，具有一个无参的构造函数，并允许使用getter和setter方法访问属性。
+>
+> 为了充当JavaBean类，对象类必须遵守有关方法命名，构造和行为的某些约定。这些约定使得可以使用可以使用，重用，替换和连接JavaBeans的工具。
+>
+> 所需的约定是：
+>
+> + 该类必须具有公共默认构造函数。这允许在编辑和激活框架内轻松实例化。  
+> + 必须遵循标准命名约定，使用get，set，is (可以替代get，用在布尔型属性上)和其他方法（所谓的访问器方法和mutator方法）访问类属性。这允许在框架内轻松自动检查和更新bean状态，其中许多包括用于各种类型属性的自定义编辑器。  
+> + 该类应该是可序列化的。这允许应用程序和框架以独立于VM和平台的方式可靠地保存，存储和恢复bean的状态。  
+> + 因为这些需求主要表示为约定而不是实现接口，所以一些开发人员将JavaBeans视为遵循特定命名约定的Plain Old Java Objects。   
+
+## POJO
+
+[POJO(Plain Old Java Object)](https://en.wikipedia.org/wiki/Plain_old_Java_object)是一个术语，最初用于指定一个简单的轻量级Java对象，而不是实现任何javax.ejb接口，而不是重量级EJB 2.x（尤其是实体Bean，无状态会话Bean并不是那么糟糕的IMO）。今天，该术语用于任何没有额外内容的简单对象。
+
++ 在阿里Java开发手册中， POJO专指只有setter/getter/toString的简单类，包括DO/DTO/BO/VO等。
++ 领域模型命名规约，POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
+
+## DO
+
+DO(Data Object)与数据库表结构一一对应，通过DAO层向上传输数据源对象。
+
++ 领域模型命名规约,数据对象：xxxDO，xxx即为数据表名。
+
+## BO
+
+BO(Business Object)业务对象。由Service层输出的封装业务逻辑的对象。
+
+## AO
+
+AO(Application Object)应用对象。在Web层与Service层之间抽象的复用对象模型，极为贴近展示层，复用度不高。
+
+## VO
+
+[VO(Value Object)](https://martinfowler.com/bliki/ValueObject.html)是一个对象，例如java.lang.Integer保存值（因此为值对象）。对于更正式的定义，请参考Martin Fowler对[Value Object](https://martinfowler.com/bliki/ValueObject.html)的描述。
+
++ VO表示一组固定的数据，类似于Java枚举。值对象的标识基于它们的状态而不是它们的对象标识，并且是不可变的。一个真实世界的例子是Color.RED，Color.BLUE，SEX.FEMALE等
+
+另一种解释
+
+VO（View Object）显示层对象，通常是Web向模板渲染引擎层传输的对象。
+
++ 领域模型命名规约，展示对象：xxxVO，xxx一般为网页名称。
+
+## DTO
+
+[DTO(Data Transfer Object)](https://en.wikipedia.org/wiki/Data_transfer_object)是EJB引入的（反）模式。不是在EJB上执行许多远程调用，而是将数据封装在可以通过网络传输的值对象中：数据传输对象，Service或Manager向外传输的对象。
+
++ 数据传输对象只是用于在层和层之间传输数据的数据容器。
++ 它主要包含属性。甚至可以在没有getter和setter的情况下使用公共属性。
++ 数据传输对象不包含任何业务逻辑。
++ DTO主要用于有效地通过网络传输数据，甚至可以从JVM到另一个JVM。
++ TO通常是`java.io.Serializable` 为了通过JVM传输数据。
++ 领域模型命名规约，数据传输对象：xxxDTO，xxx为业务领域相关的名称。
+>>>>>>> c4c878df8aa7406e40148d3202326aa5a802da72
 
 # JVM
 
