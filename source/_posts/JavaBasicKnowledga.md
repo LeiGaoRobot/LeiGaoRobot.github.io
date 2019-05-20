@@ -130,6 +130,20 @@ Java Virtual Mechinal(JAVA虚拟机)。JVM是JRE的一部分，它是一个虚�
 **字节码**
 > 在 Java 中，JVM可以理解的代码就叫做字节码（即扩展名为 .class 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不专对一种特定的机器，因此，Java程序无须重新编译便可在多种不同的计算机上运行。
 
+<<<<<<< HEAD
+
+.java文件(源代码) [JDK中javac编译]-> .class文件(JVM可理解的java字节) [JVM]-> 机器可执行二进制机器码
+
+需要格外注意的是 .class->机器码 这一步。在这一步 jvm 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的，也就是所谓的热点代码，所以后面引进了 JIT 编译器，JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言。
+
+**JIT**
+> 即时编译（英语：Just-in-time compilation），又译及时编译、实时编译，JIT编译器，在计算中，即时编译（也是动态转换或运行时编译）是一种执行计算机代码的方法，涉及程序执行期间的 编译 - 运行 期间而不是在执行之前。大多数情况下，这包括源代码或更常见的字节码转换为机器代码，然后直接执行。实现JIT编译器的系统通常连续分析正在执行的代码，并识别代码的一部分，其中从编译或重新编译获得的加速比将超过编译该代码的开销。JIT编译是两种传统的机器代码转换方法的组合 - [Ahead-of-time compilation(提前编译)](https://en.wikipedia.org/wiki/Ahead-of-time_compilation)和 [interpretation(解释器)](https://en.wikipedia.org/wiki/Interpreter_(computing)),并结合了两者的优点和缺点。粗略地说，JIT编译结合了编译代码的速度和解释的灵活性，以及​​解释器的开销和编译的额外开销（而不仅仅是解释）。JIT编译是动态编译的一种形式，允许自适应优化，如动态重新编译和微体系结构特定的加速。因此，理论上，JIT编译可以比静态编译产生更快的执行速度。解释和JIT编译特别适用于动态编程语言，因为运行时系统可以处理后期绑定数据类型并实施安全保证。
+>> 更多资料:
+>> + [Wikipedia](https://en.wikipedia.org/wiki/Just-in-time_compilation)
+>> + [IBM Developer](https://www.ibm.com/developerworks/cn/java/j-lo-just-in-time/index.html)
+>> + [IBM Knowledge Cente](https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html)
+>> + [Josh Haberman](http://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html)
+=======
 # JavaBean
 
 [JavaBean](https://en.wikipedia.org/wiki/JavaBeans)是遵循Sun定义的JavaBeans约定的类。
@@ -187,6 +201,7 @@ VO（View Object）显示层对象，通常是Web向模板渲染引擎层传输�
 + DTO主要用于有效地通过网络传输数据，甚至可以从JVM到另一个JVM。
 + TO通常是`java.io.Serializable` 为了通过JVM传输数据。
 + 领域模型命名规约，数据传输对象：xxxDTO，xxx为业务领域相关的名称。
+>>>>>>> c4c878df8aa7406e40148d3202326aa5a802da72
 
 # JVM
 
