@@ -1,7 +1,7 @@
 ---
 title: Java 基础知识
 date: 2019-02-01 20:42:21
-categories: java
+categories: Java
 tags: java
 ---
 

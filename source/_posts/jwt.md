@@ -1,7 +1,7 @@
 ---
 title: JWT
 date: 2019-04-09 10:06:15
-categories: security
+categories: Security
 tags:
 - protocol
 - JSON

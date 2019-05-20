@@ -1,9 +1,12 @@
 ---
-title: MessageQueue
+title: Message Queue
 date: 2019-05-13 15:39:38
-categories: MessageQueue
+categories: Message-Queue
 tags:
-- MessageQueue
+- message queue
+- RabbitMQ
+- Apache Kafka
+- RocketMQ
 ---
 
 # What is Message Queue?
@@ -63,7 +66,7 @@ tags:
 消息传递过程中，会有各种异常导致消息不能正常发送，这时候，会有三种选择，一下是三种选择及其实现：
 
 + 下游允许部分消息丢失，不进行处理，这种方式一般适用于监控信息和 log 的传递，少一两条影响不大，称为至多一次（Qos=0）
-  
+
     要实现至多一次并不难，生产者只需要异步发送，在发送失败或者消费失败的时候不做任何处理即可。MQ 在消费者拉走消息后，就直接将消息标记为已经消费或者删除消息。在监控系统和日志系统中，丢失部分信息是可以接受的，但显然，电商系统，金融系统等大部分业务，是不允许出现消息丢失这种情况的，需要保证消息一定会送达到消费者。
 
 + 一种是消息必须全部送达，不允许任何消息丢失，但是可以接受部分消息重复，这种我们称为至少一次（Qos=1），此种方式一般适用于订单，支付等场景（当然，这要求下游系统实现去重或幂等）；
@@ -98,7 +101,7 @@ Sun Microsystems的JMS规范早期尝试使消息排队更加普遍，它提供�
 
     STOMP 以前称为TTMP，是一种简单的基于文本的协议，设计用于处理面向消息的中间件（MOM）。它提供了可互操作的有线格式，允许STOMP客户端与支持该协议的任何消息代理进行通信。STOMP 是 WebSocket 通信标准。在通常的发布订阅语义之上，它通过 begin/publish/commit 序列以及 acknowledgement 机制来提供消息可靠投递。强调（协议）简单性。它对消息传递语义的定义很少，但易于实现并且非常容易部分实现（它是唯一可以通过telnet手动使用的协议）。
 
-4. MQTT(以前称为 MQ Telemetry Transport) - 轻量级消息队列协议，尤其适用于嵌入式设备
+4. Message Queuing Telemetry Transoport(MQTT，以前称为 MQ Telemetry Transport) - 轻量级消息队列协议，尤其适用于嵌入式设备
 
     MQTT 协议是一种基于发布订阅的轻量级协议，支持 TCP 和 UDP 两种连接方式，主要应用于即时通讯，小型设备，移动应用等领域。 MQTT 中有发布者（Publish），订阅者（Subscribe）和代理服务器（Broker）三种角色。Broker 是服务的提供者，发布者和前两种协议中的生产者相同，将消息（Message）发送到 Broker，Subscribe 从 Broker 中获取消息并做业务处理。MQTT 的 Message 中固定消息头（Fixed header）仅有 2 字节，开销极小，除此之外分为可变头（Variable header）和消息体（payload）两部分。固定头中包含消息类型，消息级别，变长头的大小以及消息体的总长度等信息。 变长头则根据消息类别，含有不同的标识信息。 MQTT 允许客户端动态的创建主题，发布者与服务端建立会话（session）后，可以通过 Publish 方法发送数据到服务端的对应主题，订阅者通过 Subscribe 订阅主题后，服务端就会将主题中的消息推送给对应的订阅者。
 
@@ -126,7 +129,82 @@ Sun Microsystems的JMS规范早期尝试使消息排队更加普遍，它提供�
 
 **以上部分内容来自wikipedia(https://en.wikipedia.org/wiki/Message_queue)**
 
-# Kafka 和 RocketMQ 对比
+
+# RabbitMQ
+
+## What is RabbitMQ?
+
+RabbitMQ是一个开源的消息代理软件（有时称为面向消息的中间件），它最初实现了Advanced Message Queuing Protocol（AMQP），并且已经通过插件架构进行了扩展，以支持Steaming Text Oriented Messaging Protocol（STOMP）。 ，Message Queuing Telemetry Transport（MQTT）和其他协议。
+
+RabbitMQ服务器程序是用Erlang编程语言编写的，构建在Open Telecom Platform框架上，用于集群和故障转移。与代理接口的客户端库可用于所有主要编程语言。
+
+> 高级消息队列协议（AMQP）是用于异步消息传递的应用层协议规范。构建为线级协议而不是API（例如JMS）AMQP客户端应该能够发送和接收消息，而不管它们各自的供应商。截至目前，已有多种服务器3和客户端4在多个平台上可用。
+> 虽然AMQP的原始用例是为金融行业提供可互操作的消息传递协议，但当前的标准旨在为通用消息队列体系结构提供通用构造工具包。从这个意义上讲，面向消息的中间件（MOM）系统（如发布/订阅队列）的概念不是直接作为首要实现的。相反，通过将相对简单的AMQ实体连接在一起，给予用户建立这种概念的手段。这些实体也是规范的一部分，并在线级协议之上形成一个层：AMQP模型。此模型统一了消息传递模式，例如前面提到的发布/订阅，队列，事务和流，同时添加了额外的功能，例如易于扩展的基于内容的路由。
+> 在此上下文中发布/订阅意味着生产者和消费者的脱钩：生产者不需要根据消费者将接收消息的标准来了解。队列是以先进先出的方式保存消息的结构。路由封装了决定哪条消息最终会出现在异步消息系统中的消息队列中。
+
+更多详情可看[**RabbitMQ 官网**](https://www.rabbitmq.com/)
+
+
+# RabbitMQ 和 Apache Kafka
+
+## Origins
+
+RabbitMQ是一个“传统”消息代理，它实现了各种消息传递协议。它是首批实现合理级别功能，客户端库，开发工具和质量文档的开源消息代理之一。RabbitMQ最初是为实现AMQP而开发的，AMQP是一种开放式线路协议，具有强大的路由功能。虽然Java具有像JMS这样的消息传递标准，但它对于需要分布式消息传递的非Java应用程序没有帮助，因为它严重限制了任何集成场景，微服务或单片机。随着AMQP的出现，跨语言的灵活性成为开源消息代理的真实存在。
+
+Apache Kafka是在Scala中开发的，最初是在LinkedIn上作为连接不同内部系统的一种方式。当时，LinkedIn正在转向更加分散的架构，需要重新构想数据集成和实时流处理等功能，从而摆脱以前单一的方法来解决这些问题。今天，Kafka在Apache Software Foundation产品生态系统中得到了很好的采用，在事件驱动架构中特别有用。 
+
+## Architecture and Design
+
+RabbitMQ被设计为通用消息代理，采用 point to point (点对点)，request/reply(请求/回复)和  pub-sub(发布者-订阅者) 通信风格模式的多种变体。它使用 smart broker / dumb consumer(智能代理/消费者) 模型，专注于向消费者提供持续一致的消息传递，消费者的消费速度与代理跟踪消费者状态的速度大致相似。它是成熟的，在正确配置时表现良好，得到很好的支持（客户端库Java，.NET，node.js，Ruby，PHP和更多语言），并且有许多可用的插件可以将它扩展到更多的用例和集成场景。
+
+RabbitMQ中的通信可以根据需要选择 synchronous(同步) 或 asynchronous(异步)。Publisher(发布者) 向 Exchanges(交换) 发送消息， Consumers(消费者) 从 Queue(队列) 中检索消息。通过 Exchanges 将 producers(生产者) 与  queue 分离可确保 producers 不会受到硬编码路由决策的影响。RabbitMQ 还提供了许多分布式部署方案（并且确实要求所有节点都能够解析主机名）。可以将多节点设置为集群，并且不依赖于外部服务（但某些群集形成插件可以使用AWS API，DNS，Consul等）。  
+
+Apache Kafka 专为高流量的 publish-subscriber(发布-订阅) 消息和流而设计，旨在持久，快速和可扩展。从本质上讲，Kafka提供了一个持久的消息存储，类似于在服务器集群中运行的日志，它的存储称为 topic (存储流的类型)。
+
+每条消息都包含一个键，一个值和一个时间戳。几乎与RabbitMQ相反，Kafka雇用了一个 dumb broker，并使用 smart consumers 来读取它的缓冲区。Kafka不会尝试跟踪每个消费者读取的消息，只保留未读消息; 相反，Kafka会在一段时间内保留所有消息， Consumers 有责任在每个日志（consumer state）中跟踪他们的位置。因此，通过合适的开发人员创建消费者代码，Kafka可以支持大量消费者并以极少的开销保留大量数据。如上图所示，Kafka确实需要运行外部服务 - 在这种情况下是Apache Zookeeper，这通常被认为是非常容易理解，设置和操作的。    
+
+## Requirements and Use Cases
+
+Apache Kafka包括 broker 本身，它实际上是最着名和最受欢迎的部分，并且已经设计并突出地推向流处理场景。除此之外，Apache Kafka最近还添加了Kafka Streams，它将自己定位为Apache Spark，Apache Flink，Apache Beam/Google Cloud Data Flow和Spring Cloud Data Flow等流媒体平台的替代品。该文档很好地讨论了网站活动跟踪，度量标准，日志聚合，流处理，事件采购和提交日志等常见用例。它描述的其中一个用例是消息传递，它可能会产生一些混乱。因此，让我们稍微解压一下，并清楚了解哪些消息传递方案最适合Kafka，例如：
+
++ 从A到B的流，没有复杂的路由，最大吞吐量（100k / sec +），按分区顺序至少传送一次。
++ 当您的应用程序需要访问流历史记录时，至少按分区顺序提供一次。Kafka是一个持久的消息存储，客户可以根据需要“重播”事件流，而不是更传统的消息代理，一旦消息传递，它就会从队列中删除。
++ 流处理
++ 活动采购
+
+RabbitMQ是一种通用消息传递解决方案，通常用于允许Web服务器快速响应请求，而不是在用户等待结果时强制执行资源繁重的过程。它还可以将消息分发给多个接收者以供消费，或者在高负载（20k+/sec）下平衡负载之间的负载。当您的需求超出吞吐量时，RabbitMQ可提供许多功能：[features for reliable delivery](https://www.rabbitmq.com/confirms.html)，routing，federation，HA，Security，管理工具和其他功能。让我们来看看RabbitMQ的最佳场景，例如：
+
++ 您的应用程序需要使用现有协议的任意组合，如AMQP 0-9-1，STOMP，MQTT，AMQP 1.0。
++ 您需要基于每个消息（死信队列等）进行更精细的一致性控制/保证。 
++ 您的应用程序需要 point to point，request/reply以及 publish/subscriber 消息传递的多样性
++ 复杂的路由到 consumers，使用复杂的路由逻辑集成多个服务/应用程序
+
+RabbitMQ还可以有效地解决上面几个Kafka强大的用例，但是在其他软件的帮助下。当应用程序需要访问流历史时，RabbitMQ通常与Apache Cassandra一起使用，对于需要“无限”队列的应用程序，RabbitMQ通常与LevelDB插件一起使用，但这两种功能都不附带RabbitMQ本身。
+
+有关Kafka和RabbitMQ的微服务特定用例的深入研究，请阅读[Fred Melo的这篇简短的帖子](https://content.pivotal.io/blog/messaging-patterns-for-event-driven-microservices)。
+
+## Security and Operations
+
+安全和运维两者都是RabbitMQ的优势。RabbitMQ管理插件提供HTTP API，基于浏览器的管理和监控UI，以及运营商的CLI工具。长期监控数据存储需要外部工具，如CollectD，Datadog或New Relic。RabbitMQ还提供用于监控，审计和应用程序故障排除的API和工具。除了支持TLS之外，RabbitMQ还附带了由内置数据存储，LDAP或基于HTTPS的外部提供程序支持的RBAC，并支持使用x509证书而不是用户名/密码对进行身份验证。使用插件可以相当简单地开发其他身份验证方法。
+
+这些域对Apache Kafka构成了挑战。在安全方面，最近的Kafka 0.9版本添加了TLS，基于JAAS角色的访问控制和kerberos / plain / scram auth，使用CLI管理安全策略。这对早期版本进行了实质性改进，您只能锁定网络级别的访问权限。
+
+Kafka使用由shell脚本，属性文件和特定格式的JSON文件组成的管理CLI。Kafka Brokers，producers 和 consumers 通过 Yammer/JMX 发布指标但不保留任何历史记录，这实际上意味着使用第三方监控系统。使用这些工具，操作可以管理分区和主题，检查消费者偏移位置，并使用Apache Zookeeper为Kafka提供的HA和FT功能。虽然许多人对Zookeeper的要求持高度怀疑态度，但它确实为Kafka用户带来了集群效益。
+
+例如，3节点Kafka集群即使在2次故障后系统也能正常运行。但是，如果要在Zookeeper中支持尽可能多的故障，则需要额外的5个Zookeeper节点，因为Zookeeper是基于仲裁的系统，并且只能容忍 N/2+1 故障。这些显然不应该与Kafka节点共存 - 所以要建立一个3节点的Kafka系统，你需要~8台服务器。在推断任何Kafka系统的可用性时，运营商必须考虑ZK集群的属性，无论是在资源消耗还是设计方面。
+
+## Proformance
+
+Kafka在设计上闪耀着光芒：100k/sec 的性能通常是人们选择 Apache Kafka 的关键驱动因素。  
+
+当然，每秒消息的速率很难说明和量化，因为它们依赖于很多，包括你的环境和硬件，你的工作负载的性质，使用哪些交付保证（例如持久性成本高，镜像甚至更多）等等。
+
+每秒20K消息很容易通过单个Rabbit队列推送，实际上并不比这更难，对保证方式的要求不高。该队列由一个Erlang轻量级线程支持，该线程在本机操作系统线程池上进行协作调度 - 因此它成为一个自然的瓶颈或瓶颈，因为单个队列永远不会做更多的工作，而不是让CPU周期工作在。
+
+每秒增加消息通常归结为通过巧妙的路由（例如，可以同时运行不同的队列）来执行诸如跨多个队列中断流量之类的事情来正确利用一个环境中可用的并行性。当RabbitMQ 每秒获得100万条消息时，这个用例基本上完全是为了明智地做到这一点 - 但是使用了大量资源，大约30个RabbitMQ节点实现了这个用例。大多数RabbitMQ用户都享有出色的性能，集群由3到7个RabbitMQ节点组成。
+
+
+# Apache Kafka 和 RocketMQ 
 
 ## Kafka 和 RocketMQ 的文件结构对比
 
@@ -195,3 +273,5 @@ afka 和 RocketMQ 都是优秀的分布式消息系统，当需要服务于有�
 ## [Wikipedia - Message Queue](https://en.wikipedia.org/wiki/Message_queue)
 
 ## [infoQ - 漫谈消息队列：以 Kafka 和 RocketMQ 为例](https://www.infoq.cn/article/s*RvY8D1jrNIsfOJylPE)
+
+## [Pivotal bolg - Understanding When to use RabbitMQ or Apache Kafka](https://content.pivotal.io/blog/understanding-when-to-use-rabbitmq-or-apache-kafka)

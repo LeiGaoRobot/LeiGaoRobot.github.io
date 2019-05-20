@@ -1,7 +1,7 @@
 ---
 title: 软件设计模式
 date: 2019-01-09 10:45:03
-categories: design patterns
+categories: Software-Design-Patterns
 tags: design patterns
 ---
 # What is Design Pattern?

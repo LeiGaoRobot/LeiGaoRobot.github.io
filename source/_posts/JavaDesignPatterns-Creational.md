@@ -2,8 +2,8 @@
 title: Java 设计模式 - Creational
 date: 2018-12-27 17:17:15
 categories: 
-- java
-- design patterns
+- [Software-Design-Patterns]
+- [Java]
 tags: 
 - java
 - 设计模式

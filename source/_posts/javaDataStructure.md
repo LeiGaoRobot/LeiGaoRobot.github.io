@@ -1,8 +1,10 @@
 ---
 title: Java 数据结构
 date: 2019-02-12 13:47:29
-categories: java
-tags: java
+categories: Java
+tags: 
+- java
+- data structure
 ---
 # Java Data Structures
 

@@ -1,7 +1,7 @@
 ---
 title: Java8 版本特性
 date: 2018-12-17 10:20:40
-categories: java
+categories: Java
 tags: 
 - java8
 - lambda

@@ -1,9 +1,10 @@
 ---
 title: Java9 版本特性
 date: 2018-12-20 14:14:20
-categories: java
+categories: Java
 tags: 
 - java9
+- java
 thumbnail: /img/article/javase.png
 ---
 

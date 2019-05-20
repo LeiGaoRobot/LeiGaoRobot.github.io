@@ -1,9 +1,10 @@
 ---
 title: Java10 版本特性
 date: 2018-12-25 15:37:37
-categories: java
+categories: Java
 tags:
 - java10
+- java
 thumbnail: /img/article/javase.png
 ---
 

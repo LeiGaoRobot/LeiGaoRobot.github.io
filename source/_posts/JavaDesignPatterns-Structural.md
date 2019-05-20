@@ -2,8 +2,8 @@
 title: Java 设计模式 - Structural
 date: 2019-01-15 10:52:18
 categories: 
-- java
-- design patterns
+- [Software-Design-Patterns]
+- [Java]
 tags: 
 - java
 - 设计模式
