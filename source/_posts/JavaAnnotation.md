@@ -16,6 +16,36 @@ tags:
 
 ### Usage
 
+## [@Transactional]((https://docs.oracle.com/javaee/7/api/javax/transaction/Transactional.html))
+
+### Introduce
+
+javax.transaction.Transactional 注解提供了应用程序以声明式的方式控制事务的边界。此注解可以应用于Java EE规范定义为托管bean（包括CDI托管bean）的任何类。
+
+javax.transaction.Transactional注释为应用程序提供了声明性地控制CDI托管bean上的事务边界的能力，以及Java EE规范定义为托管bean的类，在类和方法级别，方法级别注释覆盖了班级。
+
+有关将@Transactional与EJB一起使用的限制，请参阅EJB规范。
+
+这种支持是通过执行必要的挂起，恢复等的CDI拦截器实现的。事务拦截器仅插入业务方法调用而不插入生命周期事件。生命周期方法在未指定的事务上下文中调用。
+
+如果尝试从使用@Transactional和NOT_SUPPORTED或NEVER以外的Transactional.TxType注释的bean或方法范​​围内调用UserTransaction接口的任何方法，则必须抛出IllegalStateException。在生命周期事件中允许使用UserTransaction。无论是否有任何@Transactional注释，都允许使用TransactionSynchronizationRegistry。
+
+Transactional拦截器的优先级必须为Interceptor.Priority.PLATFORM_BEFORE + 200。有关更多详细信息，请参阅Interceptor规范。
+
+注释的TxType元素指示是否要在事务上下文中执行bean方法。TxType.REQUIRED是默认值。
+
+默认情况下，检查的异常不会导致事务拦截器标记事务以进行回滚以及RuntimeException及其子类的实例。可以通过指定导致拦截器标记事务以进行回滚的异常和/或不会导致回滚的异常来修改此默认行为。
+
+可以设置rollbackOn元素以指示必须使拦截器将事务标记为回滚的异常。
+
+相反，可以设置dontRollbackOn元素以指示异常，这些异常不得导致拦截器将事务标记为回滚。
+
+为这些元素中的任何一个指定类时，指定的行为也适用于该类的子类。如果指定了两个元素，则dontRollbackOn优先。
+
+### Source Code
+
+### Usage
+
 # Spring
 
 ## Spring Bean
