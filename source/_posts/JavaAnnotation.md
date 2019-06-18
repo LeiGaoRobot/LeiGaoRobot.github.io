@@ -344,3 +344,101 @@ public class AssertConfig {
     }
 }
 ```
+
+## Spring Cloud
+
+### @EnableEurekaServer
+
+#### Introduce
+
+标明该类是Eureka服务注册中心。
+
+### @EnableEurekaClient
+
+#### Introduce
+
+表明该服务Eureka的一个服务提供方。
+
+### @EnableDiscoverClient
+
+#### Introduce
+
+声明该服务为Eureka中服务消费方
+
+### @EnableFeignClients
+
+#### Introduce
+
+开启Feign声明式服务间通信（配合@FeignClient注解使用）。
+
+> Feign是一个声明式的HTTP客户端，仅需要一个@FeignClient注解就能实现远程调用。Feign默认集成了Ribbon，并和Eureka结合，默认实现了负载均衡的效果。
+
+### @FeignClient
+
+#### Introduce
+
+实现远程调用,需要填写**value**值，value属性值必须等于一个已在Eureka中注册的服务名称。
+
+#### Source Code
+
+```
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface FeignClient {
+    @AliasFor("name")
+    String value() default "";
+
+    /** @deprecated */
+    @Deprecated
+    String serviceId() default "";
+
+    String contextId() default "";
+
+    @AliasFor("value")
+    String name() default "";
+
+    String qualifier() default "";
+
+    String url() default "";
+
+    boolean decode404() default false;
+
+    Class<?>[] configuration() default {};
+
+    Class<?> fallback() default void.class;
+
+    Class<?> fallbackFactory() default void.class;
+
+    String path() default "";
+
+    boolean primary() default true;
+}
+```
+
+@Target(ElementType.TYPE)修饰，表示FeignClient的作用目标在接口上。
+@Retention(RetentionPolicy.RUNTIME)注解表明该注解会在Class字节码中存在，在运行时可以通过反射获取到。
+@Documented表明该注解被包含在javadoc中。
+
+@FeignClient用于创建声明是API接口，该接口是RESTful风格的。Feign被设计成插拔式的，可注入其他组件和Feign一起使用。最典型的是如果Ribbon可用，Feign会和Ribbon相结合进行负载均衡。
+
+在代码中，value()和name()一样，是被调用的服务的ServiceId。url()直接填写硬编码URL地址。decode404（）即404是被解码，还是抛异常。configuration（）指明FeignClient的配置类，默认的配置类为FeignClientsConfiguration类，在缺省情况下，这个类注入了默认的Decoder、Encoder和Constant等配置的bean。fallback()为配置熔断器的处理类。
+
+### @EnableHystrixDashboard
+
+#### Introduce
+
+开启对熔断器Hystrix的实时监控仪表盘
+
+### @EnableZuulProxy
+
+#### Introduce
+
+开启Zuul网关的支持。
+
+### @EnableConfigServer
+
+#### Introduce
+
+开启配置文件服务支持
+
