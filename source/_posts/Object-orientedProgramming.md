@@ -1,7 +1,7 @@
 ---
 title: 面向对象编程
 date: 2019-02-03 08:52:09
-categories: Programming-Paradigms
+categories: Programming Paradigms
 tags: oop
 ---
 # 面向对象编程(Object-oriented programming,OOP)

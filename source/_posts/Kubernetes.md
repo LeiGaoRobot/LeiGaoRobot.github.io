@@ -2,7 +2,7 @@
 title: Kubernetes
 date: 2019-05-15 09:17:59
 categories: 
-- [Container-Orchestration]
+- [Container Orchestration]
 - [Kubernetes]
 tags:
 - container
@@ -217,22 +217,14 @@ https://medium.com/quick-code/top-tutorials-to-learn-kubernetes-e9507e76d9a4 -- 
 https://www.infoworld.com/article/3207686/how-to-get-started-with-kubernetes.html -- How to get started with Kubernetes
 
 
-# 主要参考资源
+# 原文资料
 
-## [Wikipedia - OS-level virtualisation](https://en.wikipedia.org/wiki/OS-level_virtualisation)
-
-## [kubernetes.io - what is kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
-
-## [kubernetes.io - Tasks](https://kubernetes.io/docs/tasks/)
-
-## [kubernetes.io - Tutorials](https://kubernetes.io/docs/tutorials/)
-
-## [Kubeapps.com directory](https://kubeapps.com/)
-
-## [helm official webside](https://helm.sh/)
-
-## [infoworld - What is Kubernetes? Container orchestration explained](https://www.infoworld.com/article/3268073/what-is-kubernetes-container-orchestration-explained.html)
-
-## [Linux Containers: Parallels, LXC, OpenVZ, Docker and More](https://aucouranton.com/2014/06/13/linux-containers-parallels-lxc-openvz-docker-and-more/)
-
-## [Kubernetes Ingress with Nginx Example](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html)
++ Wikipedia - OS-level virtualisation : https://en.wikipedia.org/wiki/OS-level_virtualisation
++ kubernetes.io - what is kubernetes : https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
++ kubernetes.io - Tasks : https://kubernetes.io/docs/tasks/
++ kubernetes.io - Tutorials : https://kubernetes.io/docs/tutorials/
++ Kubeapps.com directory : https://kubeapps.com/
++ helm official webside : https://helm.sh/
++ infoworld - What is Kubernetes? Container orchestration explained : https://www.infoworld.com/article/3268073/what-is-kubernetes-container-orchestration-explained.html
++ Linux Containers: Parallels, LXC, OpenVZ, Docker and More : https://aucouranton.com/2014/06/13/linux-containers-parallels-lxc-openvz-docker-and-more/
++ Kubernetes Ingress with Nginx Example : https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html

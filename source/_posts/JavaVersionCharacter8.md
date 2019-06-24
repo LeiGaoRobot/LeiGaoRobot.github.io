@@ -780,16 +780,12 @@ $ jjs sample.js
 78952000000000002017.94
 ```
 ---
-# 主要参考资源
 
-## [tutorialspoint](https://www.tutorialspoint.com/java8/index.htm)
+# 原文资料
 
-## [geeksforgeeks](https://www.geeksforgeeks.org/java-8-stream/)
-
-## [ibm-developerworks](https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/index.html)
-
-## [Javacodegeeks](https://www.javacodegeeks.com/2014/05/java-8-features-tutorial.html)
-
-## [Java 8 docs](https://docs.oracle.com/javase/8/)
-
-## [Java 8 docs api](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
++ tutorialspoint : https://www.tutorialspoint.com/java8/index.htm
++ geeksforgeeks : https://www.geeksforgeeks.org/java-8-stream
++ ibm-developerworks : https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/index.html
++ Javacodegeeks : https://www.javacodegeeks.com/2014/05/java-8-features-tutorial.html
++ Java 8 docs : https://docs.oracle.com/javase/8/
++ Java 8 docs api : https://docs.oracle.com/javase/8/docs/api/overview-summary.html

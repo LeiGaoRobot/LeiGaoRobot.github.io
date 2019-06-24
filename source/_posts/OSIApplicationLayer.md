@@ -2,8 +2,9 @@
 title: Application Layer
 date: 2019-05-24 14:17:03
 categories:
-- [InterProtocolSuite]
+- [Internet Protocol Suite]
 - [OSI Model]
+- [Computer Network]
 tags:
 - osi
 - protocol
@@ -224,31 +225,31 @@ Block Cipher Operation Modes(分组密码操作模式) 定义使用密码编码�
 
 使用ECB时，每个数据块都是单独加密的，然后按原始顺序连接起来。由于块不相互依赖，因此可以进行并行处理。没有必要进行IV。ECB的主要问题是如果相同的数据块被加密，它将始终生成相同的密文。这使攻击者更容易根据重复模式猜测原始数据。
 
-![gcheap](/img/TSL-SSL/teriminology-ECB.png)
+![gcheap](/img/TSL-SSL/terminology-ECB.png)
 
 #### Cipher Block Chainning (CBC)
 
 使用CBC时，每个块在加密前与先前的密文进行异或(XOR-ed)。这消除了重复图案的问题。需要IV来加密第一个明文块。由于块是链接的，因此不可能进行并行处理。CBC有一个主要缺点：如果消息的一部分出现乱码或丢失，则消息的其余部分将丢失。
 
-![gcheap](/img/TSL-SSL/teriminology-CBC.png)
+![gcheap](/img/TSL-SSL/terminology-CBC.png)
 
 #### Cipher Feedback (CFB)
 
 CFB方法将块密码转换为 self-synchronizing stream cipher(自同步流密码)。这意味着如果消息的一部分是乱码或丢失，则密码可以在几个块之后同步，并且消息的其余部分不一定丢失。
 
-![gcheap](/img/TSL-SSL/teriminology-CFB.png)
+![gcheap](/img/TSL-SSL/terminology-CFB.png)
 
 #### Output Feedback (OFB)
 
 OFB方法创建 synchronous stream cipher(同步流密码)。该技术保留了纠错码。加密和解密过程完全相同。
 
-![gcheap](/img/TSL-SSL/teriminology-OFB.png)
+![gcheap](/img/TSL-SSL/terminology-OFB.png)
 
 #### Counter Mode (CTR)
 
 CTR方法类似于OFB，因为它还创建了一个 synchronous stream cipher(同步流密码)。但是，它为每个块使用 counter 和 nonce，并且不将块链接在一起。因此，可以并行加密和解密块。
 
-![gcheap](/img/TSL-SSL/teriminology-CTR.png)
+![gcheap](/img/TSL-SSL/terminology-CTR.png)
 
 #### Stream Ciphers
 
@@ -258,7 +259,7 @@ Stream Ciphers(流密码) 每次只加密一位或一个字节的数据。每一
 
 Message Authentication Code(MAC,消息认证码) 是一种用于检查消息的真实性和完整性的方法。它接受两个输入参数：密钥和任意长度的消息。结果称为 tag(标签)。收件人还具有密钥，可以使用它来检测邮件内容的任何更改。MAC有时称为 checksum(校验和)， cyptographic checksum(加密校验和) 或 protected checksum(受保护的校验和)。
 
-![gcheap](/img/TSL-SSL/teriminology-MAC.png)
+![gcheap](/img/TSL-SSL/terminology-MAC.png)
 
 如果发件人的MAC标记与收件人的计算MAC标记匹配，则没有人篡改该消息。如果它们不匹配，则有人在传输过程中更改了消息。
 
@@ -272,7 +273,7 @@ HMAC_SHA256("s3cr3tk3y","Hello World") = 2d9615ee921dab63c7c4c839842703fe338db46
 
 下图显示了HMAC功能的工作原理：
 
-![gcheap](/img/TSL-SSL/teriminology-HMAC.png)
+![gcheap](/img/TSL-SSL/terminology-HMAC.png)
 
 ### Certificates
 
@@ -647,7 +648,7 @@ TLS/SSL 协议用于保护数据传输，但配置错误的服务器可能会暴
 
 在大多数情况下，保护自己免受 TLS/SSL 相关攻击的最佳方法是禁用较旧的协议版本。这甚至是某些行业的标准要求。例如，2018年6月30日是根据PCI数据安全标准禁用对SSL和早期版本的TLS（包括TLS 1.0）的支持的截止日期。互联网工程任务组（IETF）发布了有关SSL安全性的建议：RFC 6176和RFC 7568.IETF很快就会对TLS 1.0和1.1进行弃用。
 
-# 参考资料
+# 原文资料
 
 + [Wikipedia - Application layer](https://en.wikipedia.org/wiki/Application_layer)
 + [acunetix - What Is SSL/TLS](https://www.acunetix.com/blog/articles/tls-security-what-is-tls-ssl-part-1/)

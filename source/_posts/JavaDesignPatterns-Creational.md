@@ -2,7 +2,7 @@
 title: Java 设计模式 - Creational
 date: 2018-12-27 17:17:15
 categories: 
-- [Software-Design-Patterns]
+- [Software Design Patterns]
 - [Java]
 tags: 
 - java
@@ -1828,16 +1828,10 @@ public class PrototypePatternTest {
 如果没有提供对象克隆，那么每次都必须调用数据库来获取employee列表。然后做一些需要耗费资源和时间的操作。
 
 
+# 原文资料
 
-
-# 主要参考资源
-
-## [design_patterns](https://sourcemaking.com/design_patterns/)
-
-## [geeksforgeeks](https://www.geeksforgeeks.org/object-pool-design-pattern/)
-
-## [wiki-Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
-
-## [journaldev](https://www.journaldev.com/1827/java-design-patterns-example-tutorial)
-
-## [tutorialspoint](https://www.tutorialspoint.com/design_pattern/index.htm)
++ design_patterns : https://sourcemaking.com/design_patterns
++ geeksforgeeks : https://www.geeksforgeeks.org/object-pool-design-pattern
++ wiki-Software design pattern : https://en.wikipedia.org/wiki/Software_design_pattern
++ journaldev : https://www.journaldev.com/1827/java-design-patterns-example-tutorial
++ tutorialspoint : https://www.tutorialspoint.com/design_pattern/index.htm

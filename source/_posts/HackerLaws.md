@@ -1,7 +1,7 @@
 ---
 title: HackerLaws
 date: 2019-05-20 17:40:53
-categories: Hacker-Laws
+categories: Hacker Laws
 tags:
 - hacker laws
 - laws
@@ -73,10 +73,28 @@ tags:
 
 + [The Spotify Model](#)
 
+## 邓巴数字 (Dunbar's Number)
+
++ [英文维基百科](https://en.wikipedia.org/wiki/Dunbar%27s_number)
+
+邓巴数字是对一个人能够保持稳定社会关系的人数的认知极限——在这种关系中，一个人知道每个人是谁，也知道每个人与其他人的关系如何。而对这一数字的确切值则有着一些不同意见。邓巴指出，人仅能轻松地维持 150 个稳定的关系。这样的关系在一个更社会化的背景中，便是当你碰巧在酒吧里碰到这些人时候，你不会因为加入他们而感到尴尬。邓巴数字的估计值一般在 100 至 250 之间。
+
+和人与人之间稳定的关系一样，开发人员与代码库的关系也需要努力维护。当面对大型、复杂的项目，或许多项目的归属权时，我们会依赖于约定、策略和建模过程来进行扩展。邓巴数字不仅在办公室规模的扩大的过程中举足轻重，而且在设置团队工作范围，或决定系统何时应该注重于辅助建模和组织管理开销自动化的工具时，也是非常重要的。将邓巴数字放入工程内容中进行类比，那就是您能加入并有信心随叫随到进行轮换的项目数(亦或是单个项目的规范化复杂性)。
+
+## 汉隆的剃刀（Hanlon's Razor）
+
++ [英文维基百科](https://en.wikipedia.org/wiki/Conway%27s_law)
++ [中文维基百科](https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E5%AE%9A%E5%BE%8B)
+
+> 能解释为愚蠢的，就不要解释为恶意的。  
+> 罗伯特 · 汉隆
+
+这一原则表明，一个行为所产生的消极结果并不是恶意。相反，消极结果更有可能归咎于这些没有得到充分理解的行动或影响。
+
 ## 侯世达定律 (Hofstadter's Law)
 
-+ [英文维基百科](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
-+ [中文维基百科](https://zh.wikipedia.org/wiki/%E4%BE%AF%E4%B8%96%E8%BE%BE%E5%AE%9A%E5%BE%8B)
++ [英文维基百科](https://en.wikipedia.org/wiki/Hanlon%27s_razor)
++ [中文维基百科](https://zh.wikipedia.org/wiki/%E6%B1%89%E9%9A%86%E7%9A%84%E5%89%83%E5%88%80)
 
 > 做事所花费的时间总是比你预期的要长，即使你的预期中考虑了侯世达定律。
 
@@ -239,6 +257,29 @@ Spotify 模型还普及了部落、行会以及章节的概念，这些是组织
 
 原则通常是与设计相关的准则。
 
+## 帕累托法则 (The Pareto Principle or The 80/20 Rule)
+
++ [英文维基百科](https://en.wikipedia.org/wiki/Pareto_principle)
++ [中文维基百科](https://zh.wikipedia.org/wiki/%E5%B8%95%E7%B4%AF%E6%89%98%E6%B3%95%E5%88%99)
+
+> 生活中大多数事情不是均匀分布的。
+
+帕累托法则可以帮你认识到大多数结果来自少数投入：
+
++ 某个软件的 80％ 代码只占了总分配时间的 20％（相反，最难的 20％ 代码部分占用了 80％ 的时间）
++ 20％ 的努力产生了 80％ 的结果
++ 20％ 的工作创造了 80％ 的收入
++ 20％ 的错误导致了 80％ 的崩溃
++ 20％ 的功能导致了 80％ 的使用量
+
+在 20 世纪 40 年代，公认为质量控制之父的美国罗马尼亚工程师[约瑟夫·朱兰博士博士](https://en.wikipedia.org/wiki/Joseph_M._Juran),开始将帕累托法则应用于质量问题。
+
+这个原则也被称为二八法则，重要的少数法则和因素稀疏原则。
+
+现实的例子：
+
++ 微软 2002 年的报告表明，修复最常出现的 20％ 错误，将消除 Windows 和 Office 中 80％ 的 错误和崩溃。[报告地址](https://www.crn.com/news/security/18821726/microsofts-ceo-80-20-rule-applies-to-bugs-not-just-features.htm)
+
 ## 鲁棒性原则 (The Robustness Principle)
 
 + [英文维基百科](https://en.wikipedia.org/wiki/Robustness_principle)
@@ -333,6 +374,41 @@ SOLID 的第五个原则。该原则指出，更高级别的协调组件不应�
 
 + Inversion of Control
 + Dependency Injection
+
+## 不要重复你自己原则 (The DRY Principle)
+
++ [英文维基百科](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
++ [中文维基百科](https://zh.wikipedia.org/wiki/%E4%B8%80%E6%AC%A1%E4%B8%94%E4%BB%85%E4%B8%80%E6%AC%A1)
+
+> 系统中，每一块知识都必须是单一、明确而权威的。
+
+DRY 是 **Do not Repeat Yourself** 的缩写。这个原则旨在帮助开发人员减少代码的重复性，并将公共代码保存在一个地方。最初由安德鲁·亨特和戴夫·托马斯在 1999 年出版的《程序员修炼之道》中引用。
+
+>  DRY 相反的是 WET（功能实现两次或者喜欢打字 Write Everything Twice or We Enjoy Typing）。
+
+实际上，如果你在两个或更多的地方有相同的功能，你可以使用 DRY 原则将它们合并为一个，并在任何你需要的地方重复使用。
+
+参见：
+
++ 《程序员修炼之道》[英文维基百科](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer)
++ 《程序员修炼之道》[豆瓣](https://book.douban.com/subject/1417047/)
+
+## 你不需要它原则 (YAGNI)
+
++ [英文维基百科](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
+
+这是 You Aren't Gonna Need It 的缩写。
+
+> 只有当你需要某些东西的时候，才去实现它们，而不是在你预见的时候。
+> Ron Jeffries 是极限编程的创始人之一以及书籍《Extreme Programming Installed》的作者。
+
+极限编程原则告诫开发人员，他们应该只实现当前所需的功能，并避免实现未来需要的功能，仅在必要时才实现。
+
+遵守这一原则可以减小代码库大小，同时避免时间和生产力浪费在没有价值的功能上。
+
+参见：
+
++ [Extreme Programming Installed](https://www.goodreads.com/en/book/show/67834.Extreme_Programming_Installed)
 
 # 阅读清单
 

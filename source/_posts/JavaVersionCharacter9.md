@@ -1164,14 +1164,10 @@ HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandler.asString()
 
 Java 9 中 ，JVM 有了统一的日志记录系统，可以使用新的命令行选项-Xlog 来控制 JVM 上 所有组件的日志记录。该日志记录系统可以设置输出的日志消息的标签、级别、修饰符和输出目标等。Java 9 移除了在 Java 8 中 被废弃的垃圾回收器配置组合，同时 把 G1 设为默认的垃圾回收器实现。另外，CMS 垃圾回收器已经被声明为废弃。Java 9 也增加了很多可以通过 jcmd 调用的诊断命令。
 
-# 主要参考资源
+# 原文资料
 
-## [tutorialspoint](https://www.tutorialspoint.com/java9/index.htm)
-
-## [ibm-developerworks](https://www.ibm.com/developerworks/cn/java/the-new-features-of-Java-9/index.html)
-
-## [journaldev](https://www.journaldev.com/13121/java-9-features-with-examples)
-
-## [Java 9 docs](https://docs.oracle.com/javase/9/)
-
-## [Java 9 docs api](https://docs.oracle.com/javase/9/docs/api/overview-summary.html)
++ tutorialspoint : https://www.tutorialspoint.com/java9/index.htm
++ ibm-developerworks : https://www.ibm.com/developerworks/cn/java/the-new-features-of-Java-9/index.html
++ journaldev : https://www.journaldev.com/13121/java-9-features-with-examples
++ Java 9 docs : https://docs.oracle.com/javase/9/
++ Java 9 docs api : https://docs.oracle.com/javase/9/docs/api/overview-summary.html

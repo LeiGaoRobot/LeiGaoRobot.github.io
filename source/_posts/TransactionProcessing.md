@@ -580,18 +580,12 @@ XAConnectionFactoryWrapper 和 [XADataSourceWrapper](https://github.com/spring-p
 [BitronixXAConnectionFactoryWrapper](https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/jta/bitronix/BitronixXAConnectionFactoryWrapper.java) 和 [BitronixXADataSourceWrapper](https://github.com/spring-projects/spring-boot/blob/v2.1.5.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/jta/bitronix/BitronixXADataSourceWrapper.java) 提供了如何编写XA包装很好的例子。
 
 
-# 主要参考资源
+# 原文资料
 
-## [Wikipedia - Transaction Processing](https://en.wikipedia.org/wiki/Transaction_processing)
-
-## [Wikipedia - Transaction Processing System](https://en.wikipedia.org/wiki/Transaction_processing_system)
-
-## [Wikipedia - Java Transaction API](https://en.wikipedia.org/wiki/Java_Transaction_API)
-
-## [baeldung - Guide to Java EE JTA](https://www.baeldung.com/jee-jta)
-
-## [spring.io - Distributed Transactions with JTA](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-jta.html)
-
-## [IBM Knowledge Center - Transaction Processing](https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.2.0/com.ibm.cics.ts.productoverview.doc/concepts/TransactionProcessing.html)
-
-## [computerbusinessresearch - Transaction processing system](http://www.computerbusinessresearch.com/Home/decision-making/transaction-processing-system)
++ Wikipedia - Transaction Processing : https://en.wikipedia.org/wiki/Transaction_processing
++ Wikipedia - Transaction Processing System : https://en.wikipedia.org/wiki/Transaction_processing_system
++ Wikipedia - Java Transaction API : https://en.wikipedia.org/wiki/Java_Transaction_API
++ baeldung - Guide to Java EE JTA : https://www.baeldung.com/jee-jta
++ spring.io - Distributed Transactions with JTA : https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-jta.html
++ IBM Knowledge Center - Transaction Processing : https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.2.0/com.ibm.cics.ts.productoverview.doc/concepts/TransactionProcessing.html
++ computerbusinessresearch - Transaction processing system : http://www.computerbusinessresearch.com/Home/decision-making/transaction-processing-system

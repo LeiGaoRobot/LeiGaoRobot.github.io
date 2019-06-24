@@ -3,7 +3,7 @@ title: Linux Command-Line
 date: 2019-05-30 10:29:23
 categories:
 - [Linux]
-- [Command-Line]
+- [Command Line]
 tags:
 - linux
 - command-line

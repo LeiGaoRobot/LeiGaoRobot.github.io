@@ -412,9 +412,9 @@ wooyun案例：
 
 最后，对oauth2.0有详细的了解，严格按照流程进行开发。
 
-# 参考资料
+# 原文资料
 
-+ 官方文档：https://tools.ietf.org/html/rfc6749
-+ 说说oauth那点事：http://www.jianshu.com/p/b06944c92228
-+ OAuth 2.0安全案例回顾：http://www.cnblogs.com/maoxiaolv/p/5832996.html
-+ Oauth2.0详解及安全使用: https://www.cnblogs.com/maoxiaolv/p/5838680.html
++ 官方文档 : https://tools.ietf.org/html/rfc6749
++ 说说oauth那点事 : http://www.jianshu.com/p/b06944c92228
++ OAuth 2.0安全案例回顾 : http://www.cnblogs.com/maoxiaolv/p/5832996.html
++ Oauth2.0详解及安全使用 : https://www.cnblogs.com/maoxiaolv/p/5838680.html

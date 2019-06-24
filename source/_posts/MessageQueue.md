@@ -1,7 +1,7 @@
 ---
 title: Message Queue
 date: 2019-05-13 15:39:38
-categories: Message-Queue
+categories: Message Queue
 tags:
 - message queue
 - RabbitMQ
@@ -268,10 +268,8 @@ afka 和 RocketMQ 都是优秀的分布式消息系统，当需要服务于有�
 + 缓存策略： 应用可以通过一定的缓存策略，提前将可能用到的数据读到内存中，当收到请求时，如果能命中缓存中的数据，在缓存中直接读取效率远高于读写磁盘。同样，写操作时也可以通过缓存将零散的写操作进行汇集，提高写操作的效率。 所有适合的缓存策略将显著提高 Broker 的处理能力。
 
 
-# 主要参考资源
+# 原文资料
 
-## [Wikipedia - Message Queue](https://en.wikipedia.org/wiki/Message_queue)
-
-## [infoQ - 漫谈消息队列：以 Kafka 和 RocketMQ 为例](https://www.infoq.cn/article/s*RvY8D1jrNIsfOJylPE)
-
-## [Pivotal bolg - Understanding When to use RabbitMQ or Apache Kafka](https://content.pivotal.io/blog/understanding-when-to-use-rabbitmq-or-apache-kafka)
++ Wikipedia - Message Queue : https://en.wikipedia.org/wiki/Message_queue
++ infoQ - 漫谈消息队列：以 Kafka 和 RocketMQ 为例 : https://www.infoq.cn/article/s*RvY8D1jrNIsfOJylPE
++ Pivotal bolg - Understanding When to use RabbitMQ or Apache Kafka : https://content.pivotal.io/blog/understanding-when-to-use-rabbitmq-or-apache-kafka

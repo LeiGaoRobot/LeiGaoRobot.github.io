@@ -395,16 +395,11 @@ version.patch();
 + 新版本的 JVM 能够根据系统分配给当前 Docker 容器的 CPU 数和内存来配置线程池和 GC 机制，而不再是直接使用系统的 CPU 和内存。并且增加了三个更强大的命令选项：-XX:InitialRAMPercentage、-XX:MaxRAMPercentage 和 -XX:MinRAMPercentage 。
 + 新版本增加了一个新的系统属性：jdk.disableLastUsageTracking。这个新增的属性就像它的名字一样，会禁用 JRE 的上一次使用跟踪。
 
-# 主要参考资源
+# 原文资料
 
-## [openjdk](http://openjdk.java.net/projects/jdk/10/)
-
-## [ibm-developerworks](https://www.ibm.com/developerworks/cn/java/the-new-features-of-Java-10/index.html)
-
-## [journaldev](https://www.journaldev.com/20395/java-10-features)
-
-## [Java 10 docs](https://docs.oracle.com/javase/10/)
-
-## [Java 10 docs api](https://docs.oracle.com/javase/10/docs/api/overview-summary.html)
-
-## [oschina](https://www.oschina.net/translate/109-new-features-in-jdk-10?lang=chs&p=1)
++ openjdk : http://openjdk.java.net/projects/jdk/10/
++ ibm-developerworks : https://www.ibm.com/developerworks/cn/java/the-new-features-of-Java-10/index.html
++ journaldev : https://www.journaldev.com/20395/java-10-features
++ Java 10 docs : https://docs.oracle.com/javase/10/
++ Java 10 docs api : https://docs.oracle.com/javase/10/docs/api/overview-summary.html
++ oschina : https://www.oschina.net/translate/109-new-features-in-jdk-10?lang=chs&p=1
