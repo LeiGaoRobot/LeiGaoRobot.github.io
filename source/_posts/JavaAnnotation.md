@@ -16,7 +16,7 @@ tags:
 
 ### Usage
 
-## [@Transactional]((https://docs.oracle.com/javaee/7/api/javax/transaction/Transactional.html))
+## [@Transactional](https://docs.oracle.com/javaee/7/api/javax/transaction/Transactional.html)
 
 ### Introduce
 
@@ -48,13 +48,36 @@ Transactional拦截器的优先级必须为Interceptor.Priority.PLATFORM_BEFORE 
 
 # Spring
 
-## Spring Bean
+## @EnableWebSecurity
 
-### @Autowired
+### Introduce
 
-#### Introduce
+将此注解添加到@Configuration类中，以使Spring Security configuration在任何WebSecurityConfigurer定义，或者更可能通过扩展WebSecurityConfigurerAdapter基类和重写单个方法。
+@EnableWebSecurity。它允许Spring查找（它是一个@Configuration，因此@Component）并自动将类应用于全局WebSecurity。
 
-#### Source Code
+### Source Code
+
+```
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE})
+@Documented
+@Import({WebSecurityConfiguration.class, SpringWebMvcImportSelector.class, OAuth2ImportSelector.class})
+@EnableGlobalAuthentication
+@Configuration
+public @interface EnableWebSecurity {
+    boolean debug() default false;
+}
+```
+
+### Usage
+
+
+
+## @Autowired
+
+### Introduce
+
+### Source Code
 
 ```
 @Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
@@ -65,7 +88,7 @@ public @interface Autowired {
 }
 ```
 
-#### Usage
+### Usage
 
 **Enabling @Autowired Annotations**
 
@@ -288,18 +311,125 @@ public class FooService {
 
 尽管@Qualifier和bean名称后备匹配都可以用于缩小到特定的bean，但是自动装配实际上是关于按类型注入的，这就是使用此容器功能的最佳方式。
 
+## @Configuration
 
-## Spring Boot
+### Introduce
 
-### @ConditionalOnProperty
+Spring @Configuration注解有助于基于Spring注解的配置。@Configuration注解指示一个类声明一个或多个@Bean方法，并且可以由Spring容器处理，以在运行时为这些bean生成bean定义和服务请求。
+
+### Source Code
+
+```
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
+public @interface Configuration {
+    @AliasFor(
+        annotation = Component.class
+    )
+    String value() default "";
+}
+```
+
+### Usage
+
+@Configuration在任何类的顶部使用注解来声明此类提供一个或多个@Bean方法，并且Spring容器可以处理它以在运行时为这些bean生成bean定义和服务请求。
+
+```
+package com.tutorialspoint;
+import org.springframework.context.annotation.*;
+
+@Configuration
+public class HelloWorldConfig {
+   @Bean 
+   public HelloWorld helloWorld(){
+      return new HelloWorld();
+   }
+}
+```
+
+上面的代码将等同于以下XML配置 
+
+```
+<beans>
+   <bean id = "helloWorld" class = "com.tutorialspoint.HelloWorld" />
+</beans>
+```
+
+#### 使用示例
+
+**创造Spring**
+
+```
+public interface DemoManager {
+    public String getServiceName();
+}
+ 
+public class DemoManagerImpl implements DemoManager
+{
+    @Override
+    public String getServiceName()
+    {
+        return "My first service with Spring 3";
+    }
+}
+```
+
+**带有@Configuration注解的Spring配置类**
+
+```
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+ 
+import com.howtodoinjava.core.beans.DemoManager;
+import com.howtodoinjava.core.beans.DemoManagerImpl;
+ 
+@Configuration
+public class ApplicationConfiguration {
+ 
+    @Bean(name="demoService")
+    public DemoManager helloWorld()
+    {
+        return new DemoManagerImpl();
+    }
+}
+```
+
+**Demo**
+
+```
+package com.howtodoinjava.core.verify;
+ 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+ 
+import com.howtodoinjava.core.beans.DemoManager;
+import com.howtodoinjava.core.config.ApplicationConfiguration;
+ 
+public class VerifySpringCoreFeature
+{
+    public static void main(String[] args)
+    {
+        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
+ 
+        DemoManager obj = (DemoManager) context.getBean("demoService");
+ 
+        System.out.println( obj.getServiceName() );
+    }
+}
+```
+
+
+## @ConditionalOnProperty
 
 *Spring Boot 2.1.4 API : https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html*
 
-#### Introduce
+### Introduce
 
 > Spring Boot通过@ConditionalOnProperty来控制Configuration是否生效
 
-#### Source Code
+### Source Code
 
 ```
 @Retention(RetentionPolicy.RUNTIME)
@@ -322,7 +452,7 @@ public @interface ConditionalOnProperty {
 } 
 ```
 
-#### Usage
+### Usage
 
 > 通过其两个属性name以及havingValue来实现的，其中name用来从application.properties中读取某个属性值。  
 > 如果该值为空，则返回false;  
@@ -345,41 +475,39 @@ public class AssertConfig {
 }
 ```
 
-## Spring Cloud
+## @EnableEurekaServer
 
-### @EnableEurekaServer
-
-#### Introduce
+### Introduce
 
 标明该类是Eureka服务注册中心。
 
-### @EnableEurekaClient
+## @EnableEurekaClient
 
-#### Introduce
+### Introduce
 
 表明该服务Eureka的一个服务提供方。
 
-### @EnableDiscoverClient
+## @EnableDiscoverClient
 
-#### Introduce
+### Introduce
 
 声明该服务为Eureka中服务消费方
 
-### @EnableFeignClients
+## @EnableFeignClients
 
-#### Introduce
+### Introduce
 
 开启Feign声明式服务间通信（配合@FeignClient注解使用）。
 
 > Feign是一个声明式的HTTP客户端，仅需要一个@FeignClient注解就能实现远程调用。Feign默认集成了Ribbon，并和Eureka结合，默认实现了负载均衡的效果。
 
-### @FeignClient
+## @FeignClient
 
-#### Introduce
+### Introduce
 
 实现远程调用,需要填写**value**值，value属性值必须等于一个已在Eureka中注册的服务名称。
 
-#### Source Code
+### Source Code
 
 ```
 @Target({ElementType.TYPE})
@@ -424,21 +552,20 @@ public @interface FeignClient {
 
 在代码中，value()和name()一样，是被调用的服务的ServiceId。url()直接填写硬编码URL地址。decode404（）即404是被解码，还是抛异常。configuration（）指明FeignClient的配置类，默认的配置类为FeignClientsConfiguration类，在缺省情况下，这个类注入了默认的Decoder、Encoder和Constant等配置的bean。fallback()为配置熔断器的处理类。
 
-### @EnableHystrixDashboard
+## @EnableHystrixDashboard
 
-#### Introduce
+### Introduce
 
 开启对熔断器Hystrix的实时监控仪表盘
 
-### @EnableZuulProxy
+## @EnableZuulProxy
 
-#### Introduce
+### Introduce
 
 开启Zuul网关的支持。
 
-### @EnableConfigServer
+## @EnableConfigServer
 
-#### Introduce
+### Introduce
 
 开启配置文件服务支持
-

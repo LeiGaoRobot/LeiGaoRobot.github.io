@@ -34,7 +34,7 @@ tags:
 + lsof / fuser: open sockets and files
 + uptime: 系统到现在运行了多长时间
 + **alias**: 别名
-> save alias see [arrange for login shells to source it.](https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980)  
+> save alias see more [arrange for login shells to source it.](https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980)  
 > 传统上，当登录Unix系统时，系统会为启动一个程序。该程序是一个shell，即一个旨在启动其他程序的程序。它是一个命令行shell：通过键入其名称来启动另一个程序。默认shell（Bourne shell）从~/.profile作为登录shell调用时读取命令。
 > Bash是一个类似Bourne的shell。它从~/.bash_profile作为登录shell调用时读取命令，如果该文件不存在，则会尝试读取~/.profile。  
 > 您可以随时直接调用shell，例如在GUI环境中启动终端仿真器。如果shell不是登录shell，则不会读取~/.profile。当您将bash作为交互式shell启动时（即，不运行脚本），它会读取~/.bashrc（除非作为登录shell调用时，它只读取~/.bash_profile或~/.profile。  
