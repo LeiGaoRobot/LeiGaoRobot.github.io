@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Spring Security | PaulGao Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is Spring Security?Spring Security是一个 Java&#x2F;Java EE 框架，为企业应用程序提供身份验证，授权和其他安全功能。该项目于2003年底开始作为’Acegi Security’（发音为Ah-see-gee，其字母为英文字母中的第1,3,5,7和9个字符，以防止名称冲突） Alex，于2004年3月在Apache License下公开发布。随后，Ac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Security">
+<meta property="og:url" content="https://leigaorobot.github.io/2019/05/14/SpringSecurity/index.html">
+<meta property="og:site_name" content="PaulGao Blog">
+<meta property="og:description" content="What is Spring Security?Spring Security是一个 Java&#x2F;Java EE 框架，为企业应用程序提供身份验证，授权和其他安全功能。该项目于2003年底开始作为’Acegi Security’（发音为Ah-see-gee，其字母为英文字母中的第1,3,5,7和9个字符，以防止名称冲突） Alex，于2004年3月在Apache License下公开发布。随后，Ac">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-14T09:14:39.000Z">
+<meta property="article:modified_time" content="2019-12-17T01:28:27.221Z">
+<meta property="article:author" content="Paul Gao">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="spring security">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="PaulGao Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">PaulGao Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leigaorobot.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SpringSecurity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/14/SpringSecurity/" class="article-date">
+  <time datetime="2019-05-14T09:14:39.000Z" itemprop="datePublished">2019-05-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Security
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="What-is-Spring-Security"><a href="#What-is-Spring-Security" class="headerlink" title="What is Spring Security?"></a>What is Spring Security?</h1><p>Spring Security是一个 Java/Java EE 框架，为企业应用程序提供身份验证，授权和其他安全功能。该项目于2003年底开始作为’Acegi Security’（发音为Ah-see-gee，其字母为英文字母中的第1,3,5,7和9个字符，以防止名称冲突） Alex，于2004年3月在Apache License下公开发布。随后，Acegi被纳入Spring组合作为Spring Security，一个官方的Spring子项目。新名称下的第一个公开发布是2008年4月的Spring Security 2.0.0，SpringSource提供了商业支持和培训。</p>
+<blockquote>
+<p>Spring Security是一个功能强大且可高度自定义的身份验证和访问控制框架。它是保护基于Spring的应用程序的事实标准。<br>Spring Security是一个专注于为Java应用程序提供身份验证和授权的框架。与所有Spring项目一样，Spring Security的真正强大之处在于它可以轻松扩展以满足自定义要求</p>
+</blockquote>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>对身份验证和授权的全面和可扩展的支持</li>
+<li>防止会话固定，点击劫持，跨站点请求伪造等攻击</li>
+<li>Servlet API集成</li>
+<li>可选与Spring Web MVC集成</li>
+</ul>
+<h3 id="Key-authentication-features"><a href="#Key-authentication-features" class="headerlink" title="Key authentication features"></a>Key authentication features</h3><ul>
+<li>LDAP（使用基于绑定和密码比较策略）用于集中身份验证信息。</li>
+<li>使用流行的中央身份验证服务的单点登录功能。</li>
+<li>Java身份验证和授权服务（JAAS）LoginModule，一种在Java中使用的基于标准的身份验证方法。请注意，此功能仅是对JAAS Loginmodule的委派。</li>
+<li>通过 IETF Request for Comments 1945 标准定义的基本访问认证。</li>
+<li>通过 IETF Request for Comments 2617 和 RFC 2069 标准定义的摘要访问认证。</li>
+<li>通过 Secure Sockets Layer(SSL,又叫Transport Layer Security,TLS) 标准的 X.509 客户端证书表示。</li>
+<li>CA，Inc SiteMinder用于身份验证（一种流行的商业访问管理产品）。</li>
+<li>类似于Su（Unix）支持通过HTTP或HTTPS连接切换主体身份。</li>
+<li>Run-as replacement，使操作能够采用不同的安全标识。</li>
+<li>匿名身份验证，这意味着即使是未经身份验证的主体也会分配安全身份。</li>
+<li>容器适配器（自定义领域）支持Apache Tomcat，Resin，JBoss和Jetty（Web服务器）。</li>
+<li>Windows NTLM启用浏览器集成（实验性）。</li>
+<li>Web表单身份验证，类似于Servlet容器规范。</li>
+<li>通过HTTP Cookie “Remember-me”支持。</li>
+<li>并发会话支持，限制委托人允许的同时登录次数。</li>
+<li>完全支持自定义和插入自定义身份验证实现。</li>
+</ul>
+<h3 id="Instance-based-security-features"><a href="#Instance-based-security-features" class="headerlink" title="Instance-based security features"></a>Instance-based security features</h3><ul>
+<li>AspectJ方法调用授权。</li>
+<li>使用Apache Ant路径或正则表达式选择Web请求URL的HTTP授权。</li>
+</ul>
+<h3 id="Other-features"><a href="#Other-features" class="headerlink" title="Other features"></a>Other features</h3><ul>
+<li>软件本地化，因此用户界面消息可以使用任何语言。</li>
+<li>通道安全性，在满足特定规则时自动在HTTP和HTTPS之间切换。</li>
+<li>在框架的所有数据库触摸区域中进行缓存。</li>
+<li>发布消息以促进事件驱动的编程。</li>
+<li>支持通过JUnit执行集成测试。</li>
+<li>Spring Security本身具有全面的JUnit隔离测试。</li>
+<li>几个示例应用程序，详细的JavaDocs和参考指南。</li>
+<li>Web框架独立性。</li>
+</ul>
+<h1 id="Registration"><a href="#Registration" class="headerlink" title="Registration"></a>Registration</h1><h2 id="Basic-Registration-Process"><a href="#Basic-Registration-Process" class="headerlink" title="Basic Registration Process"></a>Basic Registration Process</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leigaorobot.github.io/2019/05/14/SpringSecurity/" data-id="ckvgcipjp0019plqh6ndpb5gr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-security/" rel="tag">spring security</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/15/Kubernetes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Kubernetes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/13/MessageQueue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Message Queue</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Command-Line/">Command Line</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Network/">Computer Network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Container-Orchestration/">Container Orchestration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DatabaseTransaction/">DatabaseTransaction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-Laws/">Hacker Laws</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Internet-Protocol-Suite/">Internet Protocol Suite</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Script/">Java Script</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Message-Queue/">Message Queue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OSI-Model/">OSI Model</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Paradigms/">Programming Paradigms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Security/">Security</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Design-Patterns/">Software Design Patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Transaction/">Transaction</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Kafka/" rel="tag">Apache Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Authentication/" rel="tag">Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Authorization/" rel="tag">Authorization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DatabaseTransaction/" rel="tag">DatabaseTransaction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth/" rel="tag">OAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Token/" rel="tag">Token</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transaction/" rel="tag">Transaction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cloud-platform/" rel="tag">cloud platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/" rel="tag">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compuer-network/" rel="tag">compuer network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/creational/" rel="tag">creational</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/" rel="tag">design patterns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hacker-laws/" rel="tag">hacker laws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/internet/" rel="tag">internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-annotation/" rel="tag">java annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-script/" rel="tag">java script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java10/" rel="tag">java10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java8/" rel="tag">java8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java9/" rel="tag">java9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laws/" rel="tag">laws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/message-queue/" rel="tag">message queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/microservice/" rel="tag">microservice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop/" rel="tag">oop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osi/" rel="tag">osi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol/" rel="tag">protocol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol-suite/" rel="tag">protocol suite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-security/" rel="tag">spring security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/structural/" rel="tag">structural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Apache-Kafka/" style="font-size: 10px;">Apache Kafka</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/DatabaseTransaction/" style="font-size: 10px;">DatabaseTransaction</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/OAuth/" style="font-size: 10px;">OAuth</a> <a href="/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Token/" style="font-size: 10px;">Token</a> <a href="/tags/Transaction/" style="font-size: 10px;">Transaction</a> <a href="/tags/cloud-platform/" style="font-size: 10px;">cloud platform</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/command-line/" style="font-size: 10px;">command-line</a> <a href="/tags/compuer-network/" style="font-size: 10px;">compuer network</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/creational/" style="font-size: 10px;">creational</a> <a href="/tags/data-structure/" style="font-size: 10px;">data structure</a> <a href="/tags/design-patterns/" style="font-size: 16.67px;">design patterns</a> <a href="/tags/hacker-laws/" style="font-size: 10px;">hacker laws</a> <a href="/tags/internet/" style="font-size: 10px;">internet</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/java-annotation/" style="font-size: 10px;">java annotation</a> <a href="/tags/java-script/" style="font-size: 10px;">java script</a> <a href="/tags/java10/" style="font-size: 10px;">java10</a> <a href="/tags/java8/" style="font-size: 10px;">java8</a> <a href="/tags/java9/" style="font-size: 10px;">java9</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/laws/" style="font-size: 10px;">laws</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/microservice/" style="font-size: 10px;">microservice</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/osi/" style="font-size: 10px;">osi</a> <a href="/tags/protocol/" style="font-size: 16.67px;">protocol</a> <a href="/tags/protocol-suite/" style="font-size: 10px;">protocol suite</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-security/" style="font-size: 10px;">spring security</a> <a href="/tags/structural/" style="font-size: 10px;">structural</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.33px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/20/ECMAScript6/">ECMAScript6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/LinuxCommandLine/">Linux Command-Line</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/24/OSIApplicationLayer/">Application Layer</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/21/TransactionProcessing/">Transaction</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/20/HackerLaws/">HackerLaws</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Paul Gao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

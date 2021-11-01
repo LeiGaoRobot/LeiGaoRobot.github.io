@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>OAuth2 | PaulGao Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is OAuthOAuth 即 Open standard for Authorization OAuth是一个网络开放协议。为保证用户资源的安全授权提供了简易的标准 oAuth的好处：  允许用户授权第三方网站或应用，访问用户存储在其它网站上的资源，而不需要将用户名和密码提供给第三方网站或分享他们数据的内容 对于用户:免去了繁琐的注册过程,降低了注册成本,提高了用户体验  对于消费方:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OAuth2">
+<meta property="og:url" content="https://leigaorobot.github.io/2019/04/08/OAuth2/index.html">
+<meta property="og:site_name" content="PaulGao Blog">
+<meta property="og:description" content="What is OAuthOAuth 即 Open standard for Authorization OAuth是一个网络开放协议。为保证用户资源的安全授权提供了简易的标准 oAuth的好处：  允许用户授权第三方网站或应用，访问用户存储在其它网站上的资源，而不需要将用户名和密码提供给第三方网站或分享他们数据的内容 对于用户:免去了繁琐的注册过程,降低了注册成本,提高了用户体验  对于消费方:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://leigaorobot.github.io/img/oauth2.0/oauth2_refreshToken.png">
+<meta property="og:image" content="https://leigaorobot.github.io/img/oauth2.0/AuthorizationCodeGrantBug.jpg">
+<meta property="og:image" content="https://leigaorobot.github.io/img/oauth2.0/ImplicitGrantBug.png">
+<meta property="og:image" content="https://leigaorobot.github.io/img/oauth2.0/RourceOwnerPasswordCredentialsGrantBug.png">
+<meta property="article:published_time" content="2019-04-08T09:44:59.000Z">
+<meta property="article:modified_time" content="2019-12-17T01:28:27.220Z">
+<meta property="article:author" content="Paul Gao">
+<meta property="article:tag" content="protocol">
+<meta property="article:tag" content="OAuth">
+<meta property="article:tag" content="OAuth 2.0">
+<meta property="article:tag" content="Authorization">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leigaorobot.github.io/img/oauth2.0/oauth2_refreshToken.png">
+  
+    <link rel="alternate" href="/atom.xml" title="PaulGao Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">PaulGao Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leigaorobot.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OAuth2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/OAuth2/" class="article-date">
+  <time datetime="2019-04-08T09:44:59.000Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Security/">Security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OAuth2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="What-is-OAuth"><a href="#What-is-OAuth" class="headerlink" title="What is OAuth"></a>What is OAuth</h1><p>OAuth 即 Open standard for Authorization</p>
+<p>OAuth是一个网络开放协议。为保证用户资源的安全授权提供了简易的标准</p>
+<p>oAuth的好处：</p>
+<ul>
+<li>允许用户授权第三方网站或应用，访问用户存储在其它网站上的资源，而不需要将用户名和密码提供给第三方网站或分享他们数据的内容</li>
+<li>对于用户:免去了繁琐的注册过程,降低了注册成本,提高了用户体验 </li>
+<li>对于消费方:简化自身会员系统的同时又能够带来更多的用户和流量。</li>
+<li>对于服务提供者:围绕自身进行开发,增加用户粘性 </li>
+</ul>
+<h1 id="OAuth2-0协议流程"><a href="#OAuth2-0协议流程" class="headerlink" title="OAuth2.0协议流程"></a>OAuth2.0协议流程</h1><h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><p>在介绍协议流程之前先要说明一下oauth2.0定义的几个角色：</p>
+<ul>
+<li>resource owner：资源所有者，这里可以理解为用户。</li>
+<li>client：客户端，可以理解为一个第三方的应用程序。</li>
+<li>resource server：资源服务器，它存储用户或其它资源。</li>
+<li>authorization server：授权服务器，它认证resource owner的身份，为  resource owner提供授权审批流程，并最终颁发授权令牌(Access Token)。</li>
+<li>user-agent：用户代理，这里可以理解为“浏览器”。</li>
+</ul>
+<p>这里面有个需要注意的地方，这里只是在逻辑上把authorization server与resource server区分开来；在物理上，authorization server与resource server的功能可以由同一个服务器来提供服务。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
+<li>用户打开客户端以后，客户端要求用户给予授权。</li>
+<li>用户同意给予客户端授权。</li>
+<li>客户端使用上一步获得的授权，向认证服务器申请令牌。</li>
+<li>认证服务器对客户端进行认证以后，确认无误，同意发放令牌。</li>
+<li>客户端使用令牌，向资源服务器申请获取资源。</li>
+<li>资源服务器确认令牌无误，同意向客户端开放资源。</li>
+</ol>
+<p>上面六个步骤之中，2是关键，即用户怎样才能给于客户端授权。有了这个授权以后，客户端就可以获取令牌，进而凭令牌获取资源。</p>
+<p>下面就介绍一下oauth2.0获取授权的几种方式。</p>
+<h2 id="授权模式"><a href="#授权模式" class="headerlink" title="授权模式"></a>授权模式</h2><p>oauth2.0提供了四种授权模式，开发者可以根据自己的业务情况自由选择。</p>
+<h3 id="应用程序注册-Application-Registration"><a href="#应用程序注册-Application-Registration" class="headerlink" title="应用程序注册(Application Registration)"></a>应用程序注册(Application Registration)</h3><p>对于一个应用程序来说，如果它想要使用OAuth，那么首先它要在服务提供商那里注册。</p>
+<p>应用程序要提供：</p>
+<ul>
+<li>应用程序名称(Application Name)</li>
+<li>应用程序网站(Application Website)</li>
+<li>回调URL(Redirect URI or Callback URL)</li>
+</ul>
+<p>在用户同意授权(或者拒绝)之后，服务提供商会将用户重新导向这个Callback URL，这个Callback URL要来负责处理授权码或者访问令牌。</p>
+<p>应用程序注册完成之后，服务提供商会颁发给应用程序一个“客户端认证信息(client credentials)”。Client Credential包括：</p>
+<ul>
+<li>Client ID<ul>
+<li>提供给服务提供商，用于识别应用程序</li>
+<li>用于构建提供给用户请求授权的URL</li>
+</ul>
+</li>
+<li>Client Secret<ul>
+<li>提供给服务提供商，用于验证应用程序</li>
+<li>只有应用程序和服务提供商两者可知</li>
+</ul>
+</li>
+</ul>
+<h3 id="授权码授权模式（Authorization-Code-Grant）"><a href="#授权码授权模式（Authorization-Code-Grant）" class="headerlink" title="授权码授权模式（Authorization Code Grant）"></a>授权码授权模式（Authorization Code Grant）</h3><ol>
+<li>用户访问客户端，客户端将用户引导向认证服务器。</li>
+<li>用户选择是否给予客户端授权。</li>
+<li>如用户给予授权，认证服务器将用户引导向客户端指定的redirection uri，同时加上授权码code。</li>
+<li>客户端收到code后，通过后台的服务器向认证服务器发送code和redirection uri。</li>
+<li>认证服务器验证code和redirection uri，确认无误后，响应客户端访问令牌（access token）和刷新令牌（refresh token）。</li>
+</ol>
+<h4 id="请求示例"><a href="#请求示例" class="headerlink" title="请求示例"></a>请求示例</h4><p>（1）步骤：客户端申请认证的URI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/v1/oauth/authorize?response_type=code&amp;client_id=CLIENT_ID&amp;redirect_uri=CALLBACK_URL&amp;scope=read&amp;state=xxx</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>response_type：授权类型，必选项，此处的值固定为”code”</li>
+<li>client_id：客户端的ID，必选项</li>
+<li>redirect_uri：重定向URI，必选项</li>
+<li>scope：申请的权限范围，可选项</li>
+<li>state：任意值，认证服务器会原样返回,用于抵制CSRF(跨站请求伪造)攻击。</li>
+</ul>
+<p>（3）步骤：服务器回应客户端的URI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA&amp;state=xxx</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>code：授权码，必选项。授权码有效期通常设为10分钟，一次性使用。该码与客户端ID、重定向URI以及用户，是一一对应关系。</li>
+<li>state：原样返回客户端传的该参数的值。</li>
+</ul>
+<p>（4）步骤：客户端向认证服务器申请令牌</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/v1/oauth/token?client_id=CLIENT_ID&amp;grant_type=authorization_code&amp;code=AUTHORIZATION_CODE&amp;redirect_uri=CALLBACK_URL</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>client_id：表示客户端ID，必选项。</li>
+<li>grant_type：表示使用的授权模式，必选项，此处的值固定为”authorization_code”。</li>
+<li>code：表示上一步获得的授权码，必选项。</li>
+<li>redirect_uri：表示重定向URI，必选项，且必须与A步骤中的该参数值保持一致。</li>
+</ul>
+<p>注意：协议里没有提及client_secret参数，建议可以使用此参数进行客户端的二次验证。</p>
+<p>（5）步骤：响应（4）步骤的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">   &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">   &quot;expires_in&quot;:3600,</span><br><span class="line">   &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;,</span><br><span class="line">   &quot;example_parameter&quot;:&quot;example_value&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>授权码模式是最常见的一种授权模式，在OAuth2.0内是最安全和最完善的。</li>
+<li>适用于所有有Server端的应用，如Web站点、有Server端的手机客户端。 </li>
+<li>可以得到较长期限授权。</li>
+</ul>
+<h3 id="隐式授权模式（Implicit-Grant）"><a href="#隐式授权模式（Implicit-Grant）" class="headerlink" title="隐式授权模式（Implicit Grant）"></a>隐式授权模式（Implicit Grant）</h3><ol>
+<li>客户端将用户引导向认证服务器。</li>
+<li>用户决定是否给于客户端授权。</li>
+<li>假设用户给予授权，认证服务器将用户导向客户端指定的”重定向URI”，并在URI的Hash部分包含了访问令牌。</li>
+<li>浏览器向资源服务器发出请求，其中不包括上一步收到的Hash值。</li>
+<li>资源服务器返回一个网页，其中包含的代码可以获取Hash值中的令牌。</li>
+<li>浏览器执行上一步获得的脚本，提取出令牌。</li>
+<li>浏览器将令牌发给客户端。</li>
+</ol>
+<h4 id="请求示例-1"><a href="#请求示例-1" class="headerlink" title="请求示例"></a>请求示例</h4><p>（1）步骤：客户端发出请求</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/authorize?response_type=token&amp;client_id=CLIENT_ID&amp;redirect_uri=CALLBACK_URL&amp;scope=read&amp;state=xxx</span><br></pre></td></tr></table></figure>
+
+<p>参数说明 </p>
+<ul>
+<li>response_type：授权类型，此处的值固定为”token”，必选项。</li>
+<li>client_id：客户端的ID，必选项。</li>
+<li>redirect_uri：重定向的URI，必选项。</li>
+<li>scope：权限范围，可选项。</li>
+<li>state: 任意值，认证服务器会原样返回,用于抵制CSRF(跨站请求伪造)攻击。</li>
+</ul>
+<p>（3）步骤：认证服务器响应客户端的请求url</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/callback#access_token=ACCESS_TOKEN&amp;state=xyz&amp;token_type=example&amp;expires_in=3600&amp;state=xxx</span><br></pre></td></tr></table></figure>
+
+<p>参数说明</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>scope：权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+<li>state：如果客户端的请求中包含这个参数，认证服务器的回应也必须一模一样包含这个参数。</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>适用于所有无Server端配合的应用</li>
+<li>如手机/桌面客户端程序、浏览器插件。</li>
+<li>基于JavaScript等脚本客户端脚本语言实现的应用。</li>
+</ul>
+<p>注意：因为Access token是附着在 redirect_uri 上面被返回的，所以这个 Access token就可能会暴露给资源所有者或者设置内的其它方（对资源所有者来说，可以看到redirect_uri，对其它方来说，可以通过监测浏览器的地址变化来得到 Access token）。</p>
+<h3 id="密码模式（Resource-Owner-Password-Credentials-Grant）"><a href="#密码模式（Resource-Owner-Password-Credentials-Grant）" class="headerlink" title="密码模式（Resource Owner Password Credentials Grant）"></a>密码模式（Resource Owner Password Credentials Grant）</h3><ol>
+<li>用户向客户端提供用户名和密码。</li>
+<li>客户端将用户名和密码发给认证服务器，向后者请求令牌。</li>
+<li>认证服务器确认无误后，向客户端提供访问令牌</li>
+</ol>
+<h4 id="请求示例-2"><a href="#请求示例-2" class="headerlink" title="请求示例"></a>请求示例</h4><p>（2）步骤：客户端发出https请求</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/token?grant_type=password&amp;username=USERNAME&amp;password=PASSWORD&amp;client_id=CLIENT_ID</span><br></pre></td></tr></table></figure>
+
+<p>参数说明</p>
+<ul>
+<li>grant_type：授权类型，此处的值固定为”password”，必选项。</li>
+<li>username：用户名，必选项。</li>
+<li>password：用户的密码，必选项。</li>
+<li>scope：权限范围，可选项。</li>
+</ul>
+<p>（3）步骤：向客户端响应（2）步骤的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">       &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">       &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">       &quot;expires_in&quot;:3600,</span><br><span class="line">       &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数说明</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：更新令牌，用来获取下一次的访问令牌，可选项。</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>这种模式适用于用户对应用程序高度信任的情况。比如是用户操作系统的一部分。</li>
+<li>认证服务器只有在其他授权模式无法执行的情况下，才能考虑使用这种模式。</li>
+</ul>
+<h3 id="客户端凭证模式（Client-Credentials-Grant）"><a href="#客户端凭证模式（Client-Credentials-Grant）" class="headerlink" title="客户端凭证模式（Client Credentials Grant）"></a>客户端凭证模式（Client Credentials Grant）</h3><ol>
+<li>客户端向认证服务器进行身份认证，并要求一个访问令牌。</li>
+<li>认证服务器确认无误后，向客户端提供访问令牌。</li>
+</ol>
+<h4 id="请求示例-3"><a href="#请求示例-3" class="headerlink" title="请求示例"></a>请求示例</h4><p>（1）步骤：客户端发送https请求</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/token?grant_type=client_credentials&amp;client_id=CLIENT_ID</span><br></pre></td></tr></table></figure>
+
+<p>参数说明</p>
+<ul>
+<li>grant_type：表示授权类型，此处的值固定为”client_credentials”，必选项。</li>
+<li>client_id：客户端的ID，必选项。</li>
+<li>scope：表示权限范围，可选项。</li>
+</ul>
+<p>（2）步骤：向客户端响应（1）步骤的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">  &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">  &quot;expires_in&quot;:3600,</span><br><span class="line">  &quot;example_parameter&quot;:&quot;example_value&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>example_parameter：其它参数，可选项。 </li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>客户端模式应用于应用程序想要以自己的名义与授权服务器以及资源服务器进行互动。</li>
+<li>例如使用了第三方的静态文件服务</li>
+</ul>
+<h2 id="刷新TOKEN"><a href="#刷新TOKEN" class="headerlink" title="刷新TOKEN"></a>刷新TOKEN</h2><p>从上面的四种授权流程可以看出，最终的目的是要获取用户的授权令牌（access_token）。而且授权令牌（access_token）的权限也非常之大，</p>
+<p>所以在协议中明确表示要设置授权令牌（access_token）的有效期。那么当授权令牌（access_token）过期要怎么办呢，协议里提出了一个刷新token的流程。</p>
+<p><img src="/img/oauth2.0/oauth2_refreshToken.png" alt="gcheap"></p>
+<p>（A）–（D）通过授权流程获取access_token，并调用业务api接口。</p>
+<p>（F）当调用业务api接口时响应“Invalid Token Error”时。</p>
+<p>（G）调用刷新access_token接口，使用参数refresh_token（如果平台方提供，否则需要用户重新进行授权流程）。</p>
+<p>（H）响应最新的access_token及refresh_token。</p>
+<h3 id="请求示例-4"><a href="#请求示例-4" class="headerlink" title="请求示例"></a>请求示例</h3><p>（G）步骤：客户端调用刷新token接口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.example.com/v1/oauth/token?grant_type=refresh_token&amp;client_id=CLIENT_ID&amp;client_secret=CLIENT_SECRET&amp;refresh_token=REFRESH_TOKEN</span><br></pre></td></tr></table></figure>
+<p>参数说明</p>
+<ul>
+<li>client_id：客户端的ID，必选项。</li>
+<li>client_secret：客户端的密钥，必选项。</li>
+<li>grant_type：表示使用的授权模式，此处的值固定为”refreshtoken”，必选项。</li>
+<li>refresh_token：表示早前收到的更新令牌，必选项。</li>
+</ul>
+<p>（H）步骤：响应客户端数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,</span><br><span class="line">  &quot;token_type&quot;:&quot;example&quot;,</span><br><span class="line">  &quot;expires_in&quot;:3600,</span><br><span class="line">  &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;,</span><br><span class="line">  &quot;example_parameter&quot;:&quot;example_value&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数说明</p>
+<ul>
+<li>access_token：访问令牌，必选项。</li>
+<li>token_type：令牌类型，该值大小写不敏感，必选项。</li>
+<li>expires_in：过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+<p>说明：建议将access_token和refresh_token的过期时间保存下来，每次调用平台方的业务api前先对access_token和refresh_token进行一下时间判断，如果过期则执行刷新access_token或重新授权操作。refersh_token如果过期就只能让用户重新授权。</p>
+<p>好，到此oauth2.0的四种授权流程及令牌的刷新流程已经介绍完了，下面来从oauth2.0的安全性上来介绍一下。</p>
+<h1 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h1><h2 id="漏洞安全回顾"><a href="#漏洞安全回顾" class="headerlink" title="漏洞安全回顾"></a>漏洞安全回顾</h2><p>OAuth2.0协议本身设计是安全的，但是不同的开放平台开发者能力参差不齐，在开发过程中没有严格按照协议进行开发，或对流程中的参数校验不完整，造成了一些流程上的漏洞。</p>
+<h3 id="安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）"><a href="#安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）" class="headerlink" title="安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）"></a>安全漏洞回顾之授权码授权模式（授权流程参照前面的介绍）</h3><p>漏洞：针对应用方csrf劫持第三方账号</p>
+<p>wooyun案例：</p>
+<p>2012-11-10 WooYun: <a target="_blank" rel="noopener" href="http://www.wooyun.org/bugs/wooyun-2012-014571">优酷网存在账号被劫持风险</a></p>
+<p>2013-01-07 WooYun: <a target="_blank" rel="noopener" href="http://www.wooyun.org/bugs/wooyun-2013-017051">大麦网存在帐号被劫持风险</a></p>
+<p>2013-03-01 WooYun: <a target="_blank" rel="noopener" href="http://www.wooyun.org/bugs/wooyun-2013-019367">美丽说oauth漏洞可劫持账号</a></p>
+<p><img src="/img/oauth2.0/AuthorizationCodeGrantBug.jpg" alt="gcheap"><br>　针对code参数的Authorization Code Grant攻击；以及和rfc6749的流程图关系</p>
+<p>漏洞成因：</p>
+<p>主要的漏洞原因是redirect_uri中的code参数没有和当前客户端的状态绑定，攻击者可以通过发送预先获取好的code参数到受害者电脑，导致导致受害者当前登录的应用方账号被绑定到攻击者指定的平台方（如微博）帐号上。</p>
+<p>解决方案：</p>
+<p>应用方要预防这种csrf劫持账号，加入state参数是比较简单的通行方法。根据rfc6749 章节10.12，该值既不可预测，又必须可以证明应用（client）和和当前第三方网站的登录认证状态存在关联（如果存在过期时间更好）。一种简单的方法是：随机算一个字符串，然后保存在session，回调时检查state参数和session里面的值。<br>而平台方也要在回调时，支持应用方的state参数（当然如果允许redirect_uri参数中带应用方自己的防csrf参数，其实也可以）。<br>同时在使用code获取access_token成功后，进行access_token与授权用户绑定时，尽量不要直接与当前登录用户进行绑定。<br>但严格来讲，仅有state参数，其实还不够，还需要结合rfc6749 章节3.3（发放有业务接口仅限范围的令牌）提到的防御手段</p>
+<h3 id="安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）"><a href="#安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）" class="headerlink" title="安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）"></a>安全漏洞回顾之隐式授权模式（授权流程参照前面的介绍）</h3><p>漏洞：针对存储型xss劫持用户的access_token</p>
+<p>wooyun案例：</p>
+<p>2012-04-15 WooYun: 人人网Oauth 2.0授权可导致用户access_token泄露</p>
+<p>2012-09-25 WooYun: QQ互联开放平台QQ登陆oauth授权接口可以劫持access_token</p>
+<p>2012-09-25 WooYun: 百度开放平台oauth授权接口可以劫持access_token</p>
+<p><img src="/img/oauth2.0/ImplicitGrantBug.png" alt="gcheap"></p>
+<p>漏洞成因：</p>
+<p>隐式授权模式场景的特点是授权验证时只需要client_id和redirect_uri这两个参数作应用标识，返回的时候也就直接在uri片段中返回access token。那就是只要合作方网站、平台方网站甚至是浏览器三者之一有任何一个xss，就很容易通过xss获取到access token，然后以此攻击受害者的平台方账号。</p>
+<p>解决方案：</p>
+<p>解决这个问题，rfc6749第10.16小节就只是语焉不详的说需要额外的安全措施，这也反映了这种场景的防御难处。</p>
+<p>有一种方案，平台方必须对应用方的应用强制进行分类，即应用方在申请client_id（即应用appkey）时，需要选择属于哪类应用；平台方再根据分类开放对应权限，并且进行特定的防御和监控措施。</p>
+<h3 id="安全漏洞回顾之密码模式（授权流程参照前面的介绍）"><a href="#安全漏洞回顾之密码模式（授权流程参照前面的介绍）" class="headerlink" title="安全漏洞回顾之密码模式（授权流程参照前面的介绍）"></a>安全漏洞回顾之密码模式（授权流程参照前面的介绍）</h3><p>wooyun案例：</p>
+<p>2012-11-05 WooYun: <a target="_blank" rel="noopener" href="http://www.wooyun.org/bugs/wooyun-2012-014408">开心网android客户端暴力破解漏洞，测试2000帐号，成功132个</a></p>
+<p><img src="/img/oauth2.0/RourceOwnerPasswordCredentialsGrantBug.png" alt="gcheap"></p>
+<p>解决方案：</p>
+<p>（1）对于外部合作方，最大限度取消且不使用密码授权的授权。对于因为合同原因而导致无法取消的情况，需要加强监控。</p>
+<p>（2）内部应用一样要划分等级，无必要的应用一律禁止使用密码授权模式。</p>
+<h2 id="安全性建议"><a href="#安全性建议" class="headerlink" title="安全性建议"></a>安全性建议</h2><p><strong>资源提供方</strong></p>
+<ul>
+<li>对client_id和回调地址做严格校验 </li>
+<li>获取access token的code仅能使用一次，且与授权用户关联</li>
+<li>尽量避免直接读取当前用户session进行绑定</li>
+<li>有效使用client_secret参数</li>
+</ul>
+<p><strong>资源使用方</strong></p>
+<ul>
+<li>使用Authorization Code方式进行授权</li>
+<li>授权过程使用state随机哈希,并在服务端进行判断</li>
+<li>尽量使用HTTPS保证授权过程的安全性</li>
+</ul>
+<p>最后，对oauth2.0有详细的了解，严格按照流程进行开发。</p>
+<h1 id="原文资料"><a href="#原文资料" class="headerlink" title="原文资料"></a>原文资料</h1><ul>
+<li>官方文档 : <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a></li>
+<li>说说oauth那点事 : <a target="_blank" rel="noopener" href="http://www.jianshu.com/p/b06944c92228">http://www.jianshu.com/p/b06944c92228</a></li>
+<li>OAuth 2.0安全案例回顾 : <a target="_blank" rel="noopener" href="http://www.cnblogs.com/maoxiaolv/p/5832996.html">http://www.cnblogs.com/maoxiaolv/p/5832996.html</a></li>
+<li>Oauth2.0详解及安全使用 : <a target="_blank" rel="noopener" href="https://www.cnblogs.com/maoxiaolv/p/5838680.html">https://www.cnblogs.com/maoxiaolv/p/5838680.html</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leigaorobot.github.io/2019/04/08/OAuth2/" data-id="ckvgcipjk000vplqh2104bacx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Authorization/" rel="tag">Authorization</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OAuth/" rel="tag">OAuth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protocol/" rel="tag">protocol</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/09/jwt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JWT
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/12/javaDataStructure/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java 数据结构</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Command-Line/">Command Line</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Network/">Computer Network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Container-Orchestration/">Container Orchestration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DatabaseTransaction/">DatabaseTransaction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-Laws/">Hacker Laws</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Internet-Protocol-Suite/">Internet Protocol Suite</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Script/">Java Script</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Message-Queue/">Message Queue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OSI-Model/">OSI Model</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Paradigms/">Programming Paradigms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Security/">Security</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Design-Patterns/">Software Design Patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Transaction/">Transaction</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Kafka/" rel="tag">Apache Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Authentication/" rel="tag">Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Authorization/" rel="tag">Authorization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DatabaseTransaction/" rel="tag">DatabaseTransaction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth/" rel="tag">OAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Token/" rel="tag">Token</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transaction/" rel="tag">Transaction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cloud-platform/" rel="tag">cloud platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/" rel="tag">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compuer-network/" rel="tag">compuer network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/creational/" rel="tag">creational</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/" rel="tag">design patterns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hacker-laws/" rel="tag">hacker laws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/internet/" rel="tag">internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-annotation/" rel="tag">java annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-script/" rel="tag">java script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java10/" rel="tag">java10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java8/" rel="tag">java8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java9/" rel="tag">java9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laws/" rel="tag">laws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/message-queue/" rel="tag">message queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/microservice/" rel="tag">microservice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop/" rel="tag">oop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osi/" rel="tag">osi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol/" rel="tag">protocol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol-suite/" rel="tag">protocol suite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-security/" rel="tag">spring security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/structural/" rel="tag">structural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Apache-Kafka/" style="font-size: 10px;">Apache Kafka</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/DatabaseTransaction/" style="font-size: 10px;">DatabaseTransaction</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/OAuth/" style="font-size: 10px;">OAuth</a> <a href="/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Token/" style="font-size: 10px;">Token</a> <a href="/tags/Transaction/" style="font-size: 10px;">Transaction</a> <a href="/tags/cloud-platform/" style="font-size: 10px;">cloud platform</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/command-line/" style="font-size: 10px;">command-line</a> <a href="/tags/compuer-network/" style="font-size: 10px;">compuer network</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/creational/" style="font-size: 10px;">creational</a> <a href="/tags/data-structure/" style="font-size: 10px;">data structure</a> <a href="/tags/design-patterns/" style="font-size: 16.67px;">design patterns</a> <a href="/tags/hacker-laws/" style="font-size: 10px;">hacker laws</a> <a href="/tags/internet/" style="font-size: 10px;">internet</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/java-annotation/" style="font-size: 10px;">java annotation</a> <a href="/tags/java-script/" style="font-size: 10px;">java script</a> <a href="/tags/java10/" style="font-size: 10px;">java10</a> <a href="/tags/java8/" style="font-size: 10px;">java8</a> <a href="/tags/java9/" style="font-size: 10px;">java9</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/laws/" style="font-size: 10px;">laws</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/microservice/" style="font-size: 10px;">microservice</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/osi/" style="font-size: 10px;">osi</a> <a href="/tags/protocol/" style="font-size: 16.67px;">protocol</a> <a href="/tags/protocol-suite/" style="font-size: 10px;">protocol suite</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-security/" style="font-size: 10px;">spring security</a> <a href="/tags/structural/" style="font-size: 10px;">structural</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.33px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/20/ECMAScript6/">ECMAScript6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/LinuxCommandLine/">Linux Command-Line</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/24/OSIApplicationLayer/">Application Layer</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/21/TransactionProcessing/">Transaction</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/20/HackerLaws/">HackerLaws</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Paul Gao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

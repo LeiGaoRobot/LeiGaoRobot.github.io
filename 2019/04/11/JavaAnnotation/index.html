@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java Annotation | PaulGao Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Native@ResourceIntroduceSource CodeUsage@TransactionalIntroducejavax.transaction.Transactional 注解提供了应用程序以声明式的方式控制事务的边界。此注解可以应用于Java EE规范定义为托管bean（包括CDI托管bean）的任何类。 javax.transaction.Transactional注释为应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Annotation">
+<meta property="og:url" content="https://leigaorobot.github.io/2019/04/11/JavaAnnotation/index.html">
+<meta property="og:site_name" content="PaulGao Blog">
+<meta property="og:description" content="Native@ResourceIntroduceSource CodeUsage@TransactionalIntroducejavax.transaction.Transactional 注解提供了应用程序以声明式的方式控制事务的边界。此注解可以应用于Java EE规范定义为托管bean（包括CDI托管bean）的任何类。 javax.transaction.Transactional注释为应用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-04-11T01:51:41.000Z">
+<meta property="article:modified_time" content="2019-12-17T01:28:27.216Z">
+<meta property="article:author" content="Paul Gao">
+<meta property="article:tag" content="java annotation">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="PaulGao Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">PaulGao Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leigaorobot.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaAnnotation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/JavaAnnotation/" class="article-date">
+  <time datetime="2019-04-11T01:51:41.000Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java Annotation
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h1><h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h3><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><h2 id="Transactional"><a href="#Transactional" class="headerlink" title="@Transactional"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javaee/7/api/javax/transaction/Transactional.html">@Transactional</a></h2><h3 id="Introduce-1"><a href="#Introduce-1" class="headerlink" title="Introduce"></a>Introduce</h3><p>javax.transaction.Transactional 注解提供了应用程序以声明式的方式控制事务的边界。此注解可以应用于Java EE规范定义为托管bean（包括CDI托管bean）的任何类。</p>
+<p>javax.transaction.Transactional注释为应用程序提供了声明性地控制CDI托管bean上的事务边界的能力，以及Java EE规范定义为托管bean的类，在类和方法级别，方法级别注释覆盖了班级。</p>
+<p>有关将@Transactional与EJB一起使用的限制，请参阅EJB规范。</p>
+<p>这种支持是通过执行必要的挂起，恢复等的CDI拦截器实现的。事务拦截器仅插入业务方法调用而不插入生命周期事件。生命周期方法在未指定的事务上下文中调用。</p>
+<p>如果尝试从使用@Transactional和NOT_SUPPORTED或NEVER以外的Transactional.TxType注释的bean或方法范​​围内调用UserTransaction接口的任何方法，则必须抛出IllegalStateException。在生命周期事件中允许使用UserTransaction。无论是否有任何@Transactional注释，都允许使用TransactionSynchronizationRegistry。</p>
+<p>Transactional拦截器的优先级必须为Interceptor.Priority.PLATFORM_BEFORE + 200。有关更多详细信息，请参阅Interceptor规范。</p>
+<p>注释的TxType元素指示是否要在事务上下文中执行bean方法。TxType.REQUIRED是默认值。</p>
+<p>默认情况下，检查的异常不会导致事务拦截器标记事务以进行回滚以及RuntimeException及其子类的实例。可以通过指定导致拦截器标记事务以进行回滚的异常和/或不会导致回滚的异常来修改此默认行为。</p>
+<p>可以设置rollbackOn元素以指示必须使拦截器将事务标记为回滚的异常。</p>
+<p>相反，可以设置dontRollbackOn元素以指示异常，这些异常不得导致拦截器将事务标记为回滚。</p>
+<p>为这些元素中的任何一个指定类时，指定的行为也适用于该类的子类。如果指定了两个元素，则dontRollbackOn优先。</p>
+<h3 id="Source-Code-1"><a href="#Source-Code-1" class="headerlink" title="Source Code"></a>Source Code</h3><h3 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h3><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="EnableWebSecurity"><a href="#EnableWebSecurity" class="headerlink" title="@EnableWebSecurity"></a>@EnableWebSecurity</h2><h3 id="Introduce-2"><a href="#Introduce-2" class="headerlink" title="Introduce"></a>Introduce</h3><p>将此注解添加到@Configuration类中，以使Spring Security configuration在任何WebSecurityConfigurer定义，或者更可能通过扩展WebSecurityConfigurerAdapter基类和重写单个方法。<br>@EnableWebSecurity。它允许Spring查找（它是一个@Configuration，因此@Component）并自动将类应用于全局WebSecurity。</p>
+<h3 id="Source-Code-2"><a href="#Source-Code-2" class="headerlink" title="Source Code"></a>Source Code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(&#123;ElementType.TYPE&#125;)</span><br><span class="line">@Documented</span><br><span class="line">@Import(&#123;WebSecurityConfiguration.class, SpringWebMvcImportSelector.class, OAuth2ImportSelector.class&#125;)</span><br><span class="line">@EnableGlobalAuthentication</span><br><span class="line">@Configuration</span><br><span class="line">public @interface EnableWebSecurity &#123;</span><br><span class="line">    boolean debug() default false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h3><h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><h3 id="Introduce-3"><a href="#Introduce-3" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="Source-Code-3"><a href="#Source-Code-3" class="headerlink" title="Source Code"></a>Source Code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface Autowired &#123;</span><br><span class="line">    boolean required() default true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage"></a>Usage</h3><p><strong>Enabling @Autowired Annotations</strong></p>
+<p>如果您在应用程序中使用基于Java的配置，则可以通过使用AnnotationConfigApplicationContext加载Spring Configuration来启用注解驱动的注入，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(&quot;com.baeldung.autowire.sample&quot;)</span><br><span class="line">public class AppConfig &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Spring XML中，则可以通过在Spring XML文件中声明它来启用它：&lt;context：annotation-config /&gt;</p>
+<p><strong>Using @Autowired</strong></p>
+<p>启用注释注入后，可以在属性，setter和构造函数上使用自动装配。</p>
+<p><strong>@Autowired on Properties</strong></p>
+<p>注释可以直接用于属性，因此不需要getter和setter：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;fooFormatter&quot;)</span><br><span class="line">public class FooFormatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    private FooFormatter fooFormatter;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，春季查找并注入fooFormatter时FooService接口被创建。</p>
+<p><strong>@Autowired on Setters</strong></p>
+<p>该@Autowired注解可以在setter方法中使用。在下面的示例中，当在setter方法上使用注释时，在创建FooService时使用FooFormatter实例调用setter方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line"> </span><br><span class="line">    private FooFormatter fooFormatter;</span><br><span class="line"> </span><br><span class="line">    @Autowired</span><br><span class="line">    public void setFooFormatter(FooFormatter fooFormatter) &#123;</span><br><span class="line">            this.fooFormatter = fooFormatter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>@Autowired on Constructors</strong></p>
+<p>该@Autowired注释也可以在构造函数中使用。在下面的示例中，当注释上的构造使用时，实例FooFormatter注入作为参数给构造时FooService接口创建：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line"> </span><br><span class="line">    private FooFormatter fooFormatter;</span><br><span class="line"> </span><br><span class="line">    @Autowired</span><br><span class="line">    public FooService(FooFormatter fooFormatter) &#123;</span><br><span class="line">        this.fooFormatter = fooFormatter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>@Autowired和Optional Dependencies</strong></p>
+<p>Spring期望在构造依赖bean时可以使用@Autowired依赖项。如果框架无法解析bean进行连接，它将抛出下面引用的异常并阻止Spring容器成功启动：</p>
+<blockquote>
+<p>Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException:<br>No qualifying bean of type [com.autowire.sample.FooDAO] found for dependency:<br>expected at least 1 bean which qualifies as autowire candidate for this dependency.<br>Dependency annotations:<br>{@org.springframework.beans.factory.annotation.Autowired(required=true)}</p>
+</blockquote>
+<p>为了避免这种情况发生，可以选择如下指定bean：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line"> </span><br><span class="line">    @Autowired(required = false)</span><br><span class="line">    private FooDAO dataAccessor; </span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>自动消除歧义</strong></p>
+<p>默认情况下，Spring 按类型解析@Autowired条目。如果容器中有多个相同类型的bean，框架将抛出​​一个致命异常，表明有多个bean可用于自动装配。</p>
+<p><strong>@Qualifier自动装配</strong></p>
+<p>该@Qualifier注解可用于在暗示和缩小所需的bean：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;fooFormatter&quot;)</span><br><span class="line">public class FooFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Component(&quot;barFormatter&quot;)</span><br><span class="line">public class BarFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;bar&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    private Formatter formatter;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于可以为Spring容器注入两个具体的Formatter实现，因此Spring 在构造FooService时会抛出NoUniqueBeanDefinitionException异常：</p>
+<blockquote>
+<p>Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException:<br>No qualifying bean of type [com.autowire.sample.Formatter] is defined:<br>expected single matching bean but found 2: barFormatter,fooFormatter  </p>
+</blockquote>
+<p>通过使用@Qualifier注释缩小实现可以避免这种情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    @Qualifier(&quot;fooFormatter&quot;)</span><br><span class="line">    private Formatter formatter;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过使用特定实现的名称指定@Qualifier，在本例中为fooFormatter，当Spring找到多个相同类型的bean时，我们可以避免歧义。</p>
+<p>请注意，价值@Qualifier注解与声明的名称相匹配@Component我们的注解FooFormatter实施。</p>
+<p><strong>自定义限定符自动装配</strong></p>
+<p>Spring允许我们创建自己的@Qualifier注释。要创建自定义限定符，请定义注释并在定义中提供@Qualifier注释，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Qualifier</span><br><span class="line">@Target(&#123;</span><br><span class="line">  ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface FormatterType &#123;</span><br><span class="line">     </span><br><span class="line">    String value();</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一旦定义，FormatterType可以在各种实现中用于指定自定义值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@FormatterType(&quot;Foo&quot;)</span><br><span class="line">@Component</span><br><span class="line">public class FooFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FormatterType(&quot;Bar&quot;)</span><br><span class="line">@Component</span><br><span class="line">public class BarFormatter implements Formatter &#123;</span><br><span class="line"> </span><br><span class="line">    public String format() &#123;</span><br><span class="line">        return &quot;bar&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注释实现后，可以使用自定义限定符注释，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    @FormatterType(&quot;Foo&quot;)</span><br><span class="line">    private Formatter formatter;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@Target注释中指定的值限制限定符可用于标记注入点的位置。</p>
+<p>在上面的代码片段中，限定符可用于消除Spring可以将bean注入字段，方法，类型和参数的点的歧义。</p>
+<p><strong>按名称自动装配</strong></p>
+<p>作为回退，Spring使用bean名称作为默认限定符值。</p>
+<p>因此，通过定义bean属性的名称，在这种情况下fooFormatter，spring 匹配的FooFormatter执行以及何时注入的具体实施FooService接口的构造：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class FooService &#123;</span><br><span class="line">     </span><br><span class="line">    @Autowired</span><br><span class="line">    private Formatter fooFormatter;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>结论</strong></p>
+<p>尽管@Qualifier和bean名称后备匹配都可以用于缩小到特定的bean，但是自动装配实际上是关于按类型注入的，这就是使用此容器功能的最佳方式。</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h2><h3 id="Introduce-4"><a href="#Introduce-4" class="headerlink" title="Introduce"></a>Introduce</h3><p>Spring @Configuration注解有助于基于Spring注解的配置。@Configuration注解指示一个类声明一个或多个@Bean方法，并且可以由Spring容器处理，以在运行时为这些bean生成bean定义和服务请求。</p>
+<h3 id="Source-Code-4"><a href="#Source-Code-4" class="headerlink" title="Source Code"></a>Source Code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Component</span><br><span class="line">public @interface Configuration &#123;</span><br><span class="line">    @AliasFor(</span><br><span class="line">        annotation = Component.class</span><br><span class="line">    )</span><br><span class="line">    String value() default &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Usage-4"><a href="#Usage-4" class="headerlink" title="Usage"></a>Usage</h3><p>@Configuration在任何类的顶部使用注解来声明此类提供一个或多个@Bean方法，并且Spring容器可以处理它以在运行时为这些bean生成bean定义和服务请求。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.tutorialspoint;</span><br><span class="line">import org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class HelloWorldConfig &#123;</span><br><span class="line">   @Bean </span><br><span class="line">   public HelloWorld helloWorld()&#123;</span><br><span class="line">      return new HelloWorld();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码将等同于以下XML配置 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line">   &lt;bean id = &quot;helloWorld&quot; class = &quot;com.tutorialspoint.HelloWorld&quot; /&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p><strong>创造Spring</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public interface DemoManager &#123;</span><br><span class="line">    public String getServiceName();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public class DemoManagerImpl implements DemoManager</span><br><span class="line">&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String getServiceName()</span><br><span class="line">    &#123;</span><br><span class="line">        return &quot;My first service with Spring 3&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>带有@Configuration注解的Spring配置类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line"> </span><br><span class="line">import com.howtodoinjava.core.beans.DemoManager;</span><br><span class="line">import com.howtodoinjava.core.beans.DemoManagerImpl;</span><br><span class="line"> </span><br><span class="line">@Configuration</span><br><span class="line">public class ApplicationConfiguration &#123;</span><br><span class="line"> </span><br><span class="line">    @Bean(name=&quot;demoService&quot;)</span><br><span class="line">    public DemoManager helloWorld()</span><br><span class="line">    &#123;</span><br><span class="line">        return new DemoManagerImpl();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Demo</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.howtodoinjava.core.verify;</span><br><span class="line"> </span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.annotation.AnnotationConfigApplicationContext;</span><br><span class="line"> </span><br><span class="line">import com.howtodoinjava.core.beans.DemoManager;</span><br><span class="line">import com.howtodoinjava.core.config.ApplicationConfiguration;</span><br><span class="line"> </span><br><span class="line">public class VerifySpringCoreFeature</span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);</span><br><span class="line"> </span><br><span class="line">        DemoManager obj = (DemoManager) context.getBean(&quot;demoService&quot;);</span><br><span class="line"> </span><br><span class="line">        System.out.println( obj.getServiceName() );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="ConditionalOnProperty"><a href="#ConditionalOnProperty" class="headerlink" title="@ConditionalOnProperty"></a>@ConditionalOnProperty</h2><p><em>Spring Boot 2.1.4 API : <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html">https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html</a></em></p>
+<h3 id="Introduce-5"><a href="#Introduce-5" class="headerlink" title="Introduce"></a>Introduce</h3><blockquote>
+<p>Spring Boot通过@ConditionalOnProperty来控制Configuration是否生效</p>
+</blockquote>
+<h3 id="Source-Code-5"><a href="#Source-Code-5" class="headerlink" title="Source Code"></a>Source Code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(&#123; ElementType.TYPE, ElementType.METHOD &#125;)</span><br><span class="line">@Documented</span><br><span class="line">@Conditional(OnPropertyCondition.class)</span><br><span class="line">public @interface ConditionalOnProperty &#123;</span><br><span class="line"></span><br><span class="line">    String[] value() default &#123;&#125;; //数组，获取对应property名称的值，与name不可同时使用  </span><br><span class="line">  </span><br><span class="line">    String prefix() default &quot;&quot;;//property名称的前缀，可有可无  </span><br><span class="line">  </span><br><span class="line">    String[] name() default &#123;&#125;;//数组，property完整名称或部分名称（可与prefix组合使用，组成完整的property名称），与value不可同时使用  </span><br><span class="line">  </span><br><span class="line">    String havingValue() default &quot;&quot;;//可与name组合使用，比较获取到的属性值与havingValue给定的值是否相同，相同才加载配置  </span><br><span class="line">  </span><br><span class="line">    boolean matchIfMissing() default false;//缺少该property时是否可以加载。如果为true，没有该property也会正常加载；反之报错  </span><br><span class="line">  </span><br><span class="line">    boolean relaxedNames() default true;//是否可以松散匹配，至今不知道怎么使用的  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="Usage-5"><a href="#Usage-5" class="headerlink" title="Usage"></a>Usage</h3><blockquote>
+<p>通过其两个属性name以及havingValue来实现的，其中name用来从application.properties中读取某个属性值。<br>如果该值为空，则返回false;<br>如果值不为空，则将该值与havingValue指定的值进行比较，如果一样则返回true;否则返回false。<br>如果返回值为false，则该configuration不生效；为true则生效。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">//在application.properties配置&quot;mf.assert&quot;，对应的值为true, 也可以不写prefix，全写在name里(name=&quot;mf.assert&quot;)</span><br><span class="line">@ConditionalOnProperty(prefix=&quot;mf&quot;,name = &quot;assert&quot;, havingValue = &quot;true&quot;)</span><br><span class="line">public class AssertConfig &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private HelloServiceProperties helloServiceProperties;</span><br><span class="line">    @Bean</span><br><span class="line">    public HelloService helloService()&#123;</span><br><span class="line">        HelloService helloService = new HelloService();</span><br><span class="line">        helloService.setMsg(helloServiceProperties.getMsg());</span><br><span class="line">        return helloService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EnableEurekaServer"><a href="#EnableEurekaServer" class="headerlink" title="@EnableEurekaServer"></a>@EnableEurekaServer</h2><h3 id="Introduce-6"><a href="#Introduce-6" class="headerlink" title="Introduce"></a>Introduce</h3><p>标明该类是Eureka服务注册中心。</p>
+<h2 id="EnableEurekaClient"><a href="#EnableEurekaClient" class="headerlink" title="@EnableEurekaClient"></a>@EnableEurekaClient</h2><h3 id="Introduce-7"><a href="#Introduce-7" class="headerlink" title="Introduce"></a>Introduce</h3><p>表明该服务Eureka的一个服务提供方。</p>
+<h2 id="EnableDiscoverClient"><a href="#EnableDiscoverClient" class="headerlink" title="@EnableDiscoverClient"></a>@EnableDiscoverClient</h2><h3 id="Introduce-8"><a href="#Introduce-8" class="headerlink" title="Introduce"></a>Introduce</h3><p>声明该服务为Eureka中服务消费方</p>
+<h2 id="EnableFeignClients"><a href="#EnableFeignClients" class="headerlink" title="@EnableFeignClients"></a>@EnableFeignClients</h2><h3 id="Introduce-9"><a href="#Introduce-9" class="headerlink" title="Introduce"></a>Introduce</h3><p>开启Feign声明式服务间通信（配合@FeignClient注解使用）。</p>
+<blockquote>
+<p>Feign是一个声明式的HTTP客户端，仅需要一个@FeignClient注解就能实现远程调用。Feign默认集成了Ribbon，并和Eureka结合，默认实现了负载均衡的效果。</p>
+</blockquote>
+<h2 id="FeignClient"><a href="#FeignClient" class="headerlink" title="@FeignClient"></a>@FeignClient</h2><h3 id="Introduce-10"><a href="#Introduce-10" class="headerlink" title="Introduce"></a>Introduce</h3><p>实现远程调用,需要填写<strong>value</strong>值，value属性值必须等于一个已在Eureka中注册的服务名称。</p>
+<h3 id="Source-Code-6"><a href="#Source-Code-6" class="headerlink" title="Source Code"></a>Source Code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface FeignClient &#123;</span><br><span class="line">    @AliasFor(&quot;name&quot;)</span><br><span class="line">    String value() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    /** @deprecated */</span><br><span class="line">    @Deprecated</span><br><span class="line">    String serviceId() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    String contextId() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    @AliasFor(&quot;value&quot;)</span><br><span class="line">    String name() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    String qualifier() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    String url() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    boolean decode404() default false;</span><br><span class="line"></span><br><span class="line">    Class&lt;?&gt;[] configuration() default &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    Class&lt;?&gt; fallback() default void.class;</span><br><span class="line"></span><br><span class="line">    Class&lt;?&gt; fallbackFactory() default void.class;</span><br><span class="line"></span><br><span class="line">    String path() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    boolean primary() default true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@Target(ElementType.TYPE)修饰，表示FeignClient的作用目标在接口上。<br>@Retention(RetentionPolicy.RUNTIME)注解表明该注解会在Class字节码中存在，在运行时可以通过反射获取到。<br>@Documented表明该注解被包含在javadoc中。</p>
+<p>@FeignClient用于创建声明是API接口，该接口是RESTful风格的。Feign被设计成插拔式的，可注入其他组件和Feign一起使用。最典型的是如果Ribbon可用，Feign会和Ribbon相结合进行负载均衡。</p>
+<p>在代码中，value()和name()一样，是被调用的服务的ServiceId。url()直接填写硬编码URL地址。decode404（）即404是被解码，还是抛异常。configuration（）指明FeignClient的配置类，默认的配置类为FeignClientsConfiguration类，在缺省情况下，这个类注入了默认的Decoder、Encoder和Constant等配置的bean。fallback()为配置熔断器的处理类。</p>
+<h2 id="EnableHystrixDashboard"><a href="#EnableHystrixDashboard" class="headerlink" title="@EnableHystrixDashboard"></a>@EnableHystrixDashboard</h2><h3 id="Introduce-11"><a href="#Introduce-11" class="headerlink" title="Introduce"></a>Introduce</h3><p>开启对熔断器Hystrix的实时监控仪表盘</p>
+<h2 id="EnableZuulProxy"><a href="#EnableZuulProxy" class="headerlink" title="@EnableZuulProxy"></a>@EnableZuulProxy</h2><h3 id="Introduce-12"><a href="#Introduce-12" class="headerlink" title="Introduce"></a>Introduce</h3><p>开启Zuul网关的支持。</p>
+<h2 id="EnableConfigServer"><a href="#EnableConfigServer" class="headerlink" title="@EnableConfigServer"></a>@EnableConfigServer</h2><h3 id="Introduce-13"><a href="#Introduce-13" class="headerlink" title="Introduce"></a>Introduce</h3><p>开启配置文件服务支持</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leigaorobot.github.io/2019/04/11/JavaAnnotation/" data-id="ckvgcipj80006plqh9jsb4925" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-annotation/" rel="tag">java annotation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/13/MessageQueue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Message Queue
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/09/jwt/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JWT</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Command-Line/">Command Line</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Network/">Computer Network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Container-Orchestration/">Container Orchestration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DatabaseTransaction/">DatabaseTransaction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-Laws/">Hacker Laws</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Internet-Protocol-Suite/">Internet Protocol Suite</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Script/">Java Script</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Message-Queue/">Message Queue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OSI-Model/">OSI Model</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Paradigms/">Programming Paradigms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Security/">Security</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Software-Design-Patterns/">Software Design Patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Transaction/">Transaction</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Kafka/" rel="tag">Apache Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Authentication/" rel="tag">Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Authorization/" rel="tag">Authorization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DatabaseTransaction/" rel="tag">DatabaseTransaction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth/" rel="tag">OAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Token/" rel="tag">Token</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transaction/" rel="tag">Transaction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cloud-platform/" rel="tag">cloud platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/" rel="tag">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compuer-network/" rel="tag">compuer network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/creational/" rel="tag">creational</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/" rel="tag">design patterns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hacker-laws/" rel="tag">hacker laws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/internet/" rel="tag">internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-annotation/" rel="tag">java annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-script/" rel="tag">java script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java10/" rel="tag">java10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java8/" rel="tag">java8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java9/" rel="tag">java9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laws/" rel="tag">laws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/message-queue/" rel="tag">message queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/microservice/" rel="tag">microservice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop/" rel="tag">oop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osi/" rel="tag">osi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol/" rel="tag">protocol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol-suite/" rel="tag">protocol suite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-security/" rel="tag">spring security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/structural/" rel="tag">structural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Apache-Kafka/" style="font-size: 10px;">Apache Kafka</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/DatabaseTransaction/" style="font-size: 10px;">DatabaseTransaction</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/OAuth/" style="font-size: 10px;">OAuth</a> <a href="/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/RocketMQ/" style="font-size: 10px;">RocketMQ</a> <a href="/tags/Token/" style="font-size: 10px;">Token</a> <a href="/tags/Transaction/" style="font-size: 10px;">Transaction</a> <a href="/tags/cloud-platform/" style="font-size: 10px;">cloud platform</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/command-line/" style="font-size: 10px;">command-line</a> <a href="/tags/compuer-network/" style="font-size: 10px;">compuer network</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/creational/" style="font-size: 10px;">creational</a> <a href="/tags/data-structure/" style="font-size: 10px;">data structure</a> <a href="/tags/design-patterns/" style="font-size: 16.67px;">design patterns</a> <a href="/tags/hacker-laws/" style="font-size: 10px;">hacker laws</a> <a href="/tags/internet/" style="font-size: 10px;">internet</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/java-annotation/" style="font-size: 10px;">java annotation</a> <a href="/tags/java-script/" style="font-size: 10px;">java script</a> <a href="/tags/java10/" style="font-size: 10px;">java10</a> <a href="/tags/java8/" style="font-size: 10px;">java8</a> <a href="/tags/java9/" style="font-size: 10px;">java9</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/laws/" style="font-size: 10px;">laws</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/microservice/" style="font-size: 10px;">microservice</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/osi/" style="font-size: 10px;">osi</a> <a href="/tags/protocol/" style="font-size: 16.67px;">protocol</a> <a href="/tags/protocol-suite/" style="font-size: 10px;">protocol suite</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-security/" style="font-size: 10px;">spring security</a> <a href="/tags/structural/" style="font-size: 10px;">structural</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.33px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/20/ECMAScript6/">ECMAScript6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/LinuxCommandLine/">Linux Command-Line</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/24/OSIApplicationLayer/">Application Layer</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/21/TransactionProcessing/">Transaction</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/20/HackerLaws/">HackerLaws</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Paul Gao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
